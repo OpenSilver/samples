@@ -27,7 +27,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\OSFSample.ButtonClick\OSFSample.ButtonClick.csproj" />
+    <ProjectReference Include="..\..\OSFSample.ButtonCommandCanExecute\OSFSample.ButtonCommandCanExecute.csproj" />
+    <ProjectReference Include="..\..\OSFSample.ButtonCommand\OSFSample.ButtonCommand.csproj" />
     <ProjectReference Include="..\..\OSFSample.ButtonContent\OSFSample.ButtonContent.csproj" />
+    <ProjectReference Include="..\..\OSFSample.ButtonDisabled\OSFSample.ButtonDisabled.csproj" />
     <ProjectReference Include="..\..\OSFSample.Support\OSFSample.Support.csproj" />
   </ItemGroup>
 

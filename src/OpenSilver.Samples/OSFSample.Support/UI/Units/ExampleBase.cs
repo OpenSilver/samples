@@ -10,27 +10,23 @@ public class ExampleBase : UserControl
     public ExampleBase()
     {
         Name = $"OSF_DEMO_{GetHashCode()}";
-        Tag = GetAssemblyVersion("OpenSilver.dll");
+        Tag = GetUserControlAssemblyVersion(); // UserControl의 어셈블리 버전 가져오기
     }
 
-    private string GetAssemblyVersion(string assemblyName)
+    private string GetUserControlAssemblyVersion()
     {
         try
         {
-            Assembly assembly = Assembly.Load(assemblyName);
-            if (assembly != null)
-            {
-                // 어셈블리의 버전 정보를 가져옵니다.
-                AssemblyName assemblyNameInfo = assembly.GetName();
-                Version version = assemblyNameInfo.Version;
-                return version.ToString();
-            }
+            // UserControl 클래스의 어셈블리 정보를 가져옴
+            Assembly assembly = typeof(UserControl).Assembly;
+            AssemblyName assemblyNameInfo = assembly.GetName();
+            Version version = assemblyNameInfo.Version;
+            return version.ToString();
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error getting assembly version: {ex.Message}");
+            MessageBox.Show($"Error getting assembly version: {ex.Message}");
+            return "Unknown";
         }
-
-        return "Unknown";
     }
 }
