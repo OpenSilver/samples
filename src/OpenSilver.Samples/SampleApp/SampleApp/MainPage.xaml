@@ -1,0 +1,22 @@
+﻿<Page x:Class="SampleApp.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:SampleApp"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:ButtonContent="clr-namespace:OSFSample.ButtonContent;assembly=OSFSample.ButtonContent"
+      xmlns:ButtonClick="clr-namespace:OSFSample.ButtonClick;assembly=OSFSample.ButtonClick"
+      mc:Ignorable="d"
+      Foreground="{DynamicResource Theme_TextBrush}">
+
+    <Grid Background="{DynamicResource Theme_BackgroundBrush}">
+        <TabControl>
+            <TabItem Header="Button Content">
+                <ButtonContent:ButtonContentExample/>
+            </TabItem>
+            <TabItem Header="Button Click">
+                <ButtonClick:ButtonClickExample/>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Page>

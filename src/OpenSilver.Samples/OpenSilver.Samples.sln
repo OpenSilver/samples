@@ -1,0 +1,71 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35828.75
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp.Browser", "SampleApp\SampleApp.Browser\SampleApp.Browser.csproj", "{649727FC-1757-4A81-B7DC-F2713CD64601}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp", "SampleApp\SampleApp\SampleApp.csproj", "{F2A9E8A9-33C2-40AC-924A-94849280CB62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp.Simulator", "SampleApp\SampleApp.Simulator\SampleApp.Simulator.csproj", "{2826D1AA-7CAC-461A-9B71-558FDC6F48CD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App (OpenSilver)", "App (OpenSilver)", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{35113855-EDF8-4288-8F77-ABB565056393}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Partial", "Partial", "{6DCE7F39-A782-4D98-9C32-CAC7A7FEFB92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSFSample.ButtonContent", "OSFSample.ButtonContent\OSFSample.ButtonContent.csproj", "{9FBCE982-9833-4492-825A-A5D65CDDD183}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Foundation", "Foundation", "{F8D2D220-1CF7-4247-A009-C3B67171C481}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSFSample.Support", "OSFSample.Support\OSFSample.Support.csproj", "{7620DEB1-F100-4AC1-9CF2-BE9D4F486047}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSFSample.ButtonClick", "OSFSample.ButtonClick\OSFSample.ButtonClick.csproj", "{F1819466-9598-4AB3-82FE-D43AB228C45F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{649727FC-1757-4A81-B7DC-F2713CD64601}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{649727FC-1757-4A81-B7DC-F2713CD64601}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{649727FC-1757-4A81-B7DC-F2713CD64601}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{649727FC-1757-4A81-B7DC-F2713CD64601}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2A9E8A9-33C2-40AC-924A-94849280CB62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2A9E8A9-33C2-40AC-924A-94849280CB62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2A9E8A9-33C2-40AC-924A-94849280CB62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2A9E8A9-33C2-40AC-924A-94849280CB62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2826D1AA-7CAC-461A-9B71-558FDC6F48CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2826D1AA-7CAC-461A-9B71-558FDC6F48CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2826D1AA-7CAC-461A-9B71-558FDC6F48CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2826D1AA-7CAC-461A-9B71-558FDC6F48CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FBCE982-9833-4492-825A-A5D65CDDD183}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FBCE982-9833-4492-825A-A5D65CDDD183}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FBCE982-9833-4492-825A-A5D65CDDD183}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FBCE982-9833-4492-825A-A5D65CDDD183}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7620DEB1-F100-4AC1-9CF2-BE9D4F486047}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7620DEB1-F100-4AC1-9CF2-BE9D4F486047}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7620DEB1-F100-4AC1-9CF2-BE9D4F486047}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7620DEB1-F100-4AC1-9CF2-BE9D4F486047}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1819466-9598-4AB3-82FE-D43AB228C45F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1819466-9598-4AB3-82FE-D43AB228C45F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1819466-9598-4AB3-82FE-D43AB228C45F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1819466-9598-4AB3-82FE-D43AB228C45F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{649727FC-1757-4A81-B7DC-F2713CD64601} = {35113855-EDF8-4288-8F77-ABB565056393}
+		{F2A9E8A9-33C2-40AC-924A-94849280CB62} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{2826D1AA-7CAC-461A-9B71-558FDC6F48CD} = {35113855-EDF8-4288-8F77-ABB565056393}
+		{9FBCE982-9833-4492-825A-A5D65CDDD183} = {6DCE7F39-A782-4D98-9C32-CAC7A7FEFB92}
+		{7620DEB1-F100-4AC1-9CF2-BE9D4F486047} = {F8D2D220-1CF7-4247-A009-C3B67171C481}
+		{F1819466-9598-4AB3-82FE-D43AB228C45F} = {6DCE7F39-A782-4D98-9C32-CAC7A7FEFB92}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5DDCEE59-1BF9-4C25-AB29-551F61F68B50}
+	EndGlobalSection
+EndGlobal
