@@ -25,4 +25,9 @@
     <ProjectReference Include="..\OSFSample.Support\OSFSample.Support.csproj" />
   </ItemGroup>
 
+  <Target Name="CopyOutputDll" AfterTargets="Build">
+    <Copy SourceFiles="$(TargetPath)"
+          DestinationFolder="..\..\..\..\opensilver.enterpriseapp\src\UserwareApp.Browser\DLLs\" />
+  </Target>
+
 </Project>

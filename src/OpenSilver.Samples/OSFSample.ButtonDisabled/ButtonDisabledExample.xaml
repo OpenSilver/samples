@@ -12,6 +12,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
 
         <Border Style="{StaticResource ExampleHeaderBorder}">
@@ -24,6 +25,14 @@
         <StackPanel Style="{StaticResource ExampleContentStackPanel}">
             <CheckBox x:Name="chkEnable" Content="Enable Button" IsChecked="True" Margin="10"/>
             <Button Content="Bound Button" IsEnabled="{Binding ElementName=chkEnable, Path=IsChecked}" Margin="10" Padding="10 5 10 7"/>
+        </StackPanel>
+        <StackPanel Style="{StaticResource Footer}">
+            <HyperlinkButton Style="{StaticResource GitHubLink}">
+                <StackPanel Orientation="Horizontal">
+                    <Path Style="{StaticResource GitHub}"/>
+                    <TextBlock Style="{StaticResource GitHubText}"/>
+                </StackPanel>
+            </HyperlinkButton>
         </StackPanel>
     </Grid>
 </units:ExampleBase>

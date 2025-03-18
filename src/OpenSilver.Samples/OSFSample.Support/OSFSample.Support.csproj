@@ -20,5 +20,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  
+  <Target Name="CopyOutputDll" AfterTargets="Build">
+    <Copy SourceFiles="$(TargetPath)"
+          DestinationFolder="..\..\..\..\opensilver.enterpriseapp\src\UserwareApp.Browser\DLLs\" />
+  </Target>
 
 </Project>

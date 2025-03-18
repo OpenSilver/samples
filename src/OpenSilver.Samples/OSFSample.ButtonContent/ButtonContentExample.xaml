@@ -5,13 +5,14 @@
              xmlns:units="clr-namespace:OSFSample.Support.UI.Units;assembly=OSFSample.Support"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              Foreground="{DynamicResource Theme_TextBrush}"
-             Height="200"
              MaxWidth="780"
+             Height="200"
              mc:Ignorable="d">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
 
         <Border Style="{StaticResource ExampleHeaderBorder}">
@@ -24,6 +25,14 @@
         <StackPanel Style="{StaticResource ExampleContentStackPanel}">
             <TextBox x:Name="txtContent" Text="XAML + C#" Margin="10"/>
             <Button Content="{Binding ElementName=txtContent, Path=Text, UpdateSourceTrigger=PropertyChanged}" Margin="10" Padding="10 5 10 7"/>
+        </StackPanel>
+        <StackPanel Style="{StaticResource Footer}">
+            <HyperlinkButton Style="{StaticResource GitHubLink}">
+                <StackPanel Orientation="Horizontal">
+                    <Path Style="{StaticResource GitHub}"/>
+                    <TextBlock Style="{StaticResource GitHubText}"/>
+                </StackPanel>
+            </HyperlinkButton>
         </StackPanel>
     </Grid>
 </units:ExampleBase>
