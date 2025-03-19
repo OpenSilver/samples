@@ -8,15 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="ButtonDisabledExample.xaml.cs" />
+    <Compile Include="CheckBoxIsCheckedExample.xaml.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Jamesnet.Platform.OpenSilver" Version="9.1.0" />
     <PackageReference Include="OpenSilver" Version="3.1.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <Page Include="ButtonDisabledExample.xaml">
+    <Page Include="CheckBoxIsCheckedExample.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
@@ -26,7 +27,8 @@
   </ItemGroup>
 
   <Target Name="CopyOutputDll" AfterTargets="Build">
-    <Copy SourceFiles="$(TargetPath)" DestinationFolder="..\..\..\..\opensilver.enterpriseapp\src\UserwareApp.Browser\DLLs\" />
+    <Copy SourceFiles="$(TargetPath)"
+          DestinationFolder="..\..\..\..\opensilver.enterpriseapp\src\UserwareApp.Browser\DLLs\" />
   </Target>
 
 </Project>

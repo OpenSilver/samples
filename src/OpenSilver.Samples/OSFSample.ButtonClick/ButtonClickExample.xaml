@@ -23,8 +23,8 @@
         </Border>
         <Border Style="{StaticResource ExampleContentBorder}"/>
         <StackPanel Style="{StaticResource ExampleContentStackPanel}">
-            <Button Content="XAML Button Click" Click="Button_Click" Margin="10" Padding="10 5 10 7" />
-            <TextBlock x:Name="btnCount" Text="Click Count: 0" Margin="10"/>
+            <Button Content="XAML Button Click" Click="Button_Click"/>
+            <TextBlock x:Name="btnCount" Text="Click Count: 0"/>
         </StackPanel>
         <StackPanel Style="{StaticResource Footer}">
             <HyperlinkButton Style="{StaticResource GitHubLink}">

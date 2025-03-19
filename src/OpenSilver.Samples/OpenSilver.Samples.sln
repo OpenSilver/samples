@@ -29,6 +29,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSFSample.ButtonCommand", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSFSample.ButtonCommandCanExecute", "OSFSample.ButtonCommandCanExecute\OSFSample.ButtonCommandCanExecute.csproj", "{0E20CFB6-58D4-4C65-9E2B-0B3F51F393A0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSFSample.CheckBoxIsChecked", "OSFSample.CheckBoxIsChecked\OSFSample.CheckBoxIsChecked.csproj", "{D41FF9C5-8AE8-48C2-B3F7-502BEE1D849B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSFSample.CheckBoxEvents", "OSFSample.CheckBoxEvents\OSFSample.CheckBoxEvents.csproj", "{EA18E940-F30D-41BC-A7A9-FDCD77FBE902}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +75,14 @@ Global
 		{0E20CFB6-58D4-4C65-9E2B-0B3F51F393A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E20CFB6-58D4-4C65-9E2B-0B3F51F393A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E20CFB6-58D4-4C65-9E2B-0B3F51F393A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D41FF9C5-8AE8-48C2-B3F7-502BEE1D849B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D41FF9C5-8AE8-48C2-B3F7-502BEE1D849B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D41FF9C5-8AE8-48C2-B3F7-502BEE1D849B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D41FF9C5-8AE8-48C2-B3F7-502BEE1D849B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA18E940-F30D-41BC-A7A9-FDCD77FBE902}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA18E940-F30D-41BC-A7A9-FDCD77FBE902}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA18E940-F30D-41BC-A7A9-FDCD77FBE902}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA18E940-F30D-41BC-A7A9-FDCD77FBE902}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,6 +97,8 @@ Global
 		{421E9857-7560-4686-862C-0497C04FAA76} = {6DCE7F39-A782-4D98-9C32-CAC7A7FEFB92}
 		{CE970F84-0CAF-4557-997B-BD1B69C959F0} = {6DCE7F39-A782-4D98-9C32-CAC7A7FEFB92}
 		{0E20CFB6-58D4-4C65-9E2B-0B3F51F393A0} = {6DCE7F39-A782-4D98-9C32-CAC7A7FEFB92}
+		{D41FF9C5-8AE8-48C2-B3F7-502BEE1D849B} = {6DCE7F39-A782-4D98-9C32-CAC7A7FEFB92}
+		{EA18E940-F30D-41BC-A7A9-FDCD77FBE902} = {6DCE7F39-A782-4D98-9C32-CAC7A7FEFB92}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5DDCEE59-1BF9-4C25-AB29-551F61F68B50}

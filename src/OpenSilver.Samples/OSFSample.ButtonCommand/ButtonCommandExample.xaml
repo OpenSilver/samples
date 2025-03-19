@@ -23,8 +23,8 @@
         </Border>
         <Border Style="{StaticResource ExampleContentBorder}"/>
         <StackPanel Style="{StaticResource ExampleContentStackPanel}">
-            <TextBlock Width="200" Text="Command Binding" Margin="10"/>
-            <Button Content="Execute Simple Command" Command="{Binding SimpleCommand}"  Margin="10" Padding="10 5 10 7"/>
+            <TextBlock Width="200" Text="Command Binding"/>
+            <Button Content="Execute Simple Command" Command="{Binding SimpleCommand}"/>
         </StackPanel>
         <StackPanel Style="{StaticResource Footer}">
             <HyperlinkButton Style="{StaticResource GitHubLink}">

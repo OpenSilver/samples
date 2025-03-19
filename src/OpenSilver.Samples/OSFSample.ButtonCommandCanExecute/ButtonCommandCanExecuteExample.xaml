@@ -23,9 +23,9 @@
         </Border>
         <Border Style="{StaticResource ExampleContentBorder}"/>
         <StackPanel Style="{StaticResource ExampleContentStackPanel}">
-            <TextBlock Width="200" Text="Input Email" Margin="10"/>
-            <TextBox Width="200" Margin="10" Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <Button Content="Complete" Command="{Binding CompleteCommand}"  Margin="10" Padding="10 5 10 7"/>
+            <TextBlock Width="200" Text="Input Email"/>
+            <TextBox Width="200" Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button Content="Complete" Command="{Binding CompleteCommand}"/>
         </StackPanel>
         <StackPanel Style="{StaticResource Footer}">
             <HyperlinkButton Style="{StaticResource GitHubLink}">

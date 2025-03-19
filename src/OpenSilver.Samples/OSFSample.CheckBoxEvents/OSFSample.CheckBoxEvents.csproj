@@ -8,15 +8,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="ButtonDisabledExample.xaml.cs" />
+    <Compile Include="CheckBoxEventsExample.xaml.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Jamesnet.Platform.OpenSilver" Version="9.1.0" />
     <PackageReference Include="OpenSilver" Version="3.1.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <Page Include="ButtonDisabledExample.xaml">
+    <Page Include="CheckBoxEventsExample.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

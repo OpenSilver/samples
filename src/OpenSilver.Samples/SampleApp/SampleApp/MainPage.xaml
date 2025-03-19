@@ -9,6 +9,8 @@
       xmlns:buttons3="clr-namespace:OSFSample.ButtonDisabled;assembly=OSFSample.ButtonDisabled"
       xmlns:buttons4="clr-namespace:OSFSample.ButtonCommand;assembly=OSFSample.ButtonCommand"
       xmlns:buttons5="clr-namespace:OSFSample.ButtonCommandCanExecute;assembly=OSFSample.ButtonCommandCanExecute"
+      xmlns:checkboxs1="clr-namespace:OSFSample.CheckBoxIsChecked;assembly=OSFSample.CheckBoxIsChecked"
+      xmlns:checkboxs2="clr-namespace:OSFSample.CheckBoxEvents;assembly=OSFSample.CheckBoxEvents"
       mc:Ignorable="d"
       Foreground="{DynamicResource Theme_TextBrush}">
 
@@ -28,6 +30,12 @@
             </TabItem>
             <TabItem Header="Button Command CanExecute">
                 <buttons5:ButtonCommandCanExecuteExample/>
+            </TabItem>
+            <TabItem Header="CheckBox IsCheckedd">
+                <checkboxs1:CheckBoxIsCheckedExample/>
+            </TabItem>
+            <TabItem Header="CheckBox Events">
+                <checkboxs2:CheckBoxEventsExample/>
             </TabItem>
         </TabControl>
     </Grid>
