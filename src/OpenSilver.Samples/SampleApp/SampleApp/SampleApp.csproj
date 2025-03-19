@@ -32,7 +32,9 @@
     <ProjectReference Include="..\..\OSFSample.ButtonContent\OSFSample.ButtonContent.csproj" />
     <ProjectReference Include="..\..\OSFSample.ButtonDisabled\OSFSample.ButtonDisabled.csproj" />
     <ProjectReference Include="..\..\OSFSample.CheckBoxEvents\OSFSample.CheckBoxEvents.csproj" />
+    <ProjectReference Include="..\..\OSFSample.CheckBoxGroup\OSFSample.CheckBoxGroup.csproj" />
     <ProjectReference Include="..\..\OSFSample.CheckBoxIsChecked\OSFSample.CheckBoxIsChecked.csproj" />
+    <ProjectReference Include="..\..\OSFSample.CheckBoxThreeState\OSFSample.CheckBoxThreeState.csproj" />
     <ProjectReference Include="..\..\OSFSample.Support\OSFSample.Support.csproj" />
   </ItemGroup>
 

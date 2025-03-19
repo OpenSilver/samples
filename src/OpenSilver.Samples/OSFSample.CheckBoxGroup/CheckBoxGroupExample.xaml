@@ -1,4 +1,4 @@
-﻿<units:ExampleBase x:Class="OSFSample.CheckBoxEvents.CheckBoxEventsExample"
+﻿<units:ExampleBase x:Class="OSFSample.CheckBoxGroup.CheckBoxGroupExample"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -25,9 +25,28 @@
         <StackPanel Style="{StaticResource ExampleContentStackPanel}">
             <!-- Example -->
             <StackPanel HorizontalAlignment="Left">
-                <CheckBox x:Name="chkNotify" Content="Send email notifications" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
-                <TextBlock x:Name="txtStatus"/>
-                <Rectangle x:Name="rectIndicator" Width="80" Height="80" Fill="Gray" HorizontalAlignment="Left"/>
+                <TextBlock Text="Select notification methods:" FontWeight="Bold"/>
+                <Border Margin="0,5,0,0">
+                    <StackPanel Orientation="Horizontal">
+                        <CheckBox x:Name="chkEmail" Content="Email" 
+                      Checked="NotificationOption_Changed"
+                      Unchecked="NotificationOption_Changed"/>
+                        <CheckBox x:Name="chkSMS" Content="SMS" 
+                      Checked="NotificationOption_Changed"
+                      Unchecked="NotificationOption_Changed"/>
+                        <CheckBox x:Name="chkPush" Content="Push Notification" 
+                      Checked="NotificationOption_Changed"
+                      Unchecked="NotificationOption_Changed"/>
+                        <CheckBox x:Name="chkInApp" Content="In-App Message" 
+                      Checked="NotificationOption_Changed"
+                      Unchecked="NotificationOption_Changed"/>
+                    </StackPanel>
+                </Border>
+
+                <TextBlock Text="Summary:" FontWeight="Bold"/>
+                <TextBlock x:Name="txtSummary" TextWrapping="Wrap"/>
+
+                <Button x:Name="btnSave" Content="Save Preferences" Click="BtnSave_Click"/>
             </StackPanel>
         </StackPanel>
         <StackPanel Style="{StaticResource Footer}">
