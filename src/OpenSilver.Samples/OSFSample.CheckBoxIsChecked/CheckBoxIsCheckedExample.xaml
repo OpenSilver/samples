@@ -5,9 +5,16 @@
              xmlns:units="clr-namespace:OSFSample.Support.UI.Units;assembly=OSFSample.Support"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              Foreground="{DynamicResource Theme_TextBrush}"
-             Height="200"
+             Height="260"
              MaxWidth="780"
              mc:Ignorable="d">
+    <units:ExampleBase.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/OSFSample.Support;component/Themes/ExampleResource.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </units:ExampleBase.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -27,7 +34,7 @@
             <StackPanel HorizontalAlignment="Left">
                 <CheckBox Content="Accept Terms" IsChecked="{Binding IsTermsAccepted, Mode=TwoWay}"/>
                 <Button Content="Continue" IsEnabled="{Binding IsTermsAccepted}"/>
-                <TextBlock Text="{Binding StatusText}"/>
+                <Label Content="{Binding StatusText}"/>
             </StackPanel>
         </StackPanel>
         <StackPanel Style="{StaticResource Footer}">

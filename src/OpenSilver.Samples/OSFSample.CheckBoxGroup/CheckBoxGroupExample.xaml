@@ -8,6 +8,13 @@
              Height="260"
              MaxWidth="780"
              mc:Ignorable="d">
+    <units:ExampleBase.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/OSFSample.Support;component/Themes/ExampleResource.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </units:ExampleBase.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -25,8 +32,8 @@
         <StackPanel Style="{StaticResource ExampleContentStackPanel}">
             <!-- Example -->
             <StackPanel HorizontalAlignment="Left">
-                <TextBlock Text="Select notification methods:" FontWeight="Bold"/>
-                <Border Margin="0,5,0,0">
+                <Label Content="Select notification methods:" FontWeight="Bold"/>
+                <Border>
                     <StackPanel Orientation="Horizontal">
                         <CheckBox x:Name="chkEmail" Content="Email" 
                       Checked="NotificationOption_Changed"
@@ -43,9 +50,8 @@
                     </StackPanel>
                 </Border>
 
-                <TextBlock Text="Summary:" FontWeight="Bold"/>
-                <TextBlock x:Name="txtSummary" TextWrapping="Wrap"/>
-
+                <Label Content="Summary:" FontWeight="Bold"/>
+                <Label x:Name="txtSummary"/>
                 <Button x:Name="btnSave" Content="Save Preferences" Click="BtnSave_Click"/>
             </StackPanel>
         </StackPanel>

@@ -20,6 +20,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\OSFSample.Support\OSFSample.Support.csproj" />
     <ProjectReference Include="..\SampleApp\SampleApp.csproj" />
   </ItemGroup>
 

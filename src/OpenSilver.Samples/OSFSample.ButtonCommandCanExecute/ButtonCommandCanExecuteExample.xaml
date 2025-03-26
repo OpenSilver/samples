@@ -8,6 +8,13 @@
              Height="200"
              MaxWidth="780"
              mc:Ignorable="d">
+    <units:ExampleBase.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/OSFSample.Support;component/Themes/ExampleResource.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </units:ExampleBase.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -23,7 +30,7 @@
         </Border>
         <Border Style="{StaticResource ExampleContentBorder}"/>
         <StackPanel Style="{StaticResource ExampleContentStackPanel}">
-            <TextBlock Width="200" Text="Input Email"/>
+            <Label Width="200" Content="Input Email"/>
             <TextBox Width="200" Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <Button Content="Complete" Command="{Binding CompleteCommand}"/>
         </StackPanel>

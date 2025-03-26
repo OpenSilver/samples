@@ -29,12 +29,12 @@ public partial class CheckBoxGroupExample : ExampleBase
 
         if (selectedOptions.Count > 0)
         {
-            txtSummary.Text = $"You will receive notifications via: {string.Join(", ", selectedOptions)}";
+            txtSummary.Content = $"You will receive notifications via: {string.Join(", ", selectedOptions)}";
             btnSave.IsEnabled = true;
         }
         else
         {
-            txtSummary.Text = "No notification methods selected";
+            txtSummary.Content = "No notification methods selected";
             btnSave.IsEnabled = false;
         }
     }

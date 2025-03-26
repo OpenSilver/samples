@@ -8,6 +8,13 @@
              Height="200"
              MaxWidth="780"
              mc:Ignorable="d">
+    <units:ExampleBase.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/OSFSample.Support;component/Themes/ExampleResource.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </units:ExampleBase.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>

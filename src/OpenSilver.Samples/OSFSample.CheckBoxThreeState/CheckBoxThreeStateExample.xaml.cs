@@ -56,6 +56,6 @@ public partial class CheckBoxThreeStateExample : ExampleBase
         if (childCheckBox2.IsChecked == true) checkedCount++;
         if (childCheckBox3.IsChecked == true) checkedCount++;
 
-        txtStatus.Text = $"Selected items: {checkedCount} of 3";
+        txtStatus.Content = $"Selected items: {checkedCount} of 3";
     }
 }

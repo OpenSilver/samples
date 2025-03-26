@@ -8,6 +8,13 @@
              Height="200"
              MaxWidth="780"
              mc:Ignorable="d">
+    <units:ExampleBase.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/OSFSample.Support;component/Themes/ExampleResource.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </units:ExampleBase.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -24,7 +31,7 @@
         <Border Style="{StaticResource ExampleContentBorder}"/>
         <StackPanel Style="{StaticResource ExampleContentStackPanel}">
             <Button Content="XAML Button Click" Click="Button_Click"/>
-            <TextBlock x:Name="btnCount" Text="Click Count: 0"/>
+            <Label x:Name="btnCount" Content="Click Count: 0"/>
         </StackPanel>
         <StackPanel Style="{StaticResource Footer}">
             <HyperlinkButton Style="{StaticResource GitHubLink}">

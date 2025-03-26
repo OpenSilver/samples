@@ -14,13 +14,13 @@ public partial class CheckBoxEventsExample : ExampleBase
     }
     private void CheckBox_Checked(object sender, RoutedEventArgs e)
     {
-        txtStatus.Text = "Notifications enabled";
+        txtStatus.Content = "Notifications enabled";
         rectIndicator.Fill = new SolidColorBrush(Colors.Green);
         MessageBox.Show("You will receive email notifications");
     }
     private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
     {
-        txtStatus.Text = "Notifications disabled";
+        txtStatus.Content = "Notifications disabled";
         rectIndicator.Fill = new SolidColorBrush(Colors.Red);
         MessageBox.Show("Email notifications have been turned off");
     }

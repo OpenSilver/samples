@@ -14,7 +14,7 @@ public partial class ButtonClickExample : ExampleBase
     private void Button_Click(object sender, RoutedEventArgs e)
     {
         count++;
-        btnCount.Text = $"Click Count: {count}";
+        btnCount.Content = $"Click Count: {count}";
         System.Windows.MessageBox.Show("Button Clicked!");
     }
 }

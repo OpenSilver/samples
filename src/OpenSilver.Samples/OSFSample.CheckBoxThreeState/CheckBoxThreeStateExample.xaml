@@ -8,6 +8,13 @@
              Height="260"
              MaxWidth="780"
              mc:Ignorable="d">
+    <units:ExampleBase.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/OSFSample.Support;component/Themes/ExampleResource.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </units:ExampleBase.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -26,14 +33,14 @@
             <!-- Example -->
             <WrapPanel HorizontalAlignment="Left">
                 <StackPanel>
-                    <TextBlock Text="Parent Selection:" FontWeight="Bold"/>
+                    <Label Content="Parent Selection:" FontWeight="Bold"/>
                     <CheckBox x:Name="parentCheckBox" Content="Select All" IsThreeState="True" 
                           Checked="ParentCheckBox_CheckedChanged" 
                           Unchecked="ParentCheckBox_CheckedChanged" 
                           Indeterminate="ParentCheckBox_CheckedChanged"/>
                 </StackPanel>
                 <StackPanel>
-                    <TextBlock Text="Child Items:" FontWeight="Bold"/>
+                    <Label Content="Child Items:" FontWeight="Bold"/>
                     <StackPanel Margin="20,0,0,0">
                         <CheckBox x:Name="childCheckBox1" Content="Item 1" 
                               Checked="ChildCheckBox_CheckedChanged" 
@@ -46,8 +53,8 @@
                               Unchecked="ChildCheckBox_CheckedChanged"/>
                     </StackPanel>
                 </StackPanel>
-                <TextBlock x:Name="txtStatus" Text=""/>
             </WrapPanel>
+            <Label x:Name="txtStatus"/>
         </StackPanel>
         <StackPanel Style="{StaticResource Footer}">
             <HyperlinkButton Style="{StaticResource GitHubLink}">
