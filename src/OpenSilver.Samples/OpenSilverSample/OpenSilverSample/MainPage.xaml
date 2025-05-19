@@ -8,19 +8,18 @@
       xmlns:togglebuttons="clr-namespace:OpenSilverShowcase.ToggleButtons;assembly=OpenSilverShowcase.ToggleButtons"
       mc:Ignorable="d"
       Foreground="{DynamicResource Theme_TextBrush}">
-
-    <Grid Background="{DynamicResource Theme_BackgroundBrush}">
-        <TabControl>
-            <TabItem Header="Button Show">
-                <ScrollViewer Background="Transparent" VerticalScrollBarVisibility="Visible">
-                    <StackPanel MaxWidth="800">
+    <ScrollViewer Background="Transparent" VerticalScrollBarVisibility="Visible">
+        <StackPanel MaxWidth="800">
+            <Grid Background="{DynamicResource Theme_BackgroundBrush}">
+                <TabControl>
+                    <TabItem Header="Button Show">
                         <buttons:ButtonShow/>
-                    </StackPanel>
-                </ScrollViewer>
-            </TabItem>
-            <TabItem Header="ToggleButton Show">
-                <togglebuttons:ToggleButtonShow/>
-            </TabItem>
-        </TabControl>
-    </Grid>
+                    </TabItem>
+                    <TabItem Header="ToggleButton Show">
+                        <togglebuttons:ToggleButtonShow/>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
 </Page>
