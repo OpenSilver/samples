@@ -1,0 +1,19 @@
+﻿<units:ShowcaseCard
+    x:Class="OpenSilverShowcase.ToggleButtons.BasicStyle.BasicToggleButtonContent"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:units="clr-namespace:OSFSample.Support.UI.Units;assembly=OSFSample.Support"
+    Description="fundamentals of button styling with colors, fonts, and images."
+    Title="Basic Style"
+    Order="1">
+    <units:ShowcaseCard.CodeSources>
+        <units:CodeSource Key="xaml" Source="/OpenSilverShowcase.ToggleButtons;component/BasicStyle/BasicStyleContent.xaml"/>
+    </units:ShowcaseCard.CodeSources>
+    <units:ShowcaseCard.DemoContent>
+        <WrapPanel>
+            <ToggleButton Margin="5" Content="Basic ToggleButton" Padding="10 4 10 4"/>
+            <ToggleButton Margin="5" Content="Background = Peru" Background="Peru"/>
+            <ToggleButton Margin="5" Content="{Binding RelativeSource={RelativeSource Self}, Path=IsChecked}" IsChecked="True"/>
+        </WrapPanel>
+    </units:ShowcaseCard.DemoContent>    
+</units:ShowcaseCard>

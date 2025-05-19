@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="BasicStyle\BasicStyleContent.xaml.cs">
+    <Compile Include="BasicStyle\BasicToggleButtonContent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ToggleButtonShow.xaml.cs">
@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Page Include="BasicStyle\BasicStyleContent.xaml">
+    <Page Include="BasicStyle\BasicToggleButtonContent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

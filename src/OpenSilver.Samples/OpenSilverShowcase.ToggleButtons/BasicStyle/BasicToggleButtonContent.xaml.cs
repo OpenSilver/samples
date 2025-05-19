@@ -2,9 +2,9 @@
 
 namespace OpenSilverShowcase.ToggleButtons.BasicStyle
 {
-    public partial class BasicStyleContent : ShowcaseCard
+    public partial class BasicToggleButtonContent : ShowcaseCard
     {
-        public BasicStyleContent()
+        public BasicToggleButtonContent()
         {
             this.InitializeComponent();
         }

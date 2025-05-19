@@ -1,5 +1,5 @@
 ﻿<units:ShowcaseCard
-    x:Class="OpenSilverShowcase.ToggleButtons.BasicStyle.BasicStyleContent"
+    x:Class="OpenSilverShowcase.ToggleButtons.BasicStyle.BasicToggleButtonContent"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:units="clr-namespace:OSFSample.Support.UI.Units;assembly=OSFSample.Support"
@@ -12,6 +12,8 @@
     <units:ShowcaseCard.DemoContent>
         <WrapPanel>
             <ToggleButton Margin="5" Content="Basic ToggleButton" Padding="10 4 10 4"/>
+            <ToggleButton Margin="5" Content="Background = Peru" Background="Peru"/>
+            <ToggleButton Margin="5" Content="{Binding RelativeSource={RelativeSource Self}, Path=IsChecked}" IsChecked="True"/>
         </WrapPanel>
     </units:ShowcaseCard.DemoContent>    
 </units:ShowcaseCard>
