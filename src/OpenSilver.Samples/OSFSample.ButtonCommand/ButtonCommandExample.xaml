@@ -11,7 +11,7 @@
     <units:ExampleBase.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/OSFSample.Support;component/Themes/ExampleResource.xaml"/>
+                <ResourceDictionary Source="/OSFSample.Support;component/Themes/Units/ExampleResource.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </units:ExampleBase.Resources>

@@ -1,6 +1,4 @@
-﻿using Jamesnet.Foundation;
-using OSFSample.Support.UI.Units;
-using System.Windows.Controls;
+﻿using OSFSample.Support.UI.Units;
 using System.Windows;
 
 namespace OSFSample.CheckBoxThreeState;

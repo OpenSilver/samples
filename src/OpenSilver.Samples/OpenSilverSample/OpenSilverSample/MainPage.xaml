@@ -1,0 +1,26 @@
+﻿<Page x:Class="OpenSilverSample.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:OpenSilverSample"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:buttons="clr-namespace:OpenSilverShowcase.Buttons;assembly=OpenSilverShowcase.Buttons"
+      xmlns:togglebuttons="clr-namespace:OpenSilverShowcase.ToggleButtons;assembly=OpenSilverShowcase.ToggleButtons"
+      mc:Ignorable="d"
+      Foreground="{DynamicResource Theme_TextBrush}">
+
+    <Grid Background="{DynamicResource Theme_BackgroundBrush}">
+        <TabControl>
+            <TabItem Header="Button Show">
+                <ScrollViewer Background="Transparent" VerticalScrollBarVisibility="Visible">
+                    <StackPanel MaxWidth="800">
+                        <buttons:ButtonShow/>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Header="ToggleButton Show">
+                <togglebuttons:ToggleButtonShow/>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Page>

@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="OpenSilver" Version="3.1.2" />
+    <PackageReference Include="OpenSilver" Version="3.2.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,8 +26,7 @@
   </ItemGroup>
 
   <Target Name="CopyOutputDll" AfterTargets="Build">
-    <Copy SourceFiles="$(TargetPath)"
-          DestinationFolder="..\..\..\..\opensilver.enterpriseapp\src\UserwareApp.Browser\DLLs\" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="..\..\..\..\opensilver.enterpriseapp\src\UserwareApp.Browser\DLLs\" />
   </Target>
 
 </Project>

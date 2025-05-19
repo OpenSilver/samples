@@ -8,22 +8,54 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Local\Converters\SelectionBrushConverter.cs" />
+    <Compile Include="Local\Utils\EmbededCodeLoader.cs" />
+    <Compile Include="UI\Units\CodeTypeListBox.cs" />
+    <Compile Include="UI\Units\IconButton.cs" />
+    <Compile Include="UI\Units\ShowcaseCard.cs" />
+    <Compile Include="UI\Units\ShowcaseBase.cs" />
     <Compile Include="UI\Units\ExampleBase.cs" />
+    <Compile Include="UI\Units\TabMenuBar.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="OpenSilver" Version="3.1.2" />
+    <Content Include="Local\Images\opensilver.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Page Include="Themes\ExampleResource.xaml">
+    <PackageReference Include="OpenSilver" Version="3.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="Themes\Units\CodeTypeListBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Units\IconButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Units\ShowcaseCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Units\TabMenuBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Units\ShowcaseBase.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Units\ExampleResource.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   
   <Target Name="CopyOutputDll" AfterTargets="Build">
-    <Copy SourceFiles="$(TargetPath)"
-          DestinationFolder="..\..\..\..\opensilver.enterpriseapp\src\UserwareApp.Browser\DLLs\" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="..\..\..\..\opensilver.enterpriseapp\src\UserwareApp.Browser\DLLs\" />
   </Target>
 
 </Project>

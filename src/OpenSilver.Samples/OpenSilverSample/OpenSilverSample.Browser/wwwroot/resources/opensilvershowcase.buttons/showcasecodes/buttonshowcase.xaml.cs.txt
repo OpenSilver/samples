@@ -1,0 +1,79 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Reflection;
+using System.Windows;
+using System.Windows.Controls;
+using System.Linq;
+using OSFSample.Support.UI.Units;
+using OSFSample.Support.Local.Utils;
+
+namespace OpenSilverShowcase.Buttons
+{
+    public partial class ButtonShowcase : UserControl
+    {
+        public ButtonShowcase()
+        {
+            this.InitializeComponent();
+            LoadShowcaseControls();
+        }
+
+        private void LoadShowcaseControls()
+        {
+            var containerPanel = new StackPanel();
+
+            var showcaseTypes = FindShowcaseCardTypes();
+            var showcaseCards = new List<ShowcaseCard>();
+
+            var sourceAsm = Assembly.GetExecutingAssembly(); // 정확한 대상 어셈블리 지정
+
+            foreach (var type in showcaseTypes)
+            {
+                try
+                {
+                    var instance = (ShowcaseCard)Activator.CreateInstance(type);
+                    var className = type.Name;
+
+                    var xamlPath = $"ShowcaseCodes.{className}.xaml.txt";
+                    var csPath = $"ShowcaseCodes.{className}.xaml.cs.txt";
+                    var vmPath = $"ShowcaseCodes.{className}.ViewModel.cs.txt";
+
+                    var rawXaml = EmbeddedCodeLoader.Load(xamlPath, sourceAsm);
+                    var rawCs = EmbeddedCodeLoader.Load(csPath, sourceAsm);
+                    var rawVm = EmbeddedCodeLoader.Load(vmPath, sourceAsm);
+
+                    instance.XamlCode = EmbeddedCodeLoader.ExtractDemoContentOnly(rawXaml);
+                    instance.CSharpCode = rawCs;
+                    instance.ViewModelCode = rawVm;
+
+                    showcaseCards.Add(instance);
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine($"Error creating {type.Name}: {ex.Message}");
+                }
+            }
+
+
+            foreach (var card in showcaseCards.OrderBy(c => c.Order))
+            {
+                containerPanel.Children.Add(card);
+            }
+
+            ShowcaseContainer.Content = containerPanel;
+        }
+
+        private List<Type> FindShowcaseCardTypes()
+        {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            string namespaceFilter = "OpenSilverShowcase.Buttons";
+
+            return assembly.GetTypes()
+                .Where(t => t.IsClass &&
+                           !t.IsAbstract &&
+                           t.IsSubclassOf(typeof(ShowcaseCard)) &&
+                           t.Namespace != null &&
+                           t.Namespace.StartsWith(namespaceFilter))
+                .ToList();
+        }
+    }
+}

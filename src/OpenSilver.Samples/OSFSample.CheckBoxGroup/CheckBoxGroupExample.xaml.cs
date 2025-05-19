@@ -1,7 +1,5 @@
-﻿using Jamesnet.Foundation;
-using OSFSample.Support.UI.Units;
+﻿using OSFSample.Support.UI.Units;
 using System.Collections.Generic;
-using System.Windows.Controls;
 using System.Windows;
 
 namespace OSFSample.CheckBoxGroup;
