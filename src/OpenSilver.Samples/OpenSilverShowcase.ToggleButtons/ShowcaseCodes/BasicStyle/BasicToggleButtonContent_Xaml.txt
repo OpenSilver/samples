@@ -1,4 +1,4 @@
-﻿<units:ShowcaseCard
+﻿<units:ShowcaseItem
     x:Class="OpenSilverShowcase.ToggleButtons.BasicStyle.BasicToggleButtonContent"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -6,14 +6,24 @@
     Description="fundamentals of button styling with colors, fonts, and images."
     Title="Basic Style"
     Order="1">
-    <units:ShowcaseCard.CodeSources>
-        <units:CodeSource Key="xaml" Source="/OpenSilverShowcase.ToggleButtons;component/BasicStyle/BasicStyleContent.xaml"/>
-    </units:ShowcaseCard.CodeSources>
-    <units:ShowcaseCard.DemoContent>
+    <units:ShowcaseItem.CodeSources>
+        <units:CodeSource Key="xaml" Source="/OpenSilverShowcase.ToggleButtons;component/BasicStyle/BasicToggleButtonContent.xaml"/>
+    </units:ShowcaseItem.CodeSources>
+    <units:ShowcaseItem.DemoContent>
         <WrapPanel>
-            <ToggleButton Margin="5" Content="Basic ToggleButton" Padding="10 4 10 4"/>
+            <ToggleButton Margin="5" Content="Basic Style" Padding="10 4"/>
             <ToggleButton Margin="5" Content="Background = Peru" Background="Peru"/>
-            <ToggleButton Margin="5" Content="{Binding RelativeSource={RelativeSource Self}, Path=IsChecked}" IsChecked="True"/>
+            <ToggleButton Margin="5" Content="{Binding RelativeSource={RelativeSource Self}, Path=IsChecked}" 
+                          IsChecked="True" Background="DarkSlateBlue"/>
+
+            <ToggleButton Margin="5" Padding="10 4" Background="DarkOliveGreen">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="🔔 Notifications " FontSize="13" VerticalAlignment="Center"/>
+                    <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsChecked, StringFormat=(0)}" 
+                               FontSize="13" Foreground="Wheat" VerticalAlignment="Center"/>
+                </StackPanel>
+            </ToggleButton>
         </WrapPanel>
-    </units:ShowcaseCard.DemoContent>    
-</units:ShowcaseCard>
+
+    </units:ShowcaseItem.DemoContent>    
+</units:ShowcaseItem>

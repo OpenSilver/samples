@@ -1,0 +1,22 @@
+<units:ShowcaseItem
+    x:Class="OpenSilverShowcase.Slider.Examples.SliderBasicItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:units="clr-namespace:OSFSample.Support.UI.Units;assembly=OSFSample.Support"
+    Description="fundamentals of button styling with colors, fonts, and images."
+    Title="Basic Slider"
+    Order="1">
+    <units:ShowcaseItem.CodeSources>
+        <units:CodeSource Key="xaml" Source="/Examples/SliderBasicItem.xaml"/>
+        <units:CodeSource Key="Converter" Source="/Examples/DoubleToNumberConverter.cs"/>
+    </units:ShowcaseItem.CodeSources>
+    <units:ShowcaseItem.DemoContent>
+        <WrapPanel xmlns:cnvts="clr-namespace:OpenSilverShowcase.Slider.Examples">
+            <WrapPanel.Resources>
+                <cnvts:DoubleToNumberConverter x:Key="DoubleToNumberConverter"/>
+            </WrapPanel.Resources>
+            <Slider x:Name="Slider" Margin="5" Width="200"/>
+            <Rectangle Width="15" Height="15" Fill="{Binding ElementName=Slider, Path=Value, Converter={StaticResource DoubleToNumberConverter}}" Margin="5"/>
+        </WrapPanel>
+    </units:ShowcaseItem.DemoContent>
+</units:ShowcaseItem>

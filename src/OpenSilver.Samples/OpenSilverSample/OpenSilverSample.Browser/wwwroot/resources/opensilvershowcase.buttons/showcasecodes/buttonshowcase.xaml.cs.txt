@@ -21,8 +21,8 @@ namespace OpenSilverShowcase.Buttons
         {
             var containerPanel = new StackPanel();
 
-            var showcaseTypes = FindShowcaseCardTypes();
-            var showcaseCards = new List<ShowcaseCard>();
+            var showcaseTypes = FindShowcaseItemTypes();
+            var ShowcaseItems = new List<ShowcaseItem>();
 
             var sourceAsm = Assembly.GetExecutingAssembly(); // 정확한 대상 어셈블리 지정
 
@@ -30,7 +30,7 @@ namespace OpenSilverShowcase.Buttons
             {
                 try
                 {
-                    var instance = (ShowcaseCard)Activator.CreateInstance(type);
+                    var instance = (ShowcaseItem)Activator.CreateInstance(type);
                     var className = type.Name;
 
                     var xamlPath = $"ShowcaseCodes.{className}.xaml.txt";
@@ -45,7 +45,7 @@ namespace OpenSilverShowcase.Buttons
                     instance.CSharpCode = rawCs;
                     instance.ViewModelCode = rawVm;
 
-                    showcaseCards.Add(instance);
+                    ShowcaseItems.Add(instance);
                 }
                 catch (Exception ex)
                 {
@@ -54,7 +54,7 @@ namespace OpenSilverShowcase.Buttons
             }
 
 
-            foreach (var card in showcaseCards.OrderBy(c => c.Order))
+            foreach (var card in ShowcaseItems.OrderBy(c => c.Order))
             {
                 containerPanel.Children.Add(card);
             }
@@ -62,7 +62,7 @@ namespace OpenSilverShowcase.Buttons
             ShowcaseContainer.Content = containerPanel;
         }
 
-        private List<Type> FindShowcaseCardTypes()
+        private List<Type> FindShowcaseItemTypes()
         {
             Assembly assembly = Assembly.GetExecutingAssembly();
             string namespaceFilter = "OpenSilverShowcase.Buttons";
@@ -70,7 +70,7 @@ namespace OpenSilverShowcase.Buttons
             return assembly.GetTypes()
                 .Where(t => t.IsClass &&
                            !t.IsAbstract &&
-                           t.IsSubclassOf(typeof(ShowcaseCard)) &&
+                           t.IsSubclassOf(typeof(ShowcaseItem)) &&
                            t.Namespace != null &&
                            t.Namespace.StartsWith(namespaceFilter))
                 .ToList();

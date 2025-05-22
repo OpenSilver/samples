@@ -1,0 +1,12 @@
+﻿using OSFSample.Support.UI.Units;
+
+namespace OpenSilverShowcase.ProjectTemplate.Examples.Basic
+{
+    public partial class BasicContent : ShowcaseCard
+    {
+        public BasicContent()
+        {
+            this.InitializeComponent();
+        }
+    }
+}

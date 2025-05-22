@@ -1,0 +1,12 @@
+﻿using OSFSample.Support.UI.Units;
+
+namespace OpenSilverShowcase.ProjectItem
+{
+    public partial class ShowcaseContent : ShowcaseBase
+    {
+        public ShowcaseContent()
+        {
+            this.InitializeComponent();
+        }
+    }
+}

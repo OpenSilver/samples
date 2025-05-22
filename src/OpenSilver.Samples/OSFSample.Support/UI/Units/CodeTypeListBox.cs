@@ -12,7 +12,7 @@ public class CodeTypeListBox : ListBox
 
     private void CodeTypeListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        if (DataContext is ShowcaseCard card && SelectedItem is TextBlock selectedTextBlock)
+        if (DataContext is ShowcaseItem card && SelectedItem is TextBlock selectedTextBlock)
         {
             //card.SelectedCodeTab = selectedTextBlock.;
         }

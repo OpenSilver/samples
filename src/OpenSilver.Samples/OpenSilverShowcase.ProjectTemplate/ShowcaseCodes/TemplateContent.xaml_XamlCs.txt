@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Reflection;
+using System.Windows;
+using System.Windows.Controls;
+using OSFSample.Support.Local.Utils;
+using OSFSample.Support.UI.Units;
+
+namespace OpenSilverShowcase.ProjectTemplate
+{
+    public partial class TemplateContent : ShowcaseBase
+    {
+        public TemplateContent()
+        {
+            this.InitializeComponent();
+        }
+    }
+}

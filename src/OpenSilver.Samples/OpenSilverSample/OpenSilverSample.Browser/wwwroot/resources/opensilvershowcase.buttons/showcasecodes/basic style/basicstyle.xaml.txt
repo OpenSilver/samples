@@ -1,4 +1,4 @@
-﻿<units:ShowcaseCard
+﻿<units:ShowcaseItem
     x:Class="OpenSilverShowcase.Buttons.Basic_Style.BasicStyle"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -6,7 +6,7 @@
     Title="Basic Style"
     Order="1"
     Description="You can provide a label to the Checkbox thanks to the FormControlLabel component.">
-    <units:ShowcaseCard.DemoContent>
+    <units:ShowcaseItem.DemoContent>
         <WrapPanel>
             <Button Margin="5" Content="Basic Style"/>
             <Button Margin="5" Content="Background = Brown" Background="Brown"/>
@@ -20,5 +20,5 @@
                 </StackPanel>
             </Button>
         </WrapPanel>
-    </units:ShowcaseCard.DemoContent>    
-</units:ShowcaseCard>
+    </units:ShowcaseItem.DemoContent>    
+</units:ShowcaseItem>

@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<EnableDefaultItems>false</EnableDefaultItems>
+		<DefineSilverlight>true</DefineSilverlight>
+		<LangVersion>12</LangVersion>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="OpenSilver" Version="3.2.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<Page Include="Themes\Generic.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</Page>
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\OSFSample.Support\OSFSample.Support.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Examples\" />
+	</ItemGroup>
+	<Target Name="CopyShowcaseCodeToProject" BeforeTargets="BeforeBuild">
+		<ItemGroup>
+			<_XamlFiles Include="**\*.xaml" Exclude="obj\**;bin\**" />
+			<_XamlCsFiles Include="**\*.xaml.cs" Exclude="obj\**;bin\**" />
+			<_CsFiles Include="**\*.cs" Exclude="**\*.xaml.cs;obj\**;bin\**" />
+		</ItemGroup>
+		<Message Text="Xaml Files to copy: @(_XamlFiles)" Importance="High" />
+		<Message Text="XamlCs Files to copy: @(_XamlCsFiles)" Importance="High" />
+		<Message Text="Cs Files to copy: @(_CsFiles)" Importance="High" />
+		<Copy SourceFiles="@(_XamlFiles)" DestinationFiles="@(_XamlFiles->'ShowcaseCodes\%(RecursiveDir)%(Filename)_Xaml.txt')" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="@(_XamlCsFiles)" DestinationFiles="@(_XamlCsFiles->'ShowcaseCodes\%(RecursiveDir)%(Filename)_XamlCs.txt')" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="@(_CsFiles)" DestinationFiles="@(_CsFiles->'ShowcaseCodes\%(RecursiveDir)%(Filename)_Cs.txt')" SkipUnchangedFiles="true" />
+		<ItemGroup>
+			<_CopiedFiles Include="ShowcaseCodes\**\*.txt" />
+		</ItemGroup>
+		<Message Text="Copied Files: @(_CopiedFiles)" Importance="High" />
+		<ItemGroup>
+			<EmbeddedResource Include="ShowcaseCodes\**\*_Xaml.txt" />
+			<EmbeddedResource Include="ShowcaseCodes\**\*_XamlCs.txt" />
+			<EmbeddedResource Include="ShowcaseCodes\**\*_Cs.txt" />
+			<Folder Include="ShowcaseCodes\" />
+		</ItemGroup>
+	</Target>
+	<Target Name="DebugEmbeddedResources" AfterTargets="BeforeBuild">
+		<ItemGroup>
+			<EmbeddedFiles Include="ShowcaseCodes\**\*.txt" />
+		</ItemGroup>
+		<Message Text="Embedded Resources: @(EmbeddedFiles)" Importance="High" />
+	</Target>
+</Project>

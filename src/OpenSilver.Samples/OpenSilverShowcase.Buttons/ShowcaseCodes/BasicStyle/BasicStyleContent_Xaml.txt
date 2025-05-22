@@ -1,4 +1,4 @@
-﻿<units:ShowcaseCard
+﻿<units:ShowcaseItem
     x:Class="OpenSilverShowcase.Buttons.BasicStyle.BasicStyleContent"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -6,10 +6,10 @@
     Description="fundamentals of button styling with colors, fonts, and images."
     Title="Basic Style"
     Order="1">
-    <units:ShowcaseCard.CodeSources>
+    <units:ShowcaseItem.CodeSources>
         <units:CodeSource Key="xaml" Source="/OpenSilverShowcase.Buttons;component/BasicStyle/BasicStyleContent.xaml"/>
-    </units:ShowcaseCard.CodeSources>
-    <units:ShowcaseCard.DemoContent>
+    </units:ShowcaseItem.CodeSources>
+    <units:ShowcaseItem.DemoContent>
         <WrapPanel>
             <Button Margin="5" Content="Basic Style"/>
             <Button Margin="5" Content="Background = Brown" Background="Brown"/>
@@ -23,5 +23,5 @@
                 </StackPanel>
             </Button>
         </WrapPanel>
-    </units:ShowcaseCard.DemoContent>    
-</units:ShowcaseCard>
+    </units:ShowcaseItem.DemoContent>    
+</units:ShowcaseItem>

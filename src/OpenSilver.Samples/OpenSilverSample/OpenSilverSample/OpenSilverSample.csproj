@@ -27,16 +27,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\OpenSilverShowcase.Buttons\OpenSilverShowcase.Buttons.csproj" />
+    <ProjectReference Include="..\..\OpenSilverShowcase.Sliders\OpenSilverShowcase.Sliders.csproj" />
     <ProjectReference Include="..\..\OpenSilverShowcase.ToggleButtons\OpenSilverShowcase.ToggleButtons.csproj" />
-    <ProjectReference Include="..\..\OSFSample.ButtonClick\OSFSample.ButtonClick.csproj" />
-    <ProjectReference Include="..\..\OSFSample.ButtonCommandCanExecute\OSFSample.ButtonCommandCanExecute.csproj" />
-    <ProjectReference Include="..\..\OSFSample.ButtonCommand\OSFSample.ButtonCommand.csproj" />
-    <ProjectReference Include="..\..\OSFSample.ButtonContent\OSFSample.ButtonContent.csproj" />
-    <ProjectReference Include="..\..\OSFSample.ButtonDisabled\OSFSample.ButtonDisabled.csproj" />
-    <ProjectReference Include="..\..\OSFSample.CheckBoxEvents\OSFSample.CheckBoxEvents.csproj" />
-    <ProjectReference Include="..\..\OSFSample.CheckBoxGroup\OSFSample.CheckBoxGroup.csproj" />
-    <ProjectReference Include="..\..\OSFSample.CheckBoxIsChecked\OSFSample.CheckBoxIsChecked.csproj" />
-    <ProjectReference Include="..\..\OSFSample.CheckBoxThreeState\OSFSample.CheckBoxThreeState.csproj" />
     <ProjectReference Include="..\..\OSFSample.Support\OSFSample.Support.csproj" />
   </ItemGroup>
 

@@ -3,8 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:units="clr-namespace:OSFSample.Support.UI.Units">
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/OSFSample.Support;component/Themes/Units/ShowcaseBase.xaml"/>
-        <ResourceDictionary Source="/OSFSample.Support;component/Themes/Units/ShowcaseCard.xaml"/>
+        <ResourceDictionary Source="/OSFSample.Support;component/Themes/Units/ShowcaseContent.xaml"/>
+        <ResourceDictionary Source="/OSFSample.Support;component/Themes/Units/ShowcaseItem.xaml"/>
         <ResourceDictionary Source="/OSFSample.Support;component/Themes/Units/TabMenuBar.xaml"/>
         <ResourceDictionary Source="/OSFSample.Support;component/Themes/Units/CodeTypeListBox.xaml"/>
         <ResourceDictionary Source="/OSFSample.Support;component/Themes/Units/IconButton.xaml"/>

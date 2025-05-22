@@ -13,7 +13,7 @@ using OSFSample.Support.UI.Units;
 
 namespace OpenSilverShowcase.Buttons.Basic_Style
 {
-    public partial class BasicStyle : ShowcaseCard
+    public partial class BasicStyle : ShowcaseItem
     {
         public BasicStyle()
         {

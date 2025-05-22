@@ -9,7 +9,7 @@
     <Grid>
         <ScrollViewer Background="Transparent">
             <StackPanel MaxWidth="800">
-                <units:ShowcaseBase x:Name="ShowcaseContainer"/>
+                <units:ShowcaseContent x:Name="ShowcaseContainer"/>
             </StackPanel>
         </ScrollViewer>
     </Grid>

@@ -1,0 +1,12 @@
+﻿<units:ShowcaseBase
+    x:Class="OpenSilverShowcase.ProjectTemplate.TemplateContent"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:units="clr-namespace:OSFSample.Support.UI.Units;assembly=OSFSample.Support"
+    <units:ShowcaseBase.Title>
+        Button Controls
+    </units:ShowcaseBase.Title>
+    <units:ShowcaseBase.Description>
+        Explore various examples and usage methods for OpenSilver's Button controls. We provide examples from basic styles to custom controls that you can set up.
+    </units:ShowcaseBase.Description>
+</units:ShowcaseBase>

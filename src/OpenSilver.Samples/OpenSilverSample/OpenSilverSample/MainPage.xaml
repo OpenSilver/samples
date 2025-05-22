@@ -2,21 +2,24 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:local="clr-namespace:OpenSilverSample"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:buttons="clr-namespace:OpenSilverShowcase.Buttons;assembly=OpenSilverShowcase.Buttons"
-      xmlns:togglebuttons="clr-namespace:OpenSilverShowcase.ToggleButtons;assembly=OpenSilverShowcase.ToggleButtons"
+      xmlns:button="clr-namespace:OpenSilverShowcase.Buttons;assembly=OpenSilverShowcase.Buttons"
+      xmlns:toggle="clr-namespace:OpenSilverShowcase.ToggleButtons;assembly=OpenSilverShowcase.ToggleButtons"
+      xmlns:slider="clr-namespace:OpenSilverShowcase.Sliders;assembly=OpenSilverShowcase.Sliders"
       mc:Ignorable="d"
       Foreground="{DynamicResource Theme_TextBrush}">
     <ScrollViewer Background="Transparent" VerticalScrollBarVisibility="Visible">
         <StackPanel MaxWidth="800">
             <Grid Background="{DynamicResource Theme_BackgroundBrush}">
                 <TabControl>
-                    <TabItem Header="Button Show">
-                        <buttons:ButtonShow/>
+                    <TabItem Header="Button">
+                        <button:ButtonShow/>
                     </TabItem>
-                    <TabItem Header="ToggleButton Show">
-                        <togglebuttons:ToggleButtonShow/>
+                    <TabItem Header="ToggleButton">
+                        <toggle:ToggleButtonShow/>
+                    </TabItem>
+                    <TabItem Header="Slider">
+                        <slider:SliderContent/>
                     </TabItem>
                 </TabControl>
             </Grid>

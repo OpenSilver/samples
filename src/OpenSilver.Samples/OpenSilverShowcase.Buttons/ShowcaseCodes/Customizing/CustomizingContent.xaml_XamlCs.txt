@@ -2,7 +2,7 @@
 
 namespace OpenSilverShowcase.Buttons.Customizing
 {
-    public partial class CustomizingContent : ShowcaseCard
+    public partial class CustomizingContent : ShowcaseItem
     {
         public CustomizingContent()
         {

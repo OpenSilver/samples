@@ -2,7 +2,7 @@
 
 namespace OpenSilverShowcase.Buttons.BasicStyle
 {
-    public partial class BasicStyleContent : ShowcaseCard
+    public partial class BasicStyleContent : ShowcaseItem
     {
         public BasicStyleContent()
         {

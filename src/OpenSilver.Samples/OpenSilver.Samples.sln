@@ -23,6 +23,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverShowcase.Buttons"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverShowcase.ToggleButtons", "OpenSilverShowcase.ToggleButtons\OpenSilverShowcase.ToggleButtons.csproj", "{6FFF24FF-12A8-4EDC-BEF6-66530E177DC9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Template", "Template", "{710B52D4-44F6-4B37-951F-30C4FE76CBE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverShowcase.ProjectTemplate", "OpenSilverShowcase.ProjectTemplate\OpenSilverShowcase.ProjectTemplate.csproj", "{8A370927-AE4E-45A3-84FA-287C3B7F465C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverShowcase.ProjectItem", "OpenSilverShowcase.ProjectItem\OpenSilverShowcase.ProjectItem.csproj", "{5BC0F70F-DAF5-4541-B649-EC6E5445F68C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverShowcase.Sliders", "OpenSilverShowcase.Sliders\OpenSilverShowcase.Sliders.csproj", "{E77AFE4C-7A65-4ADE-852C-17B3FBB60800}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +61,18 @@ Global
 		{6FFF24FF-12A8-4EDC-BEF6-66530E177DC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FFF24FF-12A8-4EDC-BEF6-66530E177DC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FFF24FF-12A8-4EDC-BEF6-66530E177DC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A370927-AE4E-45A3-84FA-287C3B7F465C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A370927-AE4E-45A3-84FA-287C3B7F465C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A370927-AE4E-45A3-84FA-287C3B7F465C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A370927-AE4E-45A3-84FA-287C3B7F465C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BC0F70F-DAF5-4541-B649-EC6E5445F68C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BC0F70F-DAF5-4541-B649-EC6E5445F68C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BC0F70F-DAF5-4541-B649-EC6E5445F68C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BC0F70F-DAF5-4541-B649-EC6E5445F68C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E77AFE4C-7A65-4ADE-852C-17B3FBB60800}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E77AFE4C-7A65-4ADE-852C-17B3FBB60800}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E77AFE4C-7A65-4ADE-852C-17B3FBB60800}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E77AFE4C-7A65-4ADE-852C-17B3FBB60800}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +84,8 @@ Global
 		{8FD665B6-EB74-4721-A98B-681DA075B989} = {35113855-EDF8-4288-8F77-ABB565056393}
 		{68F25823-918E-4E51-9FE7-F947DFA6DC73} = {6DCE7F39-A782-4D98-9C32-CAC7A7FEFB92}
 		{6FFF24FF-12A8-4EDC-BEF6-66530E177DC9} = {6DCE7F39-A782-4D98-9C32-CAC7A7FEFB92}
+		{8A370927-AE4E-45A3-84FA-287C3B7F465C} = {710B52D4-44F6-4B37-951F-30C4FE76CBE7}
+		{5BC0F70F-DAF5-4541-B649-EC6E5445F68C} = {710B52D4-44F6-4B37-951F-30C4FE76CBE7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5DDCEE59-1BF9-4C25-AB29-551F61F68B50}

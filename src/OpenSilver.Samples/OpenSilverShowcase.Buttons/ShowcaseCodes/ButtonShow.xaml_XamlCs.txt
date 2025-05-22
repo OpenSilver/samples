@@ -10,7 +10,7 @@ using OSFSample.Support.Local.Utils;
 
 namespace OpenSilverShowcase.Buttons
 {
-    public partial class ButtonShow : ShowcaseBase
+    public partial class ButtonShow : ShowcaseContent
     {
         public ButtonShow()
         {

@@ -10,10 +10,11 @@
   <ItemGroup>
     <Compile Include="Local\Converters\SelectionBrushConverter.cs" />
     <Compile Include="Local\Utils\EmbededCodeLoader.cs" />
+    <Compile Include="UI\Units\CodeSource.cs" />
     <Compile Include="UI\Units\CodeTypeListBox.cs" />
     <Compile Include="UI\Units\IconButton.cs" />
-    <Compile Include="UI\Units\ShowcaseCard.cs" />
-    <Compile Include="UI\Units\ShowcaseBase.cs" />
+    <Compile Include="UI\Units\ShowcaseItem.cs" />
+    <Compile Include="UI\Units\ShowcaseContent.cs" />
     <Compile Include="UI\Units\ExampleBase.cs" />
     <Compile Include="UI\Units\TabMenuBar.cs" />
   </ItemGroup>
@@ -35,7 +36,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Themes\Units\ShowcaseCard.xaml">
+    <Page Include="Themes\Units\ShowcaseItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -46,7 +47,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Themes\Units\ShowcaseBase.xaml">
+    <Page Include="Themes\Units\ShowcaseContent.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Units\ExampleResource.xaml">

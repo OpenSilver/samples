@@ -1,0 +1,20 @@
+<units:ShowcaseItem
+    x:Class="OpenSilverShowcase.Sliders.Examples.CustomizingItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:units="clr-namespace:OSFSample.Support.UI.Units;assembly=OSFSample.Support"
+    xmlns:local="clr-namespace:OpenSilverShowcase.Sliders.Examples"
+    Description="fundamentals of Slider styling with colors, fonts, and images."
+    DemoBackground="#232323"
+    Title="RiotSlider CustomControl"
+    Order="2">
+    <units:ShowcaseItem.CodeSources>
+        <units:CodeSource Key="Generic" Source="/Examples/RiotSlider.xaml"/>
+        <units:CodeSource Key="CustomControl" Source="/Examples/RiotSlider.cs"/>
+    </units:ShowcaseItem.CodeSources>
+    <units:ShowcaseItem.DemoContent>
+        <WrapPanel>
+            <local:RiotSlider Width="200"/>
+        </WrapPanel>
+    </units:ShowcaseItem.DemoContent>
+</units:ShowcaseItem>

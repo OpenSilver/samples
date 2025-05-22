@@ -10,7 +10,7 @@ using OSFSample.Support.Local.Utils;
 
 namespace OpenSilverShowcase.ToggleButtons
 {
-    public partial class ToggleButtonShow : ShowcaseBase
+    public partial class ToggleButtonShow : ShowcaseContent
     {
         public ToggleButtonShow()
         {

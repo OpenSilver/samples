@@ -25,15 +25,15 @@ public static class EmbeddedCodeLoader
         string[] startTags = new[]
         {
     "<DemoContent>",
-    "<ShowcaseCard.DemoContent>",
-    "<units:ShowcaseCard.DemoContent>"
+    "<ShowcaseItem.DemoContent>",
+    "<units:ShowcaseItem.DemoContent>"
 };
 
         string[] endTags = new[]
         {
     "</DemoContent>",
-    "</ShowcaseCard.DemoContent>",
-    "</units:ShowcaseCard.DemoContent>"
+    "</ShowcaseItem.DemoContent>",
+    "</units:ShowcaseItem.DemoContent>"
 };
 
         foreach (var startTag in startTags)

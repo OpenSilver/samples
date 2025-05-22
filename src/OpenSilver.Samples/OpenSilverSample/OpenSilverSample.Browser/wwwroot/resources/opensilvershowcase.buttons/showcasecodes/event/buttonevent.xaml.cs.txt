@@ -13,7 +13,7 @@ using OSFSample.Support.UI.Units;
 
 namespace OpenSilverShowcase.Buttons.Event
 {
-    public partial class ButtonEvent : ShowcaseCard
+    public partial class ButtonEvent : ShowcaseItem
     {
         public ButtonEvent()
         {
