@@ -201,7 +201,7 @@ public class ShowcaseContent : ContentControl
         try
         {
             // 초기 지연 추가 (원래 코드에 있던 200ms 지연)
-            await Task.Delay(200);
+            await Task.Delay(50);
 
             string selectedItem = _tabMenu.MenuItems[e.SelectedIndex];
             bool isAllView = e.SelectedIndex == 0;
