@@ -64,4 +64,14 @@
 		</ItemGroup>
 		<Message Text="Embedded Resources: @(EmbeddedFiles)" Importance="High" />
 	</Target>
+	<Target Name="CopyDllToEnterpriseApp" AfterTargets="AfterBuild">
+		<PropertyGroup>
+			<DllDestinationPath>..\..\..\..\opensilver.enterpriseapp\src\DLLs</DllDestinationPath>
+		</PropertyGroup>
+		<Copy
+			SourceFiles="$(OutputPath)$(AssemblyName).dll"
+			DestinationFolder="$(DllDestinationPath)"
+			SkipUnchangedFiles="true" />
+		<Message Text="DLL copied to: $(DllDestinationPath)\$(AssemblyName).dll" Importance="High" />
+	</Target>
 </Project>

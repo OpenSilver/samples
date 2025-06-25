@@ -6,37 +6,42 @@
 		<LangVersion>12</LangVersion>
 	</PropertyGroup>
 	<ItemGroup>
-		<Compile Include="BasicStyle\BasicStyleContent.xaml.cs" />
-		<Compile Include="ButtonShow.xaml.cs" />
-		<Compile Include="Customizing\CustomButton.cs" />
-		<Compile Include="Customizing\CustomizingContent.xaml.cs">
+		<Compile Include="Examples\BasicItem.xaml.cs" />
+		<Compile Include="ButtonContent.xaml.cs" />
+		<Compile Include="Examples\CustomButton.cs" />
+		<Compile Include="Examples\CustomItem.xaml.cs">
 			<SubType>Code</SubType>
 		</Compile>
-		<Compile Include="Event\ButtonEventContent.xaml.cs">
+		<Compile Include="Examples\EventsItem.xaml.cs">
 			<SubType>Code</SubType>
 		</Compile>
+		<Compile Include="Examples\SmartButton.cs" />
+		<Compile Include="Examples\SmartButtonItem.xaml.cs" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="OpenSilver" Version="3.2.0" />
 	</ItemGroup>
 	<ItemGroup>
-		<Page Include="BasicStyle\BasicStyleContent.xaml">
+		<Page Include="Examples\BasicItem.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</Page>
-		<Page Include="ButtonShow.xaml">
+		<Page Include="ButtonContent.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</Page>
-		<Page Include="Customizing\CustomizingContent.xaml">
+		<Page Include="Examples\CustomItem.xaml">
 			<SubType>Designer</SubType>
 			<Generator>MSBuild:Compile</Generator>
 		</Page>
-		<Page Include="Customizing\CustomButton.xaml">
+		<Page Include="Examples\CustomButton.xaml">
 			<SubType>Designer</SubType>
 			<Generator>MSBuild:Compile</Generator>
 		</Page>
-		<Page Include="Event\ButtonEventContent.xaml">
+		<Page Include="Examples\EventsItem.xaml">
 			<SubType>Designer</SubType>
 			<Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Include="Examples\SmartButtonItem.xaml">
+		  <Generator>MSBuild:Compile</Generator>
 		</Page>
 		<Page Include="Themes\Generic.xaml">
 			<Generator>MSBuild:Compile</Generator>
@@ -73,5 +78,12 @@
 			<EmbeddedFiles Include="ShowcaseCodes\**\*.txt" />
 		</ItemGroup>
 		<Message Text="Embedded Resources: @(EmbeddedFiles)" Importance="High" />
+	</Target>
+	<Target Name="CopyDllToEnterpriseApp" AfterTargets="AfterBuild">
+		<PropertyGroup>
+			<DllDestinationPath>..\..\..\..\opensilver.enterpriseapp\src\DLLs</DllDestinationPath>
+		</PropertyGroup>
+		<Copy SourceFiles="$(OutputPath)$(AssemblyName).dll" DestinationFolder="$(DllDestinationPath)" SkipUnchangedFiles="true" />
+		<Message Text="DLL copied to: $(DllDestinationPath)\$(AssemblyName).dll" Importance="High" />
 	</Target>
 </Project>

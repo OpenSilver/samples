@@ -6,6 +6,19 @@
       xmlns:button="clr-namespace:OpenSilverShowcase.Buttons;assembly=OpenSilverShowcase.Buttons"
       xmlns:toggle="clr-namespace:OpenSilverShowcase.ToggleButtons;assembly=OpenSilverShowcase.ToggleButtons"
       xmlns:slider="clr-namespace:OpenSilverShowcase.Sliders;assembly=OpenSilverShowcase.Sliders"
+      xmlns:check="clr-namespace:OpenSilverShowcase.CheckBoxs;assembly=OpenSilverShowcase.CheckBoxs"
+      xmlns:radio="clr-namespace:OpenSilverShowcase.RadioButtons;assembly=OpenSilverShowcase.RadioButtons"
+      xmlns:combo="clr-namespace:OpenSilverShowcase.ComboBoxs;assembly=OpenSilverShowcase.ComboBoxs"
+      xmlns:list="clr-namespace:OpenSilverShowcase.ListBoxs;assembly=OpenSilverShowcase.ListBoxs"
+      xmlns:pgbar="clr-namespace:OpenSilverShowcase.ProgressBars;assembly=OpenSilverShowcase.ProgressBars"
+      xmlns:txtbox="clr-namespace:OpenSilverShowcase.TextBoxs;assembly=OpenSilverShowcase.TextBoxs"
+      xmlns:grid="clr-namespace:OpenSilverShowcase.Grids;assembly=OpenSilverShowcase.Grids"
+      xmlns:stack="clr-namespace:OpenSilverShowcase.StackPanels;assembly=OpenSilverShowcase.StackPanels"
+      xmlns:wrap="clr-namespace:OpenSilverShowcase.WrapPanels;assembly=OpenSilverShowcase.WrapPanels"
+      xmlns:border="clr-namespace:OpenSilverShowcase.Borders;assembly=OpenSilverShowcase.Borders"
+      xmlns:ckanb="clr-namespace:OpenSilverShowcase.AnimatedNavigationBars;assembly=OpenSilverShowcase.AnimatedNavigationBars"
+      xmlns:adpanel="clr-namespace:OpenSilverShowcase.AdaptiveColumnsPanels;assembly=OpenSilverShowcase.AdaptiveColumnsPanels"
+      xmlns:stagg="clr-namespace:OpenSilverShowcase.StaggeredPanels;assembly=OpenSilverShowcase.StaggeredPanels"
       mc:Ignorable="d"
       Foreground="{DynamicResource Theme_TextBrush}">
     <ScrollViewer Background="Transparent" VerticalScrollBarVisibility="Visible">
@@ -13,13 +26,49 @@
             <Grid Background="{DynamicResource Theme_BackgroundBrush}">
                 <TabControl>
                     <TabItem Header="Button">
-                        <button:ButtonShow/>
+                        <button:ButtonContent/>
                     </TabItem>
                     <TabItem Header="ToggleButton">
-                        <toggle:ToggleButtonShow/>
+                        <toggle:ToggleButtonContent/>
                     </TabItem>
                     <TabItem Header="Slider">
                         <slider:SliderContent/>
+                    </TabItem>
+                    <TabItem Header="CheckBox">
+                        <check:CheckBoxContent/>
+                    </TabItem>
+                    <TabItem Header="RadioButton">
+                        <radio:RadioButtonContent/>
+                    </TabItem>
+                    <TabItem Header="ComboBox">
+                        <combo:ComboBoxContent/>
+                    </TabItem>
+                    <TabItem Header="ListBox">
+                        <list:ListBoxContent/>
+                    </TabItem>
+                    <TabItem Header="ProgressBar">
+                        <pgbar:ProgressBarContent/>
+                    </TabItem>
+                    <TabItem Header="TextBox">
+                        <txtbox:TextBoxContent/>
+                    </TabItem>
+                    <TabItem Header="Grid">
+                        <grid:GridContent/>
+                    </TabItem>
+                    <TabItem Header="WrapPanel">
+                        <wrap:WrapPanelContent/>
+                    </TabItem>
+                    <TabItem Header="Border">
+                        <border:BorderContent/>
+                    </TabItem>
+                    <TabItem Header="AnimatedNavigationBar">
+                        <ckanb:AnimatedNavigationBarContent/>
+                    </TabItem>
+                    <TabItem Header="AdaptiveColumnsPanel">
+                        <adpanel:AdaptiveColumnsPanelContent/>
+                    </TabItem>
+                    <TabItem Header="StaggeredPanel">
+                        <stagg:StaggeredPanelContent/>
                     </TabItem>
                 </TabControl>
             </Grid>

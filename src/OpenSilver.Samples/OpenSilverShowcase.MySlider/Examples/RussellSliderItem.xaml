@@ -1,0 +1,17 @@
+<units:ShowcaseItem
+    x:Class="OpenSilverShowcase.MySlider.Examples.RussellSliderItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:units="clr-namespace:OSFSample.Support.UI.Units;assembly=OSFSample.Support"
+    Description="fundamentals of slider styling with colors, fonts, and images."
+    Title="Russell Like Slider Style"
+    Order="1">
+    <units:ShowcaseItem.CodeSources>
+        <units:CodeSource Key="xaml" Source="/Examples/RussellSliderItem.xaml"/>
+    </units:ShowcaseItem.CodeSources>
+    <units:ShowcaseItem.DemoContent>
+        <WrapPanel>
+            <Slider Width="200"/>
+        </WrapPanel>
+    </units:ShowcaseItem.DemoContent>
+</units:ShowcaseItem>

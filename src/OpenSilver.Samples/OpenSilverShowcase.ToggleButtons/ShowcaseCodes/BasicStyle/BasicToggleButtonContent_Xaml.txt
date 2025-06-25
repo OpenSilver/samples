@@ -3,27 +3,115 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:units="clr-namespace:OSFSample.Support.UI.Units;assembly=OSFSample.Support"
-    Description="fundamentals of button styling with colors, fonts, and images."
-    Title="Basic Style"
+    Description="Essential toggle button styles with modern colors, typography, and interactive states."
+    Title="Basic Toggle Styles"
     Order="1">
     <units:ShowcaseItem.CodeSources>
         <units:CodeSource Key="xaml" Source="/OpenSilverShowcase.ToggleButtons;component/BasicStyle/BasicToggleButtonContent.xaml"/>
     </units:ShowcaseItem.CodeSources>
     <units:ShowcaseItem.DemoContent>
-        <WrapPanel>
-            <ToggleButton Margin="5" Content="Basic Style" Padding="10 4"/>
-            <ToggleButton Margin="5" Content="Background = Peru" Background="Peru"/>
-            <ToggleButton Margin="5" Content="{Binding RelativeSource={RelativeSource Self}, Path=IsChecked}" 
-                          IsChecked="True" Background="DarkSlateBlue"/>
+        <StackPanel>
+            <!-- Essential Styles Section -->
+            <TextBlock Text="🎨 Essential Styles" FontSize="16" FontWeight="SemiBold" Foreground="#2C3E50" Margin="0,0,0,10"/>
+            <WrapPanel>
+                <ToggleButton Margin="8" Content="Default Style" Padding="16,8" FontSize="14"/>
+                <ToggleButton Margin="8" Content="Ocean Blue" Background="#3498DB" Foreground="White" Padding="16,8" FontSize="14"/>
+                <ToggleButton Margin="8" Content="Emerald Green" Background="#2ECC71" Foreground="White" Padding="16,8" FontSize="14"/>
+                <ToggleButton Margin="8" Content="Sunset Orange" Background="#E67E22" Foreground="White" Padding="16,8" FontSize="14"/>
+                <ToggleButton Margin="8" Content="Royal Purple" Background="#9B59B6" Foreground="White" Padding="16,8" FontSize="14"/>
+            </WrapPanel>
 
-            <ToggleButton Margin="5" Padding="10 4" Background="DarkOliveGreen">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="🔔 Notifications " FontSize="13" VerticalAlignment="Center"/>
-                    <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsChecked, StringFormat=(0)}" 
-                               FontSize="13" Foreground="Wheat" VerticalAlignment="Center"/>
-                </StackPanel>
-            </ToggleButton>
-        </WrapPanel>
+            <!-- Interactive States Section -->
+            <TextBlock Text="⚡ Interactive States" FontSize="16" FontWeight="SemiBold" Foreground="#2C3E50" Margin="0,20,0,10"/>
+            <WrapPanel>
+                <ToggleButton Margin="8" Padding="16,8" Background="#E74C3C" Foreground="White" FontSize="14">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="❤️ Like " VerticalAlignment="Center"/>
+                        <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsChecked, StringFormat='({0})'}" 
+                                   VerticalAlignment="Center" FontWeight="Bold"/>
+                    </StackPanel>
+                </ToggleButton>
 
-    </units:ShowcaseItem.DemoContent>    
+                <ToggleButton Margin="8" Padding="16,8" Background="#F39C12" Foreground="White" FontSize="14">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="⭐ Favorite " VerticalAlignment="Center"/>
+                        <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsChecked, StringFormat='({0})'}" 
+                                   VerticalAlignment="Center" FontWeight="Bold"/>
+                    </StackPanel>
+                </ToggleButton>
+
+                <ToggleButton Margin="8" Padding="16,8" Background="#8E44AD" Foreground="White" FontSize="14">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="🔔 Notify " VerticalAlignment="Center"/>
+                        <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=ToggleButton}, Path=IsChecked, StringFormat='({0})'}" 
+                                   VerticalAlignment="Center" FontWeight="Bold"/>
+                    </StackPanel>
+                </ToggleButton>
+            </WrapPanel>
+
+            <!-- Feature Toggles Section -->
+            <TextBlock Text="🚀 Feature Toggles" FontSize="16" FontWeight="SemiBold" Foreground="#2C3E50" Margin="0,20,0,10"/>
+            <WrapPanel>
+                <ToggleButton Margin="8" Padding="20,12" Background="#1ABC9C" Foreground="White" FontSize="14" FontWeight="Medium">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="🌙 Dark Mode" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </ToggleButton>
+
+                <ToggleButton Margin="8" Padding="20,12" Background="#E67E22" Foreground="White" FontSize="14" FontWeight="Medium">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="🔊 Sound Effects" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </ToggleButton>
+
+                <ToggleButton Margin="8" Padding="20,12" Background="#3498DB" Foreground="White" FontSize="14" FontWeight="Medium">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="📱 Mobile View" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </ToggleButton>
+
+                <ToggleButton Margin="8" Padding="20,12" Background="#9B59B6" Foreground="White" FontSize="14" FontWeight="Medium" IsChecked="True">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="✨ Animations" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </ToggleButton>
+            </WrapPanel>
+
+            <!-- Size Variations Section -->
+            <TextBlock Text="📏 Size Variations" FontSize="16" FontWeight="SemiBold" Foreground="#2C3E50" Margin="0,20,0,10"/>
+            <WrapPanel>
+                <ToggleButton Margin="8" Content="Small" Background="#95A5A6" Foreground="White" Padding="12,6" FontSize="12"/>
+                <ToggleButton Margin="8" Content="Medium" Background="#34495E" Foreground="White" Padding="16,8" FontSize="14"/>
+                <ToggleButton Margin="8" Content="Large" Background="#2C3E50" Foreground="White" Padding="24,12" FontSize="16" FontWeight="Medium"/>
+            </WrapPanel>
+
+            <!-- Modern Styles Section -->
+            <TextBlock Text="✨ Modern Styles" FontSize="16" FontWeight="SemiBold" Foreground="#2C3E50" Margin="0,20,0,10"/>
+            <WrapPanel>
+                <ToggleButton Margin="8" Padding="18,10" Background="#FF6B6B" Foreground="White" FontSize="14" FontWeight="Medium">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="🎯 Focus Mode" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </ToggleButton>
+
+                <ToggleButton Margin="8" Padding="18,10" Background="#4ECDC4" Foreground="White" FontSize="14" FontWeight="Medium">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="🌈 Color Theme" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </ToggleButton>
+
+                <ToggleButton Margin="8" Padding="18,10" Background="#45B7D1" Foreground="White" FontSize="14" FontWeight="Medium">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="☁️ Auto Save" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </ToggleButton>
+
+                <ToggleButton Margin="8" Padding="18,10" Background="#96CEB4" Foreground="White" FontSize="14" FontWeight="Medium" IsChecked="True">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="🔒 Privacy Mode" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </ToggleButton>
+            </WrapPanel>
+        </StackPanel>
+    </units:ShowcaseItem.DemoContent>
 </units:ShowcaseItem>

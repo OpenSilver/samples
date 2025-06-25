@@ -1,0 +1,195 @@
+﻿<units:ShowcaseItem
+    x:Class="OpenSilverShowcase.RadioButtons.Examples.CustomItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:OpenSilverShowcase.RadioButtons.Examples"
+    HorizontalContentAlignment="Stretch"
+    xmlns:units="clr-namespace:OSFSample.Support.UI.Units;assembly=OSFSample.Support"
+    Description="Custom RadioButton with various styling and customization options."
+    Title="Custom"
+    Order="9">
+    <units:ShowcaseItem.CodeSources>
+        <units:CodeSource Key="xaml" Source="/Examples/CustomItem.xaml"/>
+        <units:CodeSource Key="xaml.cs" Source="/Examples/CustomItem.xaml.cs"/>
+    </units:ShowcaseItem.CodeSources>
+    <units:ShowcaseItem.DemoContent>
+        <ScrollViewer>
+            <StackPanel>
+
+                <!-- Default Style -->
+                <StackPanel Margin="0,0,0,32">
+                    <TextBlock Text="Default Style" FontWeight="SemiBold" FontSize="15" 
+                               Foreground="#2D3436" Margin="0,0,0,16"/>
+                    <Border Background="#F8F9FA" BorderBrush="#E9ECEF" BorderThickness="1" 
+                            CornerRadius="8" Padding="20">
+                        <StackPanel>
+                            <local:CustomRadioButton Content="Default Style 1" GroupName="Default" IsChecked="True" Margin="0,0,0,8"/>
+                            <local:CustomRadioButton Content="Default Style 2" GroupName="Default" Margin="0,0,0,8"/>
+                            <local:CustomRadioButton Content="Default Style 3" GroupName="Default"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+                <!-- Color Themes -->
+                <StackPanel Margin="0,0,0,32">
+                    <TextBlock Text="Color Themes" FontWeight="SemiBold" FontSize="15" 
+                               Foreground="#2D3436" Margin="0,0,0,16"/>
+                    <Border Background="#F8F9FA" BorderBrush="#E9ECEF" BorderThickness="1" 
+                            CornerRadius="8" Padding="20">
+                        <StackPanel>
+                            <!-- Red Theme -->
+                            <local:CustomRadioButton Content="Red Theme" 
+                                                    GroupName="ColorThemes"
+                                                    CircleBorderBrush="#EF4444"
+                                                    CircleBorderBrushChecked="#DC2626"
+                                                    CircleBorderBrushHover="#F87171"
+                                                    CheckedDotFill="#DC2626"
+                                                    BackgroundChecked="#FEF2F2"
+                                                    BorderBrushChecked="#EF4444"
+                                                    IsChecked="True"
+                                                    Margin="0,0,0,12"/>
+
+                            <!-- Green Theme -->
+                            <local:CustomRadioButton Content="Green Theme" 
+                                                    GroupName="ColorThemes"
+                                                    CircleBorderBrush="#10B981"
+                                                    CircleBorderBrushChecked="#059669"
+                                                    CircleBorderBrushHover="#34D399"
+                                                    CheckedDotFill="#059669"
+                                                    BackgroundChecked="#F0FDF4"
+                                                    BorderBrushChecked="#10B981"
+                                                    Margin="0,0,0,12"/>
+
+                            <!-- Purple Theme -->
+                            <local:CustomRadioButton Content="Purple Theme" 
+                                                    GroupName="ColorThemes"
+                                                    CircleBorderBrush="#8B5CF6"
+                                                    CircleBorderBrushChecked="#7C3AED"
+                                                    CircleBorderBrushHover="#A78BFA"
+                                                    CheckedDotFill="#7C3AED"
+                                                    BackgroundChecked="#FAF5FF"
+                                                    BorderBrushChecked="#8B5CF6"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+                <!-- Card Style Options -->
+                <StackPanel Margin="0,0,0,32">
+                    <TextBlock Text="Card Style Options" FontWeight="SemiBold" FontSize="15" 
+                               Foreground="#2D3436" Margin="0,0,0,16"/>
+                    <Border Background="#F8F9FA" BorderBrush="#E9ECEF" BorderThickness="1" 
+                            CornerRadius="8" Padding="20">
+                        <StackPanel>
+                            <local:CustomRadioButton Content="💳 Premium Plan - $29/month" 
+                                                    GroupName="PlanCards"
+                                                    Background="#FFFFFF"
+                                                    BackgroundChecked="#EEF2FF"
+                                                    BackgroundHover="#F9FAFB"
+                                                    BorderBrush="#E5E7EB"
+                                                    BorderBrushChecked="#6366F1"
+                                                    BorderBrushHover="#D1D5DB"
+                                                    BorderThickness="2"
+                                                    CornerRadius="12"
+                                                    Padding="20,16"
+                                                    FontSize="14"
+                                                    FontWeight="Medium"
+                                                    IsChecked="True"
+                                                    Margin="0,0,0,8"/>
+
+                            <local:CustomRadioButton Content="🚀 Pro Plan - $59/month" 
+                                                    GroupName="PlanCards"
+                                                    Background="#FFFFFF"
+                                                    BackgroundChecked="#EEF2FF"
+                                                    BackgroundHover="#F9FAFB"
+                                                    BorderBrush="#E5E7EB"
+                                                    BorderBrushChecked="#6366F1"
+                                                    BorderBrushHover="#D1D5DB"
+                                                    BorderThickness="2"
+                                                    CornerRadius="12"
+                                                    Padding="20,16"
+                                                    FontSize="14"
+                                                    FontWeight="Medium"
+                                                    Margin="0,0,0,8"/>
+
+                            <local:CustomRadioButton Content="⭐ Enterprise Plan - Contact us" 
+                                                    GroupName="PlanCards"
+                                                    Background="#FFFFFF"
+                                                    BackgroundChecked="#EEF2FF"
+                                                    BackgroundHover="#F9FAFB"
+                                                    BorderBrush="#E5E7EB"
+                                                    BorderBrushChecked="#6366F1"
+                                                    BorderBrushHover="#D1D5DB"
+                                                    BorderThickness="2"
+                                                    CornerRadius="12"
+                                                    Padding="20,16"
+                                                    FontSize="14"
+                                                    FontWeight="Medium"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+                <!-- Dark Theme Style -->
+                <StackPanel Margin="0,0,0,32">
+                    <TextBlock Text="Dark Theme Style" FontWeight="SemiBold" FontSize="15" 
+                               Foreground="#2D3436" Margin="0,0,0,16"/>
+                    <Border Background="#1F2937" BorderBrush="#374151" BorderThickness="1" 
+                            CornerRadius="8" Padding="20">
+                        <StackPanel>
+                            <local:CustomRadioButton Content="Dark Option 1" 
+                                                    GroupName="Dark"
+                                                    Foreground="#F9FAFB"
+                                                    Background="#1F2937"
+                                                    BackgroundChecked="#312E81"
+                                                    BackgroundHover="#374151"
+                                                    BorderBrush="#4B5563"
+                                                    BorderBrushChecked="#6366F1"
+                                                    BorderBrushHover="#6B7280"
+                                                    CircleBorderBrush="#6B7280"
+                                                    CircleBorderBrushChecked="#6366F1"
+                                                    CircleBorderBrushHover="#9CA3AF"
+                                                    CircleFill="#374151"
+                                                    CircleFillHover="#4B5563"
+                                                    CheckedDotFill="#6366F1"
+                                                    IsChecked="True"
+                                                    Margin="0,0,0,8"/>
+
+                            <local:CustomRadioButton Content="Dark Option 2" 
+                                                    GroupName="Dark"
+                                                    Foreground="#F9FAFB"
+                                                    Background="#1F2937"
+                                                    BackgroundChecked="#312E81"
+                                                    BackgroundHover="#374151"
+                                                    BorderBrush="#4B5563"
+                                                    BorderBrushChecked="#6366F1"
+                                                    BorderBrushHover="#6B7280"
+                                                    CircleBorderBrush="#6B7280"
+                                                    CircleBorderBrushChecked="#6366F1"
+                                                    CircleBorderBrushHover="#9CA3AF"
+                                                    CircleFill="#374151"
+                                                    CircleFillHover="#4B5563"
+                                                    CheckedDotFill="#6366F1"
+                                                    Margin="0,0,0,8"/>
+
+                            <local:CustomRadioButton Content="Dark Option 3" 
+                                                    GroupName="Dark"
+                                                    Foreground="#F9FAFB"
+                                                    Background="#1F2937"
+                                                    BackgroundChecked="#312E81"
+                                                    BackgroundHover="#374151"
+                                                    BorderBrush="#4B5563"
+                                                    BorderBrushChecked="#6366F1"
+                                                    BorderBrushHover="#6B7280"
+                                                    CircleBorderBrush="#6B7280"
+                                                    CircleBorderBrushChecked="#6366F1"
+                                                    CircleBorderBrushHover="#9CA3AF"
+                                                    CircleFill="#374151"
+                                                    CircleFillHover="#4B5563"
+                                                    CheckedDotFill="#6366F1"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+            </StackPanel>
+        </ScrollViewer>
+    </units:ShowcaseItem.DemoContent>
+</units:ShowcaseItem>

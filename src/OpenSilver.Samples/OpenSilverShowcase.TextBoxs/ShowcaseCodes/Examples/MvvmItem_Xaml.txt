@@ -1,0 +1,31 @@
+<units:ShowcaseItem
+    x:Class="OpenSilverShowcase.TextBoxs.Examples.MvvmItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:units="clr-namespace:OSFSample.Support.UI.Units;assembly=OSFSample.Support"
+    Description="TextBox with MVVM data binding."
+    Title="MVVM"
+    Order="5">
+
+    <units:ShowcaseItem.CodeSources>
+        <units:CodeSource Key="xaml" Source="/Examples/MvvmItem.xaml"/>
+        <units:CodeSource Key="xaml.cs" Source="/Examples/MvvmItem.xaml.cs"/>
+        <units:CodeSource Key="ViewModel" Source="/Examples/TextBoxViewModel.cs"/>
+    </units:ShowcaseItem.CodeSources>
+
+    <units:ShowcaseItem.DemoContent>
+        <StackPanel Margin="20">
+
+            <TextBox Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="32" Padding="8" Margin="0,0,0,12"/>
+
+            <TextBlock Text="{Binding UserName, StringFormat='Hello, {0}!'}" FontSize="16" Foreground="#3B82F6" Margin="0,0,0,12"/>
+
+            <TextBlock Text="{Binding CharacterCount, StringFormat='Characters: {0}'}" FontSize="12" Foreground="#6B7280" Margin="0,0,0,12"/>
+
+            <TextBox Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="32" Padding="8" Margin="0,0,0,12"/>
+
+            <TextBlock Text="{Binding IsValidEmail, StringFormat='Valid email: {0}'}" FontSize="12" Foreground="#10B981"/>
+
+        </StackPanel>
+    </units:ShowcaseItem.DemoContent>
+</units:ShowcaseItem>

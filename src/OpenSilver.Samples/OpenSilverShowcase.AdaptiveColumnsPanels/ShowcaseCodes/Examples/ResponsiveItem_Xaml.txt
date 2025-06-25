@@ -1,0 +1,181 @@
+﻿<units:ShowcaseItem
+    x:Class="OpenSilverShowcase.AdaptiveColumnsPanels.Examples.ResponsiveItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:units="clr-namespace:OSFSample.Support.UI.Units;assembly=OSFSample.Support"
+    xmlns:controlskit="clr-namespace:OSFSample.Support.UI.Units;assembly=OSFSample.Support"
+    Description="Multiple AdaptiveColumnsPanels with different breakpoints showing responsive behavior."
+    Title="Responsive"
+    Order="2">
+
+    <units:ShowcaseItem.CodeSources>
+        <units:CodeSource Key="xaml" Source="/Examples/ResponsiveItem.xaml"/>
+        <units:CodeSource Key="xaml.cs" Source="/Examples/ResponsiveItem.xaml.cs"/>
+    </units:ShowcaseItem.CodeSources>
+
+    <units:ShowcaseItem.DemoContent>
+        <StackPanel>
+            <!-- Global Width Control - Fixed Width -->
+            <Border Background="#1F2937" 
+                    Padding="20" 
+                    CornerRadius="12" 
+                    Margin="0,0,0,20"
+                    HorizontalAlignment="Stretch">
+                <StackPanel>
+                    <TextBlock Text="📱💻🖥️ Responsive Breakpoints Demo" 
+                               FontSize="18" 
+                               FontWeight="Bold" 
+                               Foreground="White"
+                               HorizontalAlignment="Center"
+                               Margin="0,0,0,16"/>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" 
+                                   Text="Container Width:" 
+                                   VerticalAlignment="Center" 
+                                   Margin="0,0,16,0"
+                                   FontWeight="Medium"
+                                   Foreground="#D1D5DB"/>
+
+                        <Slider x:Name="GlobalWidthSlider" 
+                                Grid.Column="1"
+                                Minimum="250" 
+                                Maximum="900" 
+                                Value="700"
+                                VerticalAlignment="Center"/>
+
+                        <TextBlock Grid.Column="2" 
+                                   Text="{Binding ElementName=GlobalWidthSlider, Path=Value, StringFormat='{}{0:F0}px'}" 
+                                   VerticalAlignment="Center" 
+                                   Margin="16,0,0,0"
+                                   FontWeight="Bold"
+                                   Foreground="#60A5FA"
+                                   MinWidth="70"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <!-- Mobile First (300px breakpoint) -->
+            <StackPanel Margin="0,0,0,24">
+                <TextBlock Text="📱 Mobile First (Breakpoint: 300px)" 
+                           FontSize="16" 
+                           FontWeight="SemiBold"
+                           Foreground="#374151"
+                           Margin="0,0,0,12"/>
+
+                <Border Background="#FEF3C7" 
+                        Padding="16" 
+                        CornerRadius="8" 
+                        BorderBrush="#F59E0B" 
+                        BorderThickness="2"
+                        Width="{Binding ElementName=GlobalWidthSlider, Path=Value}"
+                        HorizontalAlignment="Left">
+
+                    <controlskit:AdaptiveColumnsPanel NoColumnsBelowWidth="300">
+                        <Border Height="80" CornerRadius="8" Margin="4" Background="#F59E0B">
+                            <TextBlock Text="📱 Mobile" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                        </Border>
+                        <Border Height="80" CornerRadius="8" Margin="4" Background="#F59E0B">
+                            <TextBlock Text="📲 Apps" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                        </Border>
+                        <Border Height="80" CornerRadius="8" Margin="4" Background="#F59E0B">
+                            <TextBlock Text="🔔 Alerts" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                        </Border>
+                    </controlskit:AdaptiveColumnsPanel>
+                </Border>
+            </StackPanel>
+
+            <!-- Tablet (500px breakpoint) -->
+            <StackPanel Margin="0,0,0,24">
+                <TextBlock Text="📱 Tablet Layout (Breakpoint: 500px)" 
+                           FontSize="16" 
+                           FontWeight="SemiBold"
+                           Foreground="#374151"
+                           Margin="0,0,0,12"/>
+
+                <Border Background="#DBEAFE" 
+                        Padding="16" 
+                        CornerRadius="8" 
+                        BorderBrush="#3B82F6" 
+                        BorderThickness="2"
+                        Width="{Binding ElementName=GlobalWidthSlider, Path=Value}"
+                        HorizontalAlignment="Left">
+
+                    <controlskit:AdaptiveColumnsPanel NoColumnsBelowWidth="500">
+                        <Border Height="90" CornerRadius="12" Margin="6" Background="#3B82F6">
+                            <TextBlock Text="💻 Workspace" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                        </Border>
+                        <Border Height="90" CornerRadius="12" Margin="6" Background="#3B82F6">
+                            <TextBlock Text="📊 Dashboard" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                        </Border>
+                        <Border Height="90" CornerRadius="12" Margin="6" Background="#3B82F6">
+                            <TextBlock Text="⚙️ Tools" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                        </Border>
+                        <Border Height="90" CornerRadius="12" Margin="6" Background="#3B82F6">
+                            <TextBlock Text="📈 Analytics" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                        </Border>
+                    </controlskit:AdaptiveColumnsPanel>
+                </Border>
+            </StackPanel>
+
+            <!-- Desktop (700px breakpoint) -->
+            <StackPanel>
+                <TextBlock Text="🖥️ Desktop Layout (Breakpoint: 700px)" 
+                           FontSize="16" 
+                           FontWeight="SemiBold"
+                           Foreground="#374151"
+                           Margin="0,0,0,12"/>
+
+                <Border Background="#D1FAE5" 
+                        Padding="16" 
+                        CornerRadius="8" 
+                        BorderBrush="#10B981" 
+                        BorderThickness="2"
+                        Width="{Binding ElementName=GlobalWidthSlider, Path=Value}"
+                        HorizontalAlignment="Left">
+
+                    <controlskit:AdaptiveColumnsPanel NoColumnsBelowWidth="700">
+                        <Border Height="100" CornerRadius="16" Margin="8" Background="#10B981">
+                            <TextBlock Text="🏠 Home" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                        </Border>
+                        <Border Height="100" CornerRadius="16" Margin="8" Background="#10B981">
+                            <TextBlock Text="🛍️ Products" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                        </Border>
+                        <Border Height="100" CornerRadius="16" Margin="8" Background="#10B981">
+                            <TextBlock Text="📞 Contact" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                        </Border>
+                        <Border Height="100" CornerRadius="16" Margin="8" Background="#10B981">
+                            <TextBlock Text="ℹ️ About" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                        </Border>
+                        <Border Height="100" CornerRadius="16" Margin="8" Background="#10B981">
+                            <TextBlock Text="🎯 Services" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                        </Border>
+                        <Border Height="100" CornerRadius="16" Margin="8" Background="#10B981">
+                            <TextBlock Text="📝 Blog" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                        </Border>
+                    </controlskit:AdaptiveColumnsPanel>
+                </Border>
+            </StackPanel>
+
+            <!-- Status Info -->
+            <Border Background="#F3F4F6" 
+                    Padding="16" 
+                    CornerRadius="8" 
+                    BorderBrush="#D1D5DB" 
+                    BorderThickness="1"
+                    Margin="0,24,0,0">
+                <TextBlock Text="✨ Each panel has a different NoColumnsBelowWidth value. Watch how they stack at different breakpoints!"
+                           FontSize="13"
+                           Foreground="#6B7280"
+                           HorizontalAlignment="Center"
+                           TextWrapping="Wrap"/>
+            </Border>
+        </StackPanel>
+    </units:ShowcaseItem.DemoContent>
+</units:ShowcaseItem>

@@ -78,7 +78,7 @@
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
 
-                            <Border Grid.Row="0" Background="#FF2A68A1" Margin="0" CornerRadius="10 10 0 0">
+                            <Border Grid.Row="0" Background="#FF2A68A1" Margin="0" CornerRadius="10 10 10 10">
                                 <StackPanel Margin="20">
                                     <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
                                         <Image Source="/OSFSample.Support;component/Local/Images/opensilver.png" Width="30" Height="30" Stretch="Uniform" VerticalAlignment="Center"/>

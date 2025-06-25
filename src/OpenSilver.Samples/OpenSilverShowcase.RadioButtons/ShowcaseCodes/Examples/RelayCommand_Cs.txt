@@ -1,0 +1,8 @@
+﻿using System.Windows.Input;
+
+namespace OpenSilverShowcase.RadioButtons.Examples
+{
+    internal class RelayCommand : ICommand
+    {
+    }
+}

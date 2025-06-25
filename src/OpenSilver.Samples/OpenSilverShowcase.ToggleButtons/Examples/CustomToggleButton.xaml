@@ -1,0 +1,423 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:OpenSilverShowcase.ToggleButtons.Examples">
+
+    <local:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    <local:ToggleStyleToVisibilityConverter x:Key="ToggleStyleToVisibilityConverter"/>
+
+    <Style TargetType="local:CustomToggleButton">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:CustomToggleButton">
+                    <Grid>
+                        <!-- Default Style -->
+                        <Border x:Name="DefaultContainer"
+                                Visibility="{Binding ToggleStyle, RelativeSource={RelativeSource TemplatedParent}, 
+                                           Converter={StaticResource ToggleStyleToVisibilityConverter}, 
+                                           ConverterParameter=Default}">
+                            <Border x:Name="DefaultBorder"
+                                    Background="{Binding UncheckedBackground, RelativeSource={RelativeSource TemplatedParent}}"
+                                    BorderBrush="#DDD" BorderThickness="1"
+                                    CornerRadius="{Binding CornerRadius, RelativeSource={RelativeSource TemplatedParent}}"
+                                    Padding="12,8">
+
+                                <Border.Effect>
+                                    <DropShadowEffect x:Name="DefaultShadow"
+                                                      Color="#000000" Opacity="0.1"
+                                                      BlurRadius="4" ShadowDepth="2"/>
+                                </Border.Effect>
+
+                                <StackPanel Orientation="Horizontal" 
+                                            HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Path x:Name="DefaultIcon"
+                                          Data="{Binding IconData, RelativeSource={RelativeSource TemplatedParent}}"
+                                          Width="{Binding IconWidth, RelativeSource={RelativeSource TemplatedParent}}"
+                                          Height="{Binding IconHeight, RelativeSource={RelativeSource TemplatedParent}}"
+                                          Fill="{Binding UncheckedForeground, RelativeSource={RelativeSource TemplatedParent}}"
+                                          Margin="{Binding IconMargin, RelativeSource={RelativeSource TemplatedParent}}"
+                                          Stretch="Uniform"/>
+
+                                    <StackPanel>
+                                        <ContentPresenter x:Name="DefaultContentPresenter"
+                                                          Content="{TemplateBinding Content}" 
+                                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                          TextBlock.Foreground="{Binding UncheckedForeground, RelativeSource={RelativeSource TemplatedParent}}"
+                                                          HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        <TextBlock Text="{Binding Description, RelativeSource={RelativeSource TemplatedParent}}"
+                                                   Foreground="#6C757D" FontSize="11" Margin="0,2,0,0"
+                                                   Visibility="{Binding Description, RelativeSource={RelativeSource TemplatedParent}, 
+                                                              Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+                        </Border>
+
+                        <!-- Switch Style -->
+                        <Border x:Name="SwitchContainer"
+                                Visibility="{Binding ToggleStyle, RelativeSource={RelativeSource TemplatedParent}, 
+                                           Converter={StaticResource ToggleStyleToVisibilityConverter}, 
+                                           ConverterParameter=Switch}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel Grid.Column="0" VerticalAlignment="Center">
+                                    <ContentPresenter x:Name="SwitchContentPresenter"
+                                                      Content="{TemplateBinding Content}" 
+                                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                      TextBlock.Foreground="{Binding UncheckedForeground, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                    <TextBlock Text="{Binding Description, RelativeSource={RelativeSource TemplatedParent}}"
+                                               Foreground="#6C757D" FontSize="11" Margin="0,2,0,0"
+                                               Visibility="{Binding Description, RelativeSource={RelativeSource TemplatedParent}, 
+                                                          Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                </StackPanel>
+
+                                <Border x:Name="SwitchTrack" Grid.Column="1"
+                                        Width="48" Height="26" Background="#DDD"
+                                        CornerRadius="13" Margin="12,0,0,0">
+                                    <Ellipse x:Name="SwitchThumb"
+                                             Width="22" Height="22"
+                                             Fill="White" 
+                                             HorizontalAlignment="Left"
+                                             Margin="2"/>
+                                </Border>
+                            </Grid>
+                        </Border>
+
+                        <!-- Card Style -->
+                        <Border x:Name="CardContainer"
+                                Visibility="{Binding ToggleStyle, RelativeSource={RelativeSource TemplatedParent}, 
+                                           Converter={StaticResource ToggleStyleToVisibilityConverter}, 
+                                           ConverterParameter=Card}"
+                                Background="#F8F9FA" BorderBrush="#E9ECEF" BorderThickness="1"
+                                CornerRadius="8" Padding="16">
+                            <Border.Effect>
+                                <DropShadowEffect x:Name="CardShadow"
+                                                  Color="#000000" Opacity="0.08"
+                                                  BlurRadius="6" ShadowDepth="3"/>
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Border x:Name="CardIndicator" Grid.Column="0"
+                                        Width="4" Background="#DDD" 
+                                        CornerRadius="2" Margin="0,0,12,0"/>
+
+                                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Path x:Name="CardIcon"
+                                              Data="{Binding IconData, RelativeSource={RelativeSource TemplatedParent}}"
+                                              Width="{Binding IconWidth, RelativeSource={RelativeSource TemplatedParent}}"
+                                              Height="{Binding IconHeight, RelativeSource={RelativeSource TemplatedParent}}"
+                                              Fill="{Binding UncheckedForeground, RelativeSource={RelativeSource TemplatedParent}}"
+                                              Margin="{Binding IconMargin, RelativeSource={RelativeSource TemplatedParent}}"
+                                              Stretch="Uniform"/>
+
+                                        <ContentPresenter x:Name="CardContentPresenter"
+                                                          Content="{TemplateBinding Content}" 
+                                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                          TextBlock.Foreground="{Binding UncheckedForeground, RelativeSource={RelativeSource TemplatedParent}}"
+                                                          VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <TextBlock Text="{Binding Description, RelativeSource={RelativeSource TemplatedParent}}"
+                                               Foreground="#6C757D" FontSize="11" Margin="0,4,0,0"
+                                               Visibility="{Binding Description, RelativeSource={RelativeSource TemplatedParent}, 
+                                                          Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+
+                        <!-- Pill Style -->
+                        <Border x:Name="PillContainer"
+                                Visibility="{Binding ToggleStyle, RelativeSource={RelativeSource TemplatedParent}, 
+                                           Converter={StaticResource ToggleStyleToVisibilityConverter}, 
+                                           ConverterParameter=Pill}"
+                                Background="{Binding UncheckedBackground, RelativeSource={RelativeSource TemplatedParent}}"
+                                BorderBrush="#DDD" BorderThickness="1"
+                                CornerRadius="20" Padding="16,10">
+
+                            <Border.Effect>
+                                <DropShadowEffect x:Name="PillShadow"
+                                                  Color="#000000" Opacity="0.1"
+                                                  BlurRadius="4" ShadowDepth="2"/>
+                            </Border.Effect>
+
+                            <StackPanel Orientation="Horizontal" 
+                                        HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Path x:Name="PillIcon"
+                                      Data="{Binding IconData, RelativeSource={RelativeSource TemplatedParent}}"
+                                      Width="{Binding IconWidth, RelativeSource={RelativeSource TemplatedParent}}"
+                                      Height="{Binding IconHeight, RelativeSource={RelativeSource TemplatedParent}}"
+                                      Fill="{Binding UncheckedForeground, RelativeSource={RelativeSource TemplatedParent}}"
+                                      Margin="{Binding IconMargin, RelativeSource={RelativeSource TemplatedParent}}"
+                                      Stretch="Uniform"/>
+
+                                <ContentPresenter x:Name="PillContentPresenter"
+                                                  Content="{TemplateBinding Content}" 
+                                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                  TextBlock.Foreground="{Binding UncheckedForeground, RelativeSource={RelativeSource TemplatedParent}}"
+                                                  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Icon Style -->
+                        <Border x:Name="IconContainer"
+                                Visibility="{Binding ToggleStyle, RelativeSource={RelativeSource TemplatedParent}, 
+                                           Converter={StaticResource ToggleStyleToVisibilityConverter}, 
+                                           ConverterParameter=Icon}"
+                                Background="{Binding UncheckedBackground, RelativeSource={RelativeSource TemplatedParent}}"
+                                BorderBrush="Transparent" BorderThickness="0"
+                                CornerRadius="50" 
+                                Width="48" Height="48">
+
+                            <Border.Effect>
+                                <DropShadowEffect x:Name="IconShadow"
+                                                  Color="#000000" Opacity="0.12"
+                                                  BlurRadius="8" ShadowDepth="3"/>
+                            </Border.Effect>
+
+                            <Path x:Name="IconOnlyPath"
+                                  Data="{Binding IconData, RelativeSource={RelativeSource TemplatedParent}}"
+                                  Width="24" Height="24"
+                                  Fill="{Binding UncheckedForeground, RelativeSource={RelativeSource TemplatedParent}}"
+                                  HorizontalAlignment="Center" VerticalAlignment="Center"
+                                  Stretch="Uniform"/>
+                        </Border>
+
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CheckStates">
+                                <VisualState x:Name="Checked">
+                                    <Storyboard>
+                                        <!-- Default Style Animations -->
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="DefaultBorder" 
+                                                                       Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding CheckedBackground, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="DefaultBorder" 
+                                                                       Storyboard.TargetProperty="BorderBrush">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding CheckedBackground, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="DefaultIcon" 
+                                                                       Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding CheckedForeground, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="DefaultContentPresenter" 
+                                                                       Storyboard.TargetProperty="(TextBlock.Foreground)">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding CheckedForeground, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimation Storyboard.TargetName="DefaultShadow" 
+                                                         Storyboard.TargetProperty="Opacity"
+                                                         To="0.25" Duration="{Binding AnimationDuration, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        <DoubleAnimation Storyboard.TargetName="DefaultShadow" 
+                                                         Storyboard.TargetProperty="BlurRadius"
+                                                         To="8" Duration="{Binding AnimationDuration, RelativeSource={RelativeSource TemplatedParent}}"/>
+
+                                        <!-- Switch Style Animations -->
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="SwitchTrack" 
+                                                                       Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding CheckedBackground, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ThicknessAnimation Storyboard.TargetName="SwitchThumb" 
+                                                            Storyboard.TargetProperty="Margin"
+                                                            To="24,2,2,2" Duration="{Binding AnimationDuration, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="SwitchContentPresenter" 
+                                                                       Storyboard.TargetProperty="(TextBlock.Foreground)">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding CheckedForeground, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+
+                                        <!-- Card Style Animations -->
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CardIndicator" 
+                                                                       Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding CheckedBackground, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CardContainer" 
+                                                                       Storyboard.TargetProperty="BorderBrush">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding CheckedBackground, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CardIcon" 
+                                                                       Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding CheckedBackground, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CardContentPresenter" 
+                                                                       Storyboard.TargetProperty="(TextBlock.Foreground)">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding CheckedForeground, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimation Storyboard.TargetName="CardShadow" 
+                                                         Storyboard.TargetProperty="Opacity"
+                                                         To="0.2" Duration="{Binding AnimationDuration, RelativeSource={RelativeSource TemplatedParent}}"/>
+
+                                        <!-- Pill Style Animations -->
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PillContainer" 
+                                                                       Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding CheckedBackground, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PillContainer" 
+                                                                       Storyboard.TargetProperty="BorderBrush">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding CheckedBackground, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PillIcon" 
+                                                                       Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding CheckedForeground, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PillContentPresenter" 
+                                                                       Storyboard.TargetProperty="(TextBlock.Foreground)">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding CheckedForeground, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimation Storyboard.TargetName="PillShadow" 
+                                                         Storyboard.TargetProperty="Opacity"
+                                                         To="0.25" Duration="{Binding AnimationDuration, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        <DoubleAnimation Storyboard.TargetName="PillShadow" 
+                                                         Storyboard.TargetProperty="BlurRadius"
+                                                         To="8" Duration="{Binding AnimationDuration, RelativeSource={RelativeSource TemplatedParent}}"/>
+
+                                        <!-- Icon Style Animations -->
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="IconContainer" 
+                                                                       Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding CheckedBackground, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="IconOnlyPath" 
+                                                                       Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding CheckedForeground, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimation Storyboard.TargetName="IconShadow" 
+                                                         Storyboard.TargetProperty="Opacity"
+                                                         To="0.3" Duration="{Binding AnimationDuration, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        <DoubleAnimation Storyboard.TargetName="IconShadow" 
+                                                         Storyboard.TargetProperty="BlurRadius"
+                                                         To="12" Duration="{Binding AnimationDuration, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                    </Storyboard>
+                                </VisualState>
+
+                                <VisualState x:Name="Unchecked">
+                                    <Storyboard>
+                                        <!-- Default Style Animations -->
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="DefaultBorder" 
+                                                                       Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding UncheckedBackground, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="DefaultBorder" 
+                                                                       Storyboard.TargetProperty="BorderBrush">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="#DDD"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="DefaultIcon" 
+                                                                       Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding UncheckedForeground, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="DefaultContentPresenter" 
+                                                                       Storyboard.TargetProperty="(TextBlock.Foreground)">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding UncheckedForeground, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimation Storyboard.TargetName="DefaultShadow" 
+                                                         Storyboard.TargetProperty="Opacity"
+                                                         To="0.1" Duration="{Binding AnimationDuration, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        <DoubleAnimation Storyboard.TargetName="DefaultShadow" 
+                                                         Storyboard.TargetProperty="BlurRadius"
+                                                         To="4" Duration="{Binding AnimationDuration, RelativeSource={RelativeSource TemplatedParent}}"/>
+
+                                        <!-- Switch Style Animations -->
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="SwitchTrack" 
+                                                                       Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="#DDD"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ThicknessAnimation Storyboard.TargetName="SwitchThumb" 
+                                                            Storyboard.TargetProperty="Margin"
+                                                            To="2,2,2,2" Duration="{Binding AnimationDuration, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="SwitchContentPresenter" 
+                                                                       Storyboard.TargetProperty="(TextBlock.Foreground)">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding UncheckedForeground, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+
+                                        <!-- Card Style Animations -->
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CardIndicator" 
+                                                                       Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="#DDD"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CardContainer" 
+                                                                       Storyboard.TargetProperty="BorderBrush">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="#E9ECEF"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CardIcon" 
+                                                                       Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding UncheckedForeground, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="CardContentPresenter" 
+                                                                       Storyboard.TargetProperty="(TextBlock.Foreground)">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding UncheckedForeground, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimation Storyboard.TargetName="CardShadow" 
+                                                         Storyboard.TargetProperty="Opacity"
+                                                         To="0.08" Duration="{Binding AnimationDuration, RelativeSource={RelativeSource TemplatedParent}}"/>
+
+                                        <!-- Pill Style Animations -->
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PillContainer" 
+                                                                       Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding UncheckedBackground, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PillContainer" 
+                                                                       Storyboard.TargetProperty="BorderBrush">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="#DDD"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PillIcon" 
+                                                                       Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding UncheckedForeground, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PillContentPresenter" 
+                                                                       Storyboard.TargetProperty="(TextBlock.Foreground)">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding UncheckedForeground, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimation Storyboard.TargetName="PillShadow" 
+                                                         Storyboard.TargetProperty="Opacity"
+                                                         To="0.1" Duration="{Binding AnimationDuration, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        <DoubleAnimation Storyboard.TargetName="PillShadow" 
+                                                         Storyboard.TargetProperty="BlurRadius"
+                                                         To="4" Duration="{Binding AnimationDuration, RelativeSource={RelativeSource TemplatedParent}}"/>
+
+                                        <!-- Icon Style Animations -->
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="IconContainer" 
+                                                                       Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding UncheckedBackground, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="IconOnlyPath" 
+                                                                       Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding UncheckedForeground, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimation Storyboard.TargetName="IconShadow" 
+                                                         Storyboard.TargetProperty="Opacity"
+                                                         To="0.12" Duration="{Binding AnimationDuration, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        <DoubleAnimation Storyboard.TargetName="IconShadow" 
+                                                         Storyboard.TargetProperty="BlurRadius"
+                                                         To="8" Duration="{Binding AnimationDuration, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                    </Storyboard>
+                                </VisualState>
+
+                                <VisualState x:Name="Indeterminate">
+                                    <Storyboard>
+                                        <!-- 중간 상태는 주황색으로 표시 -->
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="DefaultBorder" 
+                                                                       Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="#FFA500"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="SwitchTrack" 
+                                                                       Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="#FFA500"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ThicknessAnimation Storyboard.TargetName="SwitchThumb" 
+                                                            Storyboard.TargetProperty="Margin"
+                                                            To="13,2,2,2" Duration="{Binding AnimationDuration, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,99 @@
+﻿<units:ShowcaseItem
+    x:Class="OpenSilverShowcase.TextBoxs.Examples.MultilineItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:units="clr-namespace:OSFSample.Support.UI.Units;assembly=OSFSample.Support"
+    Description="Multiline TextBox examples."
+    Title="Multiline"
+    Order="2">
+
+    <units:ShowcaseItem.CodeSources>
+        <units:CodeSource Key="xaml" Source="/Examples/MultilineItem.xaml"/>
+        <units:CodeSource Key="xaml.cs" Source="/Examples/MultilineItem.xaml.cs"/>
+    </units:ShowcaseItem.CodeSources>
+
+    <units:ShowcaseItem.DemoContent>
+        <StackPanel Margin="20">
+
+            <!-- Interactive Controls -->
+            <StackPanel Margin="0,0,0,20">
+                <TextBlock Text="Settings:" FontWeight="SemiBold" Margin="0,0,0,8"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                    <TextBlock Text="Height:" VerticalAlignment="Center" Margin="0,0,12,0"/>
+                    <Slider x:Name="HeightSlider" Minimum="40" Maximum="200" Value="80" Width="150"/>
+                    <TextBlock Text="{Binding ElementName=HeightSlider, Path=Value, StringFormat='{}{0:F0}px'}" 
+                               VerticalAlignment="Center" Margin="8,0,0,0" FontWeight="Bold"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox x:Name="TextWrappingCheckBox" Content="Text Wrapping" IsChecked="True" Margin="0,0,16,0"/>
+                    <CheckBox x:Name="AcceptsReturnCheckBox" Content="Accepts Return" IsChecked="True" Margin="0,0,16,0"/>
+                    <CheckBox x:Name="ScrollBarCheckBox" Content="Show ScrollBar" IsChecked="True"/>
+                </StackPanel>
+            </StackPanel>
+
+            <!-- Demo TextBoxes -->
+            <StackPanel>
+
+                <!-- Single Line for comparison -->
+                <Border Background="White" Padding="16" CornerRadius="8" BorderBrush="#E5E7EB" BorderThickness="1" Margin="0,0,0,16">
+                    <StackPanel>
+                        <TextBlock Text="Single Line (for comparison):" FontWeight="SemiBold" Margin="0,0,0,8"/>
+                        <TextBox Text="This is a single line TextBox that doesn't wrap text or accept returns"
+                                 Height="32" Padding="8"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Interactive Multiline -->
+                <Border Background="White" Padding="16" CornerRadius="8" BorderBrush="#E5E7EB" BorderThickness="1" Margin="0,0,0,16">
+                    <StackPanel>
+                        <TextBlock Text="Interactive Multiline TextBox:" FontWeight="SemiBold" Margin="0,0,0,8"/>
+                        <TextBox x:Name="InteractiveTextBox"
+                                 Text="This is a multiline TextBox.&#x0a;Try typing here and pressing Enter!&#x0a;You can also adjust the settings above to see how they affect this TextBox.&#x0a;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                                 Height="{Binding ElementName=HeightSlider, Path=Value}"
+                                 TextWrapping="Wrap"
+                                 AcceptsReturn="True"
+                                 VerticalScrollBarVisibility="Auto"
+                                 Padding="8"/>
+                        <TextBlock Text="{Binding ElementName=InteractiveTextBox, Path=Text.Length, StringFormat='Character count: {0}'}" 
+                                   FontSize="11" Foreground="#6B7280" Margin="0,4,0,0"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Pre-filled Examples -->
+                <Border Background="White" Padding="16" CornerRadius="8" BorderBrush="#E5E7EB" BorderThickness="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="12"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0">
+                            <TextBlock Text="Note/Memo Style:" FontWeight="SemiBold" Margin="0,0,0,8"/>
+                            <TextBox Text="Meeting Notes:&#x0a;- Discuss project timeline&#x0a;- Review budget allocation&#x0a;- Plan next sprint&#x0a;&#x0a;Action items:&#x0a;[ ] Send proposal to client&#x0a;[ ] Update documentation&#x0a;[ ] Schedule follow-up meeting"
+                                     TextWrapping="Wrap"
+                                     AcceptsReturn="True"
+                                     Height="120"
+                                     Padding="8"
+                                     VerticalScrollBarVisibility="Auto"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="2">
+                            <TextBlock Text="Message/Email Style:" FontWeight="SemiBold" Margin="0,0,0,8"/>
+                            <TextBox Text="Dear Team,&#x0a;&#x0a;I hope this message finds you well. I wanted to provide an update on our current project status and outline the next steps.&#x0a;&#x0a;Current Progress:&#x0a;✓ Requirements gathering completed&#x0a;✓ Design mockups approved&#x0a;⏳ Development in progress&#x0a;&#x0a;Best regards,&#x0a;Project Manager"
+                                     TextWrapping="Wrap"
+                                     AcceptsReturn="True"
+                                     Height="120"
+                                     Padding="8"
+                                     VerticalScrollBarVisibility="Auto"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+            </StackPanel>
+
+        </StackPanel>
+    </units:ShowcaseItem.DemoContent>
+</units:ShowcaseItem>

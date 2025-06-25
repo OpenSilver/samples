@@ -8,10 +8,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="BasicStyle\BasicToggleButtonContent.xaml.cs">
+    <Compile Include="Examples\BasicItem.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ToggleButtonShow.xaml.cs">
+    <Compile Include="Examples\BindingItem.xaml.cs" />
+    <Compile Include="Examples\CustomConverter.cs" />
+    <Compile Include="Examples\CustomItem.xaml.cs" />
+    <Compile Include="Examples\CustomToggleButton.cs" />
+    <Compile Include="Examples\EventsItem.xaml.cs" />
+    <Compile Include="Examples\MVVMItem.xaml.cs" />
+    <Compile Include="Examples\RelayCommand.cs" />
+    <Compile Include="Examples\StylingItem.xaml.cs" />
+    <Compile Include="Examples\ThreeStateItem.xaml.cs" />
+    <Compile Include="Examples\ToggleButtonViewModel.cs" />
+    <Compile Include="ToggleButtonContent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -21,11 +31,36 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Page Include="BasicStyle\BasicToggleButtonContent.xaml">
+    <Page Include="Examples\BasicItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ToggleButtonShow.xaml">
+    <Page Include="Examples\BindingItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Examples\CustomItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Examples\CustomToggleButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Examples\EventsItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Examples\MVVMItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Examples\StylingItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Examples\ThreeStateItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ToggleButtonContent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -63,5 +98,12 @@
 			<EmbeddedFiles Include="ShowcaseCodes\**\*.txt" />
 		</ItemGroup>
 		<Message Text="Embedded Resources: @(EmbeddedFiles)" Importance="High" />
+	</Target>
+	<Target Name="CopyDllToEnterpriseApp" AfterTargets="AfterBuild">
+		<PropertyGroup>
+			<DllDestinationPath>..\..\..\..\opensilver.enterpriseapp\src\DLLs</DllDestinationPath>
+		</PropertyGroup>
+		<Copy SourceFiles="$(OutputPath)$(AssemblyName).dll" DestinationFolder="$(DllDestinationPath)" SkipUnchangedFiles="true" />
+		<Message Text="DLL copied to: $(DllDestinationPath)\$(AssemblyName).dll" Importance="High" />
 	</Target>
 </Project>

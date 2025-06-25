@@ -10,11 +10,18 @@
         <Setter Property="Background" Value="#FFFFFF"/>
         <Setter Property="DemoBackground" Value="#F9FAFB"/>
         <Setter Property="DemoBorderBrush" Value="#E5E7EB"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="units:ShowcaseItem">
                     <Border CornerRadius="10" Background="{TemplateBinding Background}" Padding="24" Margin="0,0,0,32">
-                        <StackPanel>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
 
                             <!-- Title -->
                             <TextBlock x:Name="PART_TitleBlock"
@@ -25,7 +32,7 @@
                                        Margin="0,0,0,2"/>
 
                             <!-- Description -->
-                            <TextBlock x:Name="PART_DescriptionBlock"
+                            <TextBlock Grid.Row="1" x:Name="PART_DescriptionBlock"
                                        Text="{TemplateBinding Description}"
                                        FontSize="14"
                                        Foreground="#4A4A4A"
@@ -33,19 +40,21 @@
                                        Margin="0,0,0,20"/>
 
                             <!-- Demo Box -->
-                            <Border Background="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=DemoBackground}"
+                            <Border Grid.Row="2"
                                     CornerRadius="12"
                                     BorderBrush="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=DemoBorderBrush}"
+                                    Background="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=DemoBackground}"
                                     BorderThickness="1"
                                     Padding="32"
                                     Margin="0,0,0,12">
                                 <ContentControl x:Name="PART_DemoHost"
-                                                Content="{TemplateBinding DemoContent}"
-                                                HorizontalAlignment="Center"/>
+                                                HorizontalAlignment="Stretch"
+                                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                Content="{TemplateBinding DemoContent}"/>
                             </Border>
 
                             <!-- Code Block -->
-                            <Grid>
+                            <Grid Grid.Row="3">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="*" />
@@ -107,7 +116,7 @@
                                     </ScrollViewer>
                                 </Border>
                             </Grid>
-                        </StackPanel>
+                        </Grid>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>

@@ -1,0 +1,36 @@
+<units:ShowcaseItem
+    x:Class="OpenSilverShowcase.ComboBoxs.Examples.ItemsSourceItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:units="clr-namespace:OSFSample.Support.UI.Units;assembly=OSFSample.Support"
+    Description="Using ItemsSource with simple string collections from code-behind."
+    Title="Items Source"
+    Order="2">
+    <units:ShowcaseItem.CodeSources>
+        <units:CodeSource Key="xaml" Source="/OpenSilverShowcase.ComboBoxs;component/Examples/ItemsSourceItem.xaml"/>
+        <units:CodeSource Key="cs" Source="/OpenSilverShowcase.ComboBoxs;component/Examples/ItemsSourceItem.xaml.cs"/>
+    </units:ShowcaseItem.CodeSources>
+    <units:ShowcaseItem.DemoContent>
+        <WrapPanel>
+            <StackPanel Margin="10">
+                <TextBlock Text="Countries:" FontWeight="Bold" Margin="0,0,0,5"/>
+                <ComboBox x:Name="CountriesComboBox" Width="150" Margin="5"/>
+            </StackPanel>
+
+            <StackPanel Margin="10">
+                <TextBlock Text="Fruits:" FontWeight="Bold" Margin="0,0,0,5"/>
+                <ComboBox x:Name="FruitsComboBox" Width="150" Margin="5"/>
+            </StackPanel>
+
+            <StackPanel Margin="10">
+                <TextBlock Text="Colors (Pre-selected):" FontWeight="Bold" Margin="0,0,0,5"/>
+                <ComboBox x:Name="ColorsComboBox" Width="150" Margin="5"/>
+            </StackPanel>
+
+            <StackPanel Margin="10">
+                <TextBlock Text="Numbers:" FontWeight="Bold" Margin="0,0,0,5"/>
+                <ComboBox x:Name="NumbersComboBox" Width="150" Margin="5"/>
+            </StackPanel>
+        </WrapPanel>
+    </units:ShowcaseItem.DemoContent>
+</units:ShowcaseItem>

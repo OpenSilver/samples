@@ -1,0 +1,97 @@
+﻿<units:ShowcaseItem
+    x:Class="OpenSilverShowcase.RadioButtons.Examples.BindingItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    HorizontalContentAlignment="Stretch"
+    xmlns:units="clr-namespace:OSFSample.Support.UI.Units;assembly=OSFSample.Support"
+    Description="RadioButton with data binding examples."
+    Title="Binding"
+    Order="7">
+    <units:ShowcaseItem.CodeSources>
+        <units:CodeSource Key="xaml" Source="/Examples/BindingItem.xaml"/>
+        <units:CodeSource Key="xaml.cs" Source="/Examples/BindingItem.xaml.cs"/>
+    </units:ShowcaseItem.CodeSources>
+    <units:ShowcaseItem.DemoContent>
+        <ScrollViewer>
+            <StackPanel>
+                <!-- Master RadioButton Group -->
+                <TextBlock Text="Master Group" FontWeight="SemiBold" FontSize="15" 
+                           Foreground="#2D3436" Margin="0,0,0,16"/>
+                <Border Background="#F8F9FA" BorderBrush="#E9ECEF" BorderThickness="1" 
+                        CornerRadius="8" Padding="20" Margin="0,0,0,32">
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton x:Name="OptionA" Content="Option A" GroupName="Master" IsChecked="True" Margin="0,0,20,0"/>
+                        <RadioButton x:Name="OptionB" Content="Option B" GroupName="Master" Margin="0,0,20,0"/>
+                        <RadioButton x:Name="OptionC" Content="Option C" GroupName="Master"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Bound Group (Two-Way) -->
+                <TextBlock Text="Bound Group • Two-Way" FontWeight="SemiBold" FontSize="15" 
+                           Foreground="#2D3436" Margin="0,0,0,16"/>
+                <Border Background="#F8F9FA" BorderBrush="#E9ECEF" BorderThickness="1" 
+                        CornerRadius="8" Padding="20" Margin="0,0,0,32">
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton Content="Bound A" GroupName="BoundTwoWay" 
+                                   IsChecked="{Binding IsChecked, ElementName=OptionA, Mode=TwoWay}" 
+                                   Margin="0,0,20,0"/>
+                        <RadioButton Content="Bound B" GroupName="BoundTwoWay" 
+                                   IsChecked="{Binding IsChecked, ElementName=OptionB, Mode=TwoWay}" 
+                                   Margin="0,0,20,0"/>
+                        <RadioButton Content="Bound C" GroupName="BoundTwoWay" 
+                                   IsChecked="{Binding IsChecked, ElementName=OptionC, Mode=TwoWay}"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Bound Group (One-Way) -->
+                <TextBlock Text="Bound Group • One-Way" FontWeight="SemiBold" FontSize="15" 
+                           Foreground="#2D3436" Margin="0,0,0,16"/>
+                <Border Background="#F8F9FA" BorderBrush="#E9ECEF" BorderThickness="1" 
+                        CornerRadius="8" Padding="20" Margin="0,0,0,32">
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton Content="Mirror A" GroupName="BoundOneWay" 
+                                   IsChecked="{Binding IsChecked, ElementName=OptionA, Mode=OneWay}" 
+                                   Margin="0,0,20,0"/>
+                        <RadioButton Content="Mirror B" GroupName="BoundOneWay" 
+                                   IsChecked="{Binding IsChecked, ElementName=OptionB, Mode=OneWay}" 
+                                   Margin="0,0,20,0"/>
+                        <RadioButton Content="Mirror C" GroupName="BoundOneWay" 
+                                   IsChecked="{Binding IsChecked, ElementName=OptionC, Mode=OneWay}"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Bound Group (One-Time) -->
+                <TextBlock Text="Bound Group • One-Time" FontWeight="SemiBold" FontSize="15" 
+                           Foreground="#2D3436" Margin="0,0,0,16"/>
+                <Border Background="#F8F9FA" BorderBrush="#E9ECEF" BorderThickness="1" 
+                        CornerRadius="8" Padding="20" Margin="0,0,0,32">
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton Content="Initial A" GroupName="BoundOneTime" 
+                                   IsChecked="{Binding IsChecked, ElementName=OptionA, Mode=OneTime}" 
+                                   Margin="0,0,20,0"/>
+                        <RadioButton Content="Initial B" GroupName="BoundOneTime" 
+                                   IsChecked="{Binding IsChecked, ElementName=OptionB, Mode=OneTime}" 
+                                   Margin="0,0,20,0"/>
+                        <RadioButton Content="Initial C" GroupName="BoundOneTime" 
+                                   IsChecked="{Binding IsChecked, ElementName=OptionC, Mode=OneTime}"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Binding Status Display -->
+                <TextBlock Text="Binding Status Display" FontWeight="SemiBold" FontSize="15" 
+                           Foreground="#2D3436" Margin="0,0,0,16"/>
+                <Border Background="#F8F9FA" BorderBrush="#E9ECEF" BorderThickness="1" 
+                        CornerRadius="8" Padding="20">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox Text="{Binding IsChecked, ElementName=OptionA, StringFormat='Option A: {0}'}"
+                                 IsReadOnly="True" Height="32" Padding="8 0 8 0" Width="120" Margin="0,0,12,0" VerticalContentAlignment="Center"/>
+                        <TextBox Text="{Binding IsChecked, ElementName=OptionB, StringFormat='Option B: {0}'}" 
+                                 IsReadOnly="True" Height="32" Padding="8 0 8 0" Width="120" Margin="0,0,12,0" VerticalContentAlignment="Center"/>
+                        <TextBox Text="{Binding IsChecked, ElementName=OptionC, StringFormat='Option C: {0}'}" 
+                                 IsReadOnly="True" Height="32" Padding="8 0 8 0" Width="120" VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </units:ShowcaseItem.DemoContent>
+</units:ShowcaseItem>

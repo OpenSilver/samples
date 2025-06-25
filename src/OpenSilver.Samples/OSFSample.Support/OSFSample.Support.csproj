@@ -10,6 +10,9 @@
   <ItemGroup>
     <Compile Include="Local\Converters\SelectionBrushConverter.cs" />
     <Compile Include="Local\Utils\EmbededCodeLoader.cs" />
+    <Compile Include="UI\Units\StaggeredPanel.cs" />
+    <Compile Include="UI\Units\AdaptiveColumnsPanel.cs" />
+    <Compile Include="UI\Units\AnimatedNavigationBar.cs" />
     <Compile Include="UI\Units\CodeSource.cs" />
     <Compile Include="UI\Units\CodeTypeListBox.cs" />
     <Compile Include="UI\Units\IconButton.cs" />
@@ -24,10 +27,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Jamesnet.Platform.OpenSilver" Version="9.1.11" />
     <PackageReference Include="OpenSilver" Version="3.2.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <Page Include="Themes\Units\AnimatedNavigationBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Units\CodeTypeListBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -58,5 +65,12 @@
   <Target Name="CopyOutputDll" AfterTargets="Build">
     <Copy SourceFiles="$(TargetPath)" DestinationFolder="..\..\..\..\opensilver.enterpriseapp\src\UserwareApp.Browser\DLLs\" />
   </Target>
+	<Target Name="CopyDllToEnterpriseApp" AfterTargets="AfterBuild">
+		<PropertyGroup>
+			<DllDestinationPath>..\..\..\..\opensilver.enterpriseapp\src\DLLs</DllDestinationPath>
+		</PropertyGroup>
+		<Copy SourceFiles="$(OutputPath)$(AssemblyName).dll" DestinationFolder="$(DllDestinationPath)" SkipUnchangedFiles="true" />
+		<Message Text="DLL copied to: $(DllDestinationPath)\$(AssemblyName).dll" Importance="High" />
+	</Target>
 
 </Project>

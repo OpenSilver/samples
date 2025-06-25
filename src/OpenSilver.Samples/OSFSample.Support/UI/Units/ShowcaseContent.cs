@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
+using Jamesnet.Foundation;
 using OSFSample.Support.Local.Utils;
 
 namespace OSFSample.Support.UI.Units;
 
 
-public class ShowcaseContent : ContentControl
+public class ShowcaseContent : ContentControl, IView
 {
     private TabMenuBar _tabMenu;
     private StackPanel _cachedContent;
