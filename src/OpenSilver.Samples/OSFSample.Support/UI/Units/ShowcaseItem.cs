@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Reflection;
 using System.Windows;
+using System.Windows.Browser;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace OSFSample.Support.UI.Units;
 
@@ -180,5 +182,81 @@ public class ShowcaseItem : Control
     {
         DefaultStyleKey = typeof(ShowcaseItem);
         CodeSources = new();
+    }
+
+    public override void OnApplyTemplate()
+    {
+        base.OnApplyTemplate();
+
+        if (GetTemplateChild("PART_CopyButton") is CopyIconButton copyBtn)
+        {
+            copyBtn.Click += OnCopyClick;
+        }
+
+        if (GetTemplateChild("PART_GitHubButton") is IconButton gitHubBtn)
+        {
+            gitHubBtn.Click += OnGitHubClick;
+        }
+
+        if (GetTemplateChild("PART_ShareButton") is IconButton shareBtn)
+        {
+            shareBtn.Click += OnShareClick;
+        }
+    }
+
+    public void OnCopyClick(object sender, RoutedEventArgs e)
+    {
+        if (SelectedCodeTab != null && !string.IsNullOrEmpty(SelectedCodeTab.Code))
+        {
+            System.Windows.Clipboard.SetText(SelectedCodeTab.Code);
+        }
+    }
+    public void OnGitHubClick(object sender, RoutedEventArgs e)
+    {
+        if (SelectedCodeTab != null && SelectedCodeTab.Source != null)
+        {
+            string ns = this.GetType().Namespace;
+            string[] parts = ns?.Split('.') ?? Array.Empty<string>();
+            string projectName = (parts.Length >= 2) ? $"{parts[0]}.{parts[1]}" : "Unknown";
+
+            string path = SelectedCodeTab.Source.OriginalString.TrimStart('/');
+
+            string prefix = $"{projectName};component/";
+            if (path.StartsWith(prefix, StringComparison.OrdinalIgnoreCase))
+                path = path.Substring(prefix.Length);
+
+            if (!path.StartsWith("Examples/", StringComparison.OrdinalIgnoreCase))
+            {
+                string fileName = System.IO.Path.GetFileName(path);
+                path = $"Examples/{fileName}";
+            }
+
+            string githubUrl = $"https://github.com/OpenSilver/samples/blob/master/src/OpenSilver.Samples/{projectName}/{path}";
+
+            HtmlPage.Window.Navigate(new Uri(githubUrl, UriKind.Absolute), "_blank");
+        }
+    }
+
+
+
+
+
+    public void OnShareClick(object sender, RoutedEventArgs e)
+    {
+        var parent = FindParentShowcaseContent(this);
+        if (parent != null)
+        {
+            // ShowcaseContent에 public void Share(CodeSource code) { ... } 메서드가 있다고 가정
+            parent.ShareItem(SelectedCodeTab);
+        }
+    }
+
+    private ShowcaseContent FindParentShowcaseContent(DependencyObject obj)
+    {
+        DependencyObject parent = VisualTreeHelper.GetParent(obj);
+        while (parent != null && !(parent is ShowcaseContent))
+            parent = VisualTreeHelper.GetParent(parent);
+
+        return parent as ShowcaseContent;
     }
 }

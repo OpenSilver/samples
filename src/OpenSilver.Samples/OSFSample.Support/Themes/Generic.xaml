@@ -6,6 +6,7 @@
         <ResourceDictionary Source="/OSFSample.Support;component/Themes/Units/ShowcaseItem.xaml"/>
         <ResourceDictionary Source="/OSFSample.Support;component/Themes/Units/TabMenuBar.xaml"/>
         <ResourceDictionary Source="/OSFSample.Support;component/Themes/Units/CodeTypeListBox.xaml"/>
+        <ResourceDictionary Source="/OSFSample.Support;component/Themes/Units/CopyIconButton.xaml"/>
         <ResourceDictionary Source="/OSFSample.Support;component/Themes/Units/IconButton.xaml"/>
         <ResourceDictionary Source="/OSFSample.Support;component/Themes/Units/AnimatedNavigationBar.xaml"/>
     </ResourceDictionary.MergedDictionaries>

@@ -6,7 +6,8 @@
 		<LangVersion>12</LangVersion>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="OpenSilver" Version="3.2.0" />
+		<PackageReference Include="Jamesnet.Platform.OpenSilver" Version="9.1.12" />
+		<PackageReference Include="OpenSilver" Version="3.2.3" />
 	</ItemGroup>
 	<ItemGroup>
 		<Page Include="Themes\Generic.xaml">

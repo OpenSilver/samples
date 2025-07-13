@@ -82,7 +82,6 @@ public class BooleanToVisibilityConverter : IValueConverter
     }
 }
 
-
 public class CodeTabToVisibilityConverter : IMultiValueConverter
 {
     public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)

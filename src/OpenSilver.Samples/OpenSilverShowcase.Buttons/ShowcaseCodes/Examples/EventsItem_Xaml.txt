@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:units="clr-namespace:OSFSample.Support.UI.Units;assembly=OSFSample.Support"
     Description="dynamic functionality to buttons with click event handling."
-    Title="Button Event"
+    Title="Events"
     Order="2">
     <units:ShowcaseItem.CodeSources>
         <units:CodeSource Key="xaml" Source="/OpenSilverShowcase.Buttons;component/Event/ButtonEventContent.xaml"/>

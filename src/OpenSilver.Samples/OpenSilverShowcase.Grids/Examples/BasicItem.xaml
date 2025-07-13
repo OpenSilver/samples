@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:units="clr-namespace:OSFSample.Support.UI.Units;assembly=OSFSample.Support"
     Description="Grid layout fundamentals with colors, labels, and positioning examples."
-    Title="Basic Grid Layout"
+    Title="Basic"
     Order="1">
 
     <units:ShowcaseItem.CodeSources>

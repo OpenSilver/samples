@@ -10,9 +10,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Jamesnet.Platform.OpenSilver" Version="9.1.12" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="9.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="9.0.0" PrivateAssets="all" />
-    <PackageReference Include="OpenSilver.WebAssembly" Version="3.2.0" />
+    <PackageReference Include="OpenSilver.WebAssembly" Version="3.2.3" />
   </ItemGroup>
 
   <PropertyGroup>

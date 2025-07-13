@@ -10,7 +10,8 @@
 	  <Compile Include="Examples\BasicItem.xaml.cs" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="OpenSilver" Version="3.2.0" />
+		<PackageReference Include="Jamesnet.Platform.OpenSilver" Version="9.1.12" />
+		<PackageReference Include="OpenSilver" Version="3.2.3" />
 	</ItemGroup>
 	<ItemGroup>
 		<Page Include="BorderContent.xaml">
@@ -59,10 +60,7 @@
 		<PropertyGroup>
 			<DllDestinationPath>..\..\..\..\opensilver.enterpriseapp\src\DLLs</DllDestinationPath>
 		</PropertyGroup>
-		<Copy
-			SourceFiles="$(OutputPath)$(AssemblyName).dll"
-			DestinationFolder="$(DllDestinationPath)"
-			SkipUnchangedFiles="true" />
+		<Copy SourceFiles="$(OutputPath)$(AssemblyName).dll" DestinationFolder="$(DllDestinationPath)" SkipUnchangedFiles="true" />
 		<Message Text="DLL copied to: $(DllDestinationPath)\$(AssemblyName).dll" Importance="High" />
 	</Target>
 </Project>

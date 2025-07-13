@@ -11,8 +11,8 @@
     <units:ShowcaseItem.CodeSources>
         <units:CodeSource Key="xaml" Source="/OpenSilverShowcase.ComboBoxs;component/Examples/CustomItem.xaml"/>
         <units:CodeSource Key="cs" Source="/OpenSilverShowcase.ComboBoxs;component/Examples/CustomItem.xaml.cs"/>
-        <units:CodeSource Key="control" Source="/OpenSilverShowcase.ComboBoxs;component/Controls/CustomComboBox.cs"/>
-        <units:CodeSource Key="template" Source="/OpenSilverShowcase.ComboBoxs;component/Controls/CustomComboBox.xaml"/>
+        <units:CodeSource Key="control" Source="/OpenSilverShowcase.ComboBoxs;component/Examples/CustomComboBox.cs"/>
+        <units:CodeSource Key="template" Source="/OpenSilverShowcase.ComboBoxs;component/Examples/CustomComboBox.xaml"/>
     </units:ShowcaseItem.CodeSources>
     <units:ShowcaseItem.DemoContent>
         <StackPanel Margin="20">

@@ -5,7 +5,7 @@
     xmlns:units="clr-namespace:OSFSample.Support.UI.Units;assembly=OSFSample.Support"
     xmlns:local="clr-namespace:OpenSilverShowcase.Buttons.Examples"
     Description="You can provide a label to the Checkbox thanks to the FormControlLabel component."
-    Title="Customizing"
+    Title="Custom"
     Order="3">
     <units:ShowcaseItem.CodeSources>
         <units:CodeSource Key="xaml" Source="/OpenSilverShowcase.Buttons;component/Customizing/CustomizingContent.xaml"/>

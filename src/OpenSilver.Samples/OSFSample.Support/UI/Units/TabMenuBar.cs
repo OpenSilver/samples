@@ -14,7 +14,7 @@ namespace OSFSample.Support.UI.Units
         private Border _indicatorBorder;
         private TranslateTransform _indicatorTransform;
         private List<string> _menuItems = new();
-        private int _selectedIndex = 0;
+        private int _selectedIndex = -1;
         private Storyboard _animationStoryboard;
 
         public event EventHandler<MenuItemSelectedEventArgs> MenuItemSelected;

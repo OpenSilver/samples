@@ -10,6 +10,7 @@
   <ItemGroup>
     <Compile Include="Local\Converters\SelectionBrushConverter.cs" />
     <Compile Include="Local\Utils\EmbededCodeLoader.cs" />
+    <Compile Include="UI\Units\MonacoEditor.cs" />
     <Compile Include="UI\Units\StaggeredPanel.cs" />
     <Compile Include="UI\Units\AdaptiveColumnsPanel.cs" />
     <Compile Include="UI\Units\AnimatedNavigationBar.cs" />
@@ -27,8 +28,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Jamesnet.Platform.OpenSilver" Version="9.1.11" />
-    <PackageReference Include="OpenSilver" Version="3.2.0" />
+    <PackageReference Include="Jamesnet.Platform.OpenSilver" Version="9.1.12" />
+    <PackageReference Include="OpenSilver" Version="3.2.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,6 +37,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Units\CodeTypeListBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Units\CopyIconButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

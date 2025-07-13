@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:OpenSilverShowcase.Sliders.Examples"
     Description="fundamentals of Slider styling with colors, fonts, and images."
     DemoBackground="#232323"
-    Title="RiotSlider CustomControl"
+    Title="Custom"
     Order="2">
     <units:ShowcaseItem.CodeSources>
         <units:CodeSource Key="Generic" Source="/Examples/RiotSlider.xaml"/>

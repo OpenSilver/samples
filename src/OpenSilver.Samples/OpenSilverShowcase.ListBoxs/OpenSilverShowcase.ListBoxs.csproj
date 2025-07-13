@@ -6,14 +6,15 @@
 		<LangVersion>12</LangVersion>
 	</PropertyGroup>
 	<ItemGroup>
-	  <Compile Include="Examples\CustomItem.xaml.cs" />
+	  <Compile Include="Examples\BasicItem.xaml.cs" />
 	  <Compile Include="ListBoxContent.xaml.cs" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="OpenSilver" Version="3.2.0" />
+		<PackageReference Include="Jamesnet.Platform.OpenSilver" Version="9.1.12" />
+		<PackageReference Include="OpenSilver" Version="3.2.3" />
 	</ItemGroup>
 	<ItemGroup>
-		<Page Include="Examples\CustomItem.xaml">
+		<Page Include="Examples\BasicItem.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</Page>
 		<Page Include="ListBoxContent.xaml">

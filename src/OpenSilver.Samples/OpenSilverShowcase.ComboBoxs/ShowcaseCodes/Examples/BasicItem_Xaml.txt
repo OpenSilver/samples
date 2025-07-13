@@ -7,7 +7,7 @@
     Title="Basic"
     Order="1">
     <units:ShowcaseItem.CodeSources>
-        <units:CodeSource Key="xaml" Source="/OpenSilverShowcase.ComboBox;component/BasicStyle/BasicStyleContent.xaml"/>
+        <units:CodeSource Key="xaml" Source="/OpenSilverShowcase.ComboBoxs;component/Examples/BasicItem.xaml"/>
     </units:ShowcaseItem.CodeSources>
     <units:ShowcaseItem.DemoContent>
         <WrapPanel>

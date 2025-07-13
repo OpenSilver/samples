@@ -4,14 +4,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:units="clr-namespace:OSFSample.Support.UI.Units;assembly=OSFSample.Support"
     Description="fundamentals of button styling with colors, fonts, and images."
-    Title="Basic Style"
+    Title="Basic"
     Order="1">
     <units:ShowcaseItem.CodeSources>
         <units:CodeSource Key="xaml" Source="/OpenSilverShowcase.Buttons;component/BasicStyle/BasicStyleContent.xaml"/>
     </units:ShowcaseItem.CodeSources>
     <units:ShowcaseItem.DemoContent>
         <WrapPanel>
-            <Button Margin="5" Content="Basic Style"/>
+            <Button Margin="5" Content="Basic"/>
             <Button Margin="5" Content="Background = Brown" Background="Brown"/>
             <Button Margin="5" Content="Black &amp; Pink" Foreground="Pink" Background="#000000"/>
             <Button Margin="5" Content="FontSize = 20" FontSize="20"/>

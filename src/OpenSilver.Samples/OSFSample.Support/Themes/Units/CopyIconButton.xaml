@@ -1,0 +1,121 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:rspns="clr-namespace:Jamesnet.Platform.OpenSilver.Responsive;assembly=Jamesnet.Platform.OpenSilver"
+    xmlns:units="clr-namespace:OSFSample.Support.UI.Units">
+
+    <Geometry x:Key="CopyIcon">M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z</Geometry>
+    <Geometry x:Key="CheckIcon">M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z</Geometry>
+
+    <SolidColorBrush x:Key="IconNormalFill" Color="#4A6FA5"/>
+    <SolidColorBrush x:Key="IconHoverBackground" Color="#EBF3FD"/>
+    <SolidColorBrush x:Key="IconPressedBackground" Color="#D6E8FB"/>
+
+    <Style TargetType="units:CopyIconButton">
+        <Setter Property="Width" Value="32"/>
+        <Setter Property="Height" Value="32"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Margin" Value="4 0 0 0"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="units:CopyIconButton">
+                    <Border x:Name="ButtonBorder"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="6">
+                        <Grid>
+                            <Path x:Name="CopyIconPath"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Data="{StaticResource CopyIcon}"
+                              Fill="{StaticResource IconNormalFill}"
+                              Width="14"
+                              Height="14"
+                              Stretch="Uniform"
+                              Opacity="1"/>
+                            <Path x:Name="CheckIconPath"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Data="{StaticResource CheckIcon}"
+                              Fill="#2E7D32"
+                              Width="14"
+                              Height="14"
+                              Stretch="Uniform"
+                              Opacity="0"/>
+                        </Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                    <Storyboard>
+                                        <ColorAnimation Duration="0:0:0.15"
+                                                    To="Transparent"
+                                                    Storyboard.TargetName="ButtonBorder"
+                                                    Storyboard.TargetProperty="Background.Color"/>
+                                        <DoubleAnimation Duration="0:0:0.15"
+                                                       To="1"
+                                                       Storyboard.TargetName="CopyIconPath"
+                                                       Storyboard.TargetProperty="Opacity"/>
+                                        <DoubleAnimation Duration="0:0:0.15"
+                                                       To="0"
+                                                       Storyboard.TargetName="CheckIconPath"
+                                                       Storyboard.TargetProperty="Opacity"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ColorAnimation Duration="0:0:0.1"
+                                                    To="#EBF3FD"
+                                                    Storyboard.TargetName="ButtonBorder"
+                                                    Storyboard.TargetProperty="Background.Color"/>
+                                        <ColorAnimation Duration="0:0:0.1"
+                                                    To="#2E4A7A"
+                                                    Storyboard.TargetName="CopyIconPath"
+                                                    Storyboard.TargetProperty="Fill.Color"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ColorAnimation Duration="0:0:0.1"
+                                                    To="#D6E8FB"
+                                                    Storyboard.TargetName="ButtonBorder"
+                                                    Storyboard.TargetProperty="Background.Color"/>
+                                        <ColorAnimation Duration="0:0:0.1"
+                                                    To="#2E4A7A"
+                                                    Storyboard.TargetName="CopyIconPath"
+                                                    Storyboard.TargetProperty="Fill.Color"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Copied">
+                                    <Storyboard>
+                                        <ColorAnimation Duration="0:0:0.2"
+                                                    To="#E8F5E8"
+                                                    Storyboard.TargetName="ButtonBorder"
+                                                    Storyboard.TargetProperty="Background.Color"/>
+                                        <DoubleAnimation Duration="0:0:0.1"
+                                                       To="0"
+                                                       Storyboard.TargetName="CopyIconPath"
+                                                       Storyboard.TargetProperty="Opacity"/>
+                                        <DoubleAnimation Duration="0:0:0.2"
+                                                       To="1"
+                                                       BeginTime="0:0:0.1"
+                                                       Storyboard.TargetName="CheckIconPath"
+                                                       Storyboard.TargetProperty="Opacity"/>
+                                        <ColorAnimation Duration="0:0:0.2"
+                                                    To="#2E7D32"
+                                                    BeginTime="0:0:0.1"
+                                                    Storyboard.TargetName="CheckIconPath"
+                                                    Storyboard.TargetProperty="Fill.Color"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
