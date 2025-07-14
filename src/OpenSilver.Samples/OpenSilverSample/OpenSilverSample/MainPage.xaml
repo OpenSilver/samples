@@ -26,49 +26,49 @@
             <Grid Background="{DynamicResource Theme_BackgroundBrush}">
                 <TabControl>
                     <TabItem Header="Button">
-                        <button:ButtonContent/>
+                        <button:ButtonContent IsMenuPanelVisible="True"/>
                     </TabItem>
                     <TabItem Header="ToggleButton">
-                        <toggle:ToggleButtonContent/>
+                        <toggle:ToggleButtonContent IsMenuPanelVisible="True"/>
                     </TabItem>
                     <TabItem Header="Slider">
-                        <slider:SliderContent/>
+                        <slider:SliderContent IsMenuPanelVisible="True"/>
                     </TabItem>
                     <TabItem Header="CheckBox">
-                        <check:CheckBoxContent/>
+                        <check:CheckBoxContent IsMenuPanelVisible="True"/>
                     </TabItem>
                     <TabItem Header="RadioButton">
-                        <radio:RadioButtonContent/>
+                        <radio:RadioButtonContent IsMenuPanelVisible="True"/>
                     </TabItem>
                     <TabItem Header="ComboBox">
-                        <combo:ComboBoxContent/>
+                        <combo:ComboBoxContent IsMenuPanelVisible="True"/>
                     </TabItem>
                     <TabItem Header="ListBox">
-                        <list:ListBoxContent/>
+                        <list:ListBoxContent IsMenuPanelVisible="True"/>
                     </TabItem>
                     <TabItem Header="ProgressBar">
-                        <pgbar:ProgressBarContent/>
+                        <pgbar:ProgressBarContent IsMenuPanelVisible="True"/>
                     </TabItem>
                     <TabItem Header="TextBox">
-                        <txtbox:TextBoxContent/>
+                        <txtbox:TextBoxContent IsMenuPanelVisible="True"/>
                     </TabItem>
                     <TabItem Header="Grid">
-                        <grid:GridContent/>
+                        <grid:GridContent IsMenuPanelVisible="True"/>
                     </TabItem>
                     <TabItem Header="WrapPanel">
-                        <wrap:WrapPanelContent/>
+                        <wrap:WrapPanelContent IsMenuPanelVisible="True"/>
                     </TabItem>
                     <TabItem Header="Border">
-                        <border:BorderContent/>
+                        <border:BorderContent IsMenuPanelVisible="True"/>
                     </TabItem>
                     <TabItem Header="AnimatedNavigationBar">
-                        <ckanb:AnimatedNavigationBarContent/>
+                        <ckanb:AnimatedNavigationBarContent IsMenuPanelVisible="True"/>
                     </TabItem>
                     <TabItem Header="AdaptiveColumnsPanel">
-                        <adpanel:AdaptiveColumnsPanelContent/>
+                        <adpanel:AdaptiveColumnsPanelContent IsMenuPanelVisible="True"/>
                     </TabItem>
                     <TabItem Header="StaggeredPanel">
-                        <stagg:StaggeredPanelContent/>
+                        <stagg:StaggeredPanelContent IsMenuPanelVisible="True"/>
                     </TabItem>
                 </TabControl>
             </Grid>

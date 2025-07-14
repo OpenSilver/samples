@@ -91,6 +91,7 @@
 
 
                             <Border Grid.Row="1"
+                                    x:Name="MenuPanelBorder"
                                     Visibility="Collapsed"
                                     Opacity="0"
                                     Height="0"

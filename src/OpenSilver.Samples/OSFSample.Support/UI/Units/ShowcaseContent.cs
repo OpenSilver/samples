@@ -26,6 +26,19 @@ namespace OSFSample.Support.UI.Units
         public static readonly DependencyProperty DescriptionProperty =
             DependencyProperty.Register(nameof(Description), typeof(string), typeof(ShowcaseContent), new PropertyMetadata(string.Empty));
 
+        public static readonly DependencyProperty IsMenuPanelVisibleProperty =
+            DependencyProperty.Register(
+                nameof(IsMenuPanelVisible),
+                typeof(bool),
+                typeof(ShowcaseContent),
+                new PropertyMetadata(false, OnIsMenuPanelVisibleChanged));
+
+        public bool IsMenuPanelVisible
+        {
+            get => (bool)GetValue(IsMenuPanelVisibleProperty);
+            set => SetValue(IsMenuPanelVisibleProperty, value);
+        }
+
         public event Action Share;
         public ShowcaseContent()
         {
@@ -35,6 +48,49 @@ namespace OSFSample.Support.UI.Units
             _showcaseTypes = new Dictionary<string, Type>();
             _loadedItems = new Dictionary<string, ShowcaseItem>();
             LoadShowcaseTypes();
+        }
+
+        private static void OnIsMenuPanelVisibleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is ShowcaseContent control)
+            {
+                control.UpdateMenuPanelVisibility();
+            }
+        }
+
+        private Border _menuPanelBorder;
+
+        public override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
+            _tabMenu = GetTemplateChild("TabMenu") as TabMenuBar;
+            _menuPanelBorder = GetTemplateChild("MenuPanelBorder") as Border;
+            UpdateMenuPanelVisibility();
+
+            if (_tabMenu != null)
+            {
+                _tabMenu.MenuItemSelected += TabMenu_MenuItemSelected;
+                UpdateMenuItems();
+            }
+        }
+
+        private void UpdateMenuPanelVisibility()
+        {
+            if (_menuPanelBorder == null)
+                return;
+
+            if (IsMenuPanelVisible)
+            {
+                _menuPanelBorder.Visibility = Visibility.Visible;
+                _menuPanelBorder.Opacity = 1;
+                _menuPanelBorder.Height = double.NaN; // 'Auto'
+            }
+            else
+            {
+                _menuPanelBorder.Visibility = Visibility.Collapsed;
+                _menuPanelBorder.Opacity = 0;
+                _menuPanelBorder.Height = 0;
+            }
         }
 
         private void LoadShowcaseTypes()
@@ -150,19 +206,6 @@ namespace OSFSample.Support.UI.Units
             {
                 MessageBox.Show($"Error getting assembly version: {ex.Message}");
                 return "Unknown";
-            }
-        }
-
-        public override void OnApplyTemplate()
-        {
-            base.OnApplyTemplate();
-
-            _tabMenu = GetTemplateChild("TabMenu") as TabMenuBar;
-
-            if (_tabMenu != null)
-            {
-                _tabMenu.MenuItemSelected += TabMenu_MenuItemSelected;
-                UpdateMenuItems();
             }
         }
 
