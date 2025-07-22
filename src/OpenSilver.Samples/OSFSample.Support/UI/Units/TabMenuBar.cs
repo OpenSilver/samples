@@ -7,6 +7,7 @@ using System.Windows.Media.Animation;
 
 namespace OSFSample.Support.UI.Units
 {
+    
     public class TabMenuBar : Control
     {
         private double _lastIndicatorX = 0;

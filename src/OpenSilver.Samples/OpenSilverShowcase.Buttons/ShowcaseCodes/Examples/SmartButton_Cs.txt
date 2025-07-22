@@ -144,7 +144,7 @@ namespace OpenSilverShowcase.Buttons.Examples
 
         public static readonly DependencyProperty PressedScaleProperty =
             DependencyProperty.Register("PressedScale", typeof(double), typeof(SmartButton),
-                new PropertyMetadata(1));
+                new PropertyMetadata(1.0));
 
         public static readonly DependencyProperty PressedOffsetProperty =
             DependencyProperty.Register("PressedOffset", typeof(Point), typeof(SmartButton),

@@ -49,8 +49,8 @@
                                               IndicatorCornerRadius="12"
                                               FontSize="14">
                 <ListBoxItem Content="SYSTEM"/>
-                <ListBoxItem Content="NETWORK"/>
-                <ListBoxItem Content="DATABASE" IsSelected="True"/>
+                <ListBoxItem Content="NETWORK" IsSelected="True"/>
+                <ListBoxItem Content="DATABASE"/>
                 <ListBoxItem Content="SECURITY"/>
             </controlskit:AnimatedNavigationBar>
         </Border>

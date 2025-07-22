@@ -40,6 +40,7 @@ namespace OSFSample.Support.UI.Units
         }
 
         public event Action Share;
+        public event Action<string, string> FullScreenCode;
         public ShowcaseContent()
         {
             DefaultStyleKey = typeof(ShowcaseContent);
@@ -419,6 +420,7 @@ namespace OSFSample.Support.UI.Units
             }
             await Task.CompletedTask;
         }
+        MonacoEditor _monacoEditor;
 
         internal void ShareItem(CodeSource selectedCodeTab)
         {
@@ -445,6 +447,11 @@ namespace OSFSample.Support.UI.Units
 
             return sortedTypes.Select(kvp => kvp.Key).ToList();
         }
+
+        internal void CodeItem(CodeSource obj)
+        {
+            FullScreenCode?.Invoke(obj.Code, obj.Language);
+        }
     }
 
     public interface IShowcaseContentSelector
@@ -453,6 +460,7 @@ namespace OSFSample.Support.UI.Units
         string Description { get; set; }
         string Title { get; set; }
         event Action Share;
+        event Action<string, string> FullScreenCode;
 
         IReadOnlyList<string> GetShowcaseItemNames();
     }

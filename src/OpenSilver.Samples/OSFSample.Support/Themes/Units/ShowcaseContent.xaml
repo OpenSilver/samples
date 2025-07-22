@@ -84,7 +84,8 @@
                                         <Image Source="/OSFSample.Support;component/Local/Images/opensilver.png" Width="30" Height="30" Stretch="Uniform" VerticalAlignment="Center"/>
                                         <TextBlock Text="{TemplateBinding Title}" FontSize="28" FontWeight="Medium" Foreground="White" Margin="10, 0" VerticalAlignment="Center"/>
                                     </StackPanel>
-                                    <TextBlock Text="{TemplateBinding Description}" 
+                                <TextBlock Text="{TemplateBinding Description}" 
+                                       MaxHeight="36" TextTrimming="CharacterEllipsis"
                                          FontSize="14" Foreground="#FFD6E1EC" TextWrapping="Wrap" Margin="40 0 0 10"/>
                                 </StackPanel>
                             </Border>

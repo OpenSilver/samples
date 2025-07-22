@@ -6,6 +6,8 @@ using System.Windows;
 using System.Windows.Browser;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Input;
+using Jamesnet.Foundation;
 
 namespace OSFSample.Support.UI.Units;
 
@@ -87,6 +89,11 @@ public class ShowcaseItem : Control
             typeof(ShowcaseItem),
             new PropertyMetadata(null)
         );
+
+    public static readonly DependencyProperty FullScreenCommandProperty =
+        DependencyProperty.Register(nameof(FullScreenCommand), typeof(ICommand), typeof(ShowcaseItem), new PropertyMetadata(null));
+
+    private Grid _fullScreen;
 
     public ObservableCollection<CodeSource> CodeSources
     {
@@ -178,10 +185,18 @@ public class ShowcaseItem : Control
         set => SetValue(DemoBorderBrushProperty, value);
     }
 
+    public ICommand FullScreenCommand
+    {
+        get => (ICommand)GetValue(FullScreenCommandProperty);
+        set => SetValue(FullScreenCommandProperty, value);
+    }
+
     public ShowcaseItem()
     {
         DefaultStyleKey = typeof(ShowcaseItem);
         CodeSources = new();
+
+        FullScreenCommand = new RelayCommand<CodeSource>(OnFullScreen);
     }
 
     public override void OnApplyTemplate()
@@ -202,6 +217,18 @@ public class ShowcaseItem : Control
         {
             shareBtn.Click += OnShareClick;
         }
+
+        if (GetTemplateChild("PART_FullScreen") is Grid fullScreen)
+        {
+            _fullScreen = fullScreen;
+        }
+    }
+
+    private void OnFullScreen(CodeSource obj)
+    {
+
+        var parent = FindParentShowcaseContent(this);
+        parent.CodeItem(obj);
     }
 
     public void OnCopyClick(object sender, RoutedEventArgs e)
@@ -246,7 +273,6 @@ public class ShowcaseItem : Control
         var parent = FindParentShowcaseContent(this);
         if (parent != null)
         {
-            // ShowcaseContent에 public void Share(CodeSource code) { ... } 메서드가 있다고 가정
             parent.ShareItem(SelectedCodeTab);
         }
     }
