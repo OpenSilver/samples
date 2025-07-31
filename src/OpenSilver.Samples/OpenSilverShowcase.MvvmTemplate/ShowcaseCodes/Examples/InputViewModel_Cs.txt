@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace OpenSilverShowcase.MvvmTemplate.Examples
+{
+    public class InputViewModel
+    {
+        public string Address { get; set; }
+
+        public InputViewModel()
+        {
+            Address = "123 Main St, Springfield, USA";
+        }
+    }
+}

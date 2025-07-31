@@ -19,6 +19,8 @@ namespace OSFSample.Support.UI.Units
         private StackPanel _cachedContent;
         private Dictionary<string, Type> _showcaseTypes;
         private Dictionary<string, ShowcaseItem> _loadedItems;
+        private Border _menuPanelBorder;
+        private MonacoEditor _monacoEditor;
 
         public static readonly DependencyProperty TitleProperty =
             DependencyProperty.Register(nameof(Title), typeof(string), typeof(ShowcaseContent), new PropertyMetadata(string.Empty));
@@ -33,14 +35,37 @@ namespace OSFSample.Support.UI.Units
                 typeof(ShowcaseContent),
                 new PropertyMetadata(false, OnIsMenuPanelVisibleChanged));
 
+        public static readonly DependencyProperty DefaultSelectedItemNameProperty =
+            DependencyProperty.Register(
+                nameof(DefaultSelectedItemName),
+                typeof(string),
+                typeof(ShowcaseContent),
+                new PropertyMetadata(string.Empty, OnDefaultSelectedItemNameChanged));
+
+        public string Title
+        {
+            get => (string)GetValue(TitleProperty);
+            set => SetValue(TitleProperty, value);
+        }
+
+        public string Description
+        {
+            get => (string)GetValue(DescriptionProperty);
+            set => SetValue(DescriptionProperty, value);
+        }
+
         public bool IsMenuPanelVisible
         {
             get => (bool)GetValue(IsMenuPanelVisibleProperty);
             set => SetValue(IsMenuPanelVisibleProperty, value);
         }
 
-        public event Action Share;
-        public event Action<string, string> FullScreenCode;
+        public string DefaultSelectedItemName
+        {
+            get => (string)GetValue(DefaultSelectedItemNameProperty);
+            set => SetValue(DefaultSelectedItemNameProperty, value);
+        }
+
         public ShowcaseContent()
         {
             DefaultStyleKey = typeof(ShowcaseContent);
@@ -59,7 +84,17 @@ namespace OSFSample.Support.UI.Units
             }
         }
 
-        private Border _menuPanelBorder;
+        private static async void OnDefaultSelectedItemNameChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is ShowcaseContent control && control._tabMenu != null)
+            {
+                var name = e.NewValue as string;
+                if (!string.IsNullOrWhiteSpace(name))
+                {
+                    await control.SelectShowcaseItemByNameAsync(name);
+                }
+            }
+        }
 
         public override void OnApplyTemplate()
         {
@@ -72,6 +107,11 @@ namespace OSFSample.Support.UI.Units
             {
                 _tabMenu.MenuItemSelected += TabMenu_MenuItemSelected;
                 UpdateMenuItems();
+
+                if (!string.IsNullOrWhiteSpace(DefaultSelectedItemName))
+                {
+                    _ = SelectShowcaseItemByNameAsync(DefaultSelectedItemName);
+                }
             }
         }
 
@@ -84,7 +124,7 @@ namespace OSFSample.Support.UI.Units
             {
                 _menuPanelBorder.Visibility = Visibility.Visible;
                 _menuPanelBorder.Opacity = 1;
-                _menuPanelBorder.Height = double.NaN; // 'Auto'
+                _menuPanelBorder.Height = double.NaN;
             }
             else
             {
@@ -121,7 +161,6 @@ namespace OSFSample.Support.UI.Units
         {
             var derivedType = this.GetType();
             var sourceAsm = derivedType.Assembly;
-
             var instance = (ShowcaseItem)Activator.CreateInstance(type);
 
             string ns = type.Namespace;
@@ -146,19 +185,16 @@ namespace OSFSample.Support.UI.Units
                     }
                 }
             }
-            instance.SelectedCodeTab = instance.CodeSources.FirstOrDefault();
 
+            instance.SelectedCodeTab = instance.CodeSources.FirstOrDefault();
             return instance;
         }
-
 
         private List<Type> FindShowcaseItemTypes()
         {
             Type derivedType = this.GetType();
             Assembly assembly = derivedType.Assembly;
             string namespaceFilter = derivedType.Namespace;
-
-            System.Diagnostics.Debug.WriteLine($"Looking for ShowcaseItem in namespace: {namespaceFilter}");
 
             return assembly.GetTypes()
                 .Where(t => t.IsClass &&
@@ -168,20 +204,6 @@ namespace OSFSample.Support.UI.Units
                            t.Namespace.StartsWith(namespaceFilter))
                 .ToList();
         }
-
-        public string Title
-        {
-            get => (string)GetValue(TitleProperty);
-            set => SetValue(TitleProperty, value);
-        }
-
-        public string Description
-        {
-            get => (string)GetValue(DescriptionProperty);
-            set => SetValue(DescriptionProperty, value);
-        }
-
-        // SelectedItemName 속성 제거됨
 
         protected override void OnContentChanged(object oldContent, object newContent)
         {
@@ -205,7 +227,6 @@ namespace OSFSample.Support.UI.Units
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error getting assembly version: {ex.Message}");
                 return "Unknown";
             }
         }
@@ -292,7 +313,6 @@ namespace OSFSample.Support.UI.Units
                     await FadeIn(selectedCard);
                 }
 
-                // 외부로 선택된 항목 전달 (이벤트 추가 가능)
                 OnSelectedItemChanged?.Invoke(this, new MenuItemSelectedEventArgs
                 {
                     SelectedIndex = e.SelectedIndex,
@@ -305,9 +325,6 @@ namespace OSFSample.Support.UI.Units
             }
         }
 
-        // 새로운 이벤트 추가
-        public event EventHandler<MenuItemSelectedEventArgs> OnSelectedItemChanged;
-
         private Task FadeOutAndCollapse(FrameworkElement element)
         {
             var tcs = new TaskCompletionSource<bool>();
@@ -318,12 +335,9 @@ namespace OSFSample.Support.UI.Units
             {
                 From = element.Opacity,
                 To = 0.0,
-                Duration = new Duration(TimeSpan.FromMilliseconds(280))
+                Duration = new Duration(TimeSpan.FromMilliseconds(280)),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseInOut }
             };
-
-            QuadraticEase easingFunction = new QuadraticEase();
-            easingFunction.EasingMode = EasingMode.EaseInOut;
-            fadeOutAnimation.EasingFunction = easingFunction;
 
             Storyboard.SetTarget(fadeOutAnimation, element);
             Storyboard.SetTargetProperty(fadeOutAnimation, new PropertyPath("Opacity"));
@@ -359,12 +373,9 @@ namespace OSFSample.Support.UI.Units
             {
                 From = 0.0,
                 To = 1.0,
-                Duration = new Duration(TimeSpan.FromMilliseconds(320))
+                Duration = new Duration(TimeSpan.FromMilliseconds(320)),
+                EasingFunction = new QuadraticEase { EasingMode = EasingMode.EaseOut }
             };
-
-            QuadraticEase easingFunction = new QuadraticEase();
-            easingFunction.EasingMode = EasingMode.EaseOut;
-            fadeInAnimation.EasingFunction = easingFunction;
 
             Storyboard.SetTarget(fadeInAnimation, element);
             Storyboard.SetTargetProperty(fadeInAnimation, new PropertyPath("Opacity"));
@@ -420,11 +431,19 @@ namespace OSFSample.Support.UI.Units
             }
             await Task.CompletedTask;
         }
-        MonacoEditor _monacoEditor;
 
         internal void ShareItem(CodeSource selectedCodeTab)
         {
             Share?.Invoke();
+        }
+
+        public event Action Share;
+        public event Action<string, string> FullScreenCode;
+        public event EventHandler<MenuItemSelectedEventArgs> OnSelectedItemChanged;
+
+        internal void CodeItem(CodeSource obj)
+        {
+            FullScreenCode?.Invoke(obj.Code, obj.Language);
         }
 
         public IReadOnlyList<string> GetShowcaseItemNames()
@@ -447,11 +466,6 @@ namespace OSFSample.Support.UI.Units
 
             return sortedTypes.Select(kvp => kvp.Key).ToList();
         }
-
-        internal void CodeItem(CodeSource obj)
-        {
-            FullScreenCode?.Invoke(obj.Code, obj.Language);
-        }
     }
 
     public interface IShowcaseContentSelector
@@ -461,7 +475,6 @@ namespace OSFSample.Support.UI.Units
         string Title { get; set; }
         event Action Share;
         event Action<string, string> FullScreenCode;
-
         IReadOnlyList<string> GetShowcaseItemNames();
     }
 }

@@ -1,0 +1,11 @@
+{
+  "identity": "OpenSilver.Showcase.Project",
+  "name": "OpenSilver Showcase Project",
+  "shortName": "opensilver-showcase",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "OpenSilverShowcase.ProjectTemplate",
+  "preferNameDirectory": true
+}
