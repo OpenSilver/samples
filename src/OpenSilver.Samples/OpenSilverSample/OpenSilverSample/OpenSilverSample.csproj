@@ -34,6 +34,7 @@
     <ProjectReference Include="..\..\OpenSilverShowcase.Buttons\OpenSilverShowcase.Buttons.csproj" />
     <ProjectReference Include="..\..\OpenSilverShowcase.CheckBoxs\OpenSilverShowcase.CheckBoxs.csproj" />
     <ProjectReference Include="..\..\OpenSilverShowcase.ComboBoxs\OpenSilverShowcase.ComboBoxs.csproj" />
+    <ProjectReference Include="..\..\OpenSilverShowcase.DataContextTemplate\OpenSilverShowcase.DataContextTemplate.csproj" />
     <ProjectReference Include="..\..\OpenSilverShowcase.Grids\OpenSilverShowcase.Grids.csproj" />
     <ProjectReference Include="..\..\OpenSilverShowcase.ListBoxs\OpenSilverShowcase.ListBoxs.csproj" />
     <ProjectReference Include="..\..\OpenSilverShowcase.MvvmTemplate\OpenSilverShowcase.MvvmTemplate.csproj" />

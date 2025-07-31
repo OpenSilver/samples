@@ -21,6 +21,7 @@
       xmlns:stagg="clr-namespace:OpenSilverShowcase.StaggeredPanels;assembly=OpenSilverShowcase.StaggeredPanels"
       xmlns:mvvm="clr-namespace:OpenSilverShowcase.MvvmTemplate;assembly=OpenSilverShowcase.MvvmTemplate"
       xmlns:binding="clr-namespace:OpenSilverShowcase.BindingTemplate;assembly=OpenSilverShowcase.BindingTemplate"
+      xmlns:datac="clr-namespace:OpenSilverShowcase.DataContextTemplate;assembly=OpenSilverShowcase.DataContextTemplate"
       mc:Ignorable="d"
       Foreground="{DynamicResource Theme_TextBrush}">
     <ScrollViewer Background="Transparent" VerticalScrollBarVisibility="Visible">
@@ -77,6 +78,9 @@
                     </TabItem>
                     <TabItem Header="Binding">
                         <binding:BindingContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                    </TabItem>
+                    <TabItem Header="DataContext">
+                        <datac:DataContextContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
                     </TabItem>
                 </TabControl>
             </Grid>

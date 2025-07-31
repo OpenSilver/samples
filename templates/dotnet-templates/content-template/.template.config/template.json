@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "OpenSilver",
+  "classifications": [ "CSharp", "Code", "Web", "OpenSilver", "Showcase" ],
+  "identity": "OpenSilverShowcaseContent",
+  "name": "Showcase Content",
+  "shortName": "opensilver-content",
+  "description": "OpenSilver Showcase Content File",
+  "icon": "icon.png",
+  "tags": {
+    "language": "C#",
+    "type": "item"
+  },
+  "sourceName": "MyShowcaseContent",
+  "preferNameDirectory": false,
+  "symbols": {
+    "safeitemname": {
+      "type": "generated",
+      "generator": "regex",
+      "dataType": "string",
+      "replaces": "MyShowcaseContent",
+      "parameters": {
+        "source": "name",
+        "steps": [
+          {
+            "regex": "[^A-Za-z0-9_]",
+            "replacement": ""
+          }
+        ]
+      }
+    }
+  },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "exclude": [
+            ".template.config/**/*",
+            "MyTemplate.vstemplate"
+          ]
+        }
+      ]
+    }
+  ],
+  "primaryOutputs": [
+    {
+      "path": "MyShowcaseContent.xaml"
+    },
+    {
+      "path": "MyShowcaseContent.xaml.cs"
+    }
+  ],
+  "defaultName": "MyContent"
+}

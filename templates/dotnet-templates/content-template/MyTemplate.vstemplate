@@ -1,0 +1,15 @@
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>Showcase Content (OpenSilver)</Name>
+    <Description>OpenSilver Showcase Content File</Description>
+    <ProjectType>CSharp</ProjectType>
+    <DefaultName>MyContent.xaml</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <SortOrder>10</SortOrder>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <ProjectItem ReplaceParameters="true" TargetFileName="$safeitemname$.xaml">MyShowcaseContent.xaml</ProjectItem>
+    <ProjectItem ReplaceParameters="true" TargetFileName="$safeitemname$.xaml.cs">MyShowcaseContent.xaml.cs</ProjectItem>
+  </TemplateContent>
+</VSTemplate>
