@@ -1,0 +1,23 @@
+<units:ShowcaseItem
+    x:Class="OpenSilverShowcase.ListBoxs.Examples.BasicItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units;assembly=OpenSilverShowcase.Support"
+    Description="fundamentals of button styling with colors, fonts, and images."
+    Title="Basic"
+    Order="1">
+    <units:ShowcaseItem.CodeSources>
+        <units:CodeSource Key="xaml" Source="/Examples/BasicItem.xaml"/>
+        <units:CodeSource Key="xaml.cs" Source="/Examples/BasicItem.xaml.cs"/>
+    </units:ShowcaseItem.CodeSources>
+    <units:ShowcaseItem.DemoContent>
+        <WrapPanel>
+            <ListBox>
+                <ListBoxItem>ListBox Item 1</ListBoxItem>
+                <ListBoxItem>ListBox Item 2</ListBoxItem>
+                <ListBoxItem>ListBox Item 3</ListBoxItem>
+                <ListBoxItem>ListBox Item 4</ListBoxItem>
+            </ListBox>
+        </WrapPanel>
+    </units:ShowcaseItem.DemoContent>
+</units:ShowcaseItem>

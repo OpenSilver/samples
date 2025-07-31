@@ -1,0 +1,78 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <DefineSilverlight>true</DefineSilverlight>
+    <LangVersion>12</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Local\Converters\SelectionBrushConverter.cs" />
+    <Compile Include="Local\Utils\EmbededCodeLoader.cs" />
+    <Compile Include="UI\Units\FullScreenButton.cs" />
+    <Compile Include="UI\Units\MonacoEditor.cs" />
+    <Compile Include="UI\Units\SimpleCodeTextBox.cs" />
+    <Compile Include="UI\Units\StaggeredPanel.cs" />
+    <Compile Include="UI\Units\AdaptiveColumnsPanel.cs" />
+    <Compile Include="UI\Units\AnimatedNavigationBar.cs" />
+    <Compile Include="UI\Units\CodeSource.cs" />
+    <Compile Include="UI\Units\CodeTypeListBox.cs" />
+    <Compile Include="UI\Units\IconButton.cs" />
+    <Compile Include="UI\Units\ShowcaseItem.cs" />
+    <Compile Include="UI\Units\ShowcaseContent.cs" />
+    <Compile Include="UI\Units\ExampleBase.cs" />
+    <Compile Include="UI\Units\TabMenuBar.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Local\Images\opensilver.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Jamesnet.Platform.OpenSilver" Version="9.1.12" />
+    <PackageReference Include="OpenSilver" Version="3.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="Themes\Units\AnimatedNavigationBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Units\CodeTypeListBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Units\CopyIconButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Units\IconButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Units\ShowcaseItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Units\FullScreenButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Units\SimpleCodeTextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Units\TabMenuBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Units\ShowcaseContent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Units\ExampleResource.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+</Project>

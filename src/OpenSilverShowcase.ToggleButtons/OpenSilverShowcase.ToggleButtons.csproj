@@ -1,0 +1,103 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <DefineSilverlight>true</DefineSilverlight>
+	  <LangVersion>12</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Examples\BasicItem.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Examples\BindingItem.xaml.cs" />
+    <Compile Include="Examples\CustomConverter.cs" />
+    <Compile Include="Examples\CustomItem.xaml.cs" />
+    <Compile Include="Examples\CustomToggleButton.cs" />
+    <Compile Include="Examples\EventsItem.xaml.cs" />
+    <Compile Include="Examples\MVVMItem.xaml.cs" />
+    <Compile Include="Examples\RelayCommand.cs" />
+    <Compile Include="Examples\StylingItem.xaml.cs" />
+    <Compile Include="Examples\ThreeStateItem.xaml.cs" />
+    <Compile Include="Examples\ToggleButtonViewModel.cs" />
+    <Compile Include="ToggleButtonContent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Jamesnet.Platform.OpenSilver" Version="9.1.12" />
+    <PackageReference Include="OpenSilver" Version="3.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="Examples\BasicItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Examples\BindingItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Examples\CustomItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Examples\CustomToggleButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Examples\EventsItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Examples\MVVMItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Examples\StylingItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Examples\ThreeStateItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ToggleButtonContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OpenSilverShowcase.Support\OpenSilverShowcase.Support.csproj" />
+  </ItemGroup>
+
+	<Target Name="CopyShowcaseCodeToProject" BeforeTargets="BeforeBuild">
+		<ItemGroup>
+			<_XamlFiles Include="**\*.xaml" Exclude="obj\**;bin\**" />
+			<_XamlCsFiles Include="**\*.xaml.cs" Exclude="obj\**;bin\**" />
+			<_CsFiles Include="**\*.cs" Exclude="**\*.xaml.cs;obj\**;bin\**" />
+		</ItemGroup>
+		<Message Text="Xaml Files to copy: @(_XamlFiles)" Importance="High" />
+		<Message Text="XamlCs Files to copy: @(_XamlCsFiles)" Importance="High" />
+		<Message Text="Cs Files to copy: @(_CsFiles)" Importance="High" />
+		<Copy SourceFiles="@(_XamlFiles)" DestinationFiles="@(_XamlFiles->'ShowcaseCodes\%(RecursiveDir)%(Filename)_Xaml.txt')" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="@(_XamlCsFiles)" DestinationFiles="@(_XamlCsFiles->'ShowcaseCodes\%(RecursiveDir)%(Filename)_XamlCs.txt')" SkipUnchangedFiles="true" />
+		<Copy SourceFiles="@(_CsFiles)" DestinationFiles="@(_CsFiles->'ShowcaseCodes\%(RecursiveDir)%(Filename)_Cs.txt')" SkipUnchangedFiles="true" />
+		<ItemGroup>
+			<_CopiedFiles Include="ShowcaseCodes\**\*.txt" />
+		</ItemGroup>
+		<Message Text="Copied Files: @(_CopiedFiles)" Importance="High" />
+		<ItemGroup>
+			<EmbeddedResource Include="ShowcaseCodes\**\*_Xaml.txt" />
+			<EmbeddedResource Include="ShowcaseCodes\**\*_XamlCs.txt" />
+			<EmbeddedResource Include="ShowcaseCodes\**\*_Cs.txt" />
+			<Folder Include="ShowcaseCodes\" />
+		</ItemGroup>
+	</Target>
+	<Target Name="DebugEmbeddedResources" AfterTargets="BeforeBuild">
+		<ItemGroup>
+			<EmbeddedFiles Include="ShowcaseCodes\**\*.txt" />
+		</ItemGroup>
+		<Message Text="Embedded Resources: @(EmbeddedFiles)" Importance="High" />
+	</Target>
+</Project>

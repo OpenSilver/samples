@@ -1,0 +1,25 @@
+<units:ShowcaseItem
+    x:Class="OpenSilverShowcase.Sliders.Examples.SliderBasicItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units;assembly=OpenSilverShowcase.Support"
+    Description="fundamentals of button styling with colors, fonts, and images."
+    Title="Basic"
+    Order="1">
+    <units:ShowcaseItem.CodeSources>
+        <units:CodeSource Key="xaml" Source="/Examples/SliderBasicItem.xaml"/>
+        <units:CodeSource Key="xaml.cs" Source="/Examples/SliderBasicItem.xaml.cs"/>
+        <units:CodeSource Key="Converters" Source="/Examples/DoubleToRandomHexConverter.cs"/>
+    </units:ShowcaseItem.CodeSources>
+    <units:ShowcaseItem.DemoContent>
+        <WrapPanel xmlns:cnvts="clr-namespace:OpenSilverShowcase.Sliders.Examples">
+            <WrapPanel.Resources>
+                <cnvts:DoubleToRandomHexConverter x:Key="DoubleToRandomHexConverter"/>
+            </WrapPanel.Resources>
+            <Slider x:Name="Slider" Margin="5" Width="200"/>
+            <TextBlock Margin="5" Text="{Binding ElementName=Slider, Path=Value, StringFormat={}{0:N2}}" FontSize="20"/>
+            <Border Width="18" Height="18" CornerRadius="4" 
+                    Background="{Binding ElementName=Slider, Path=Value, Converter={StaticResource DoubleToRandomHexConverter}}"/>
+        </WrapPanel>
+    </units:ShowcaseItem.DemoContent>
+</units:ShowcaseItem>

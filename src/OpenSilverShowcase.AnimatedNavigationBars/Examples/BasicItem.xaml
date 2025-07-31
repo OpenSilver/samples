@@ -1,0 +1,40 @@
+﻿<units:ShowcaseItem
+    x:Class="OpenSilverShowcase.AnimatedNavigationBars.Examples.BasicItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controlskit="clr-namespace:OpenSilverShowcase.Support.UI.Units;assembly=OpenSilverShowcase.Support"
+    xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units;assembly=OpenSilverShowcase.Support"
+    Description="Basic AnimatedNavigationBar with clean styling and smooth transitions."
+    Title="Basic"
+    Order="1">
+
+    <units:ShowcaseItem.CodeSources>
+        <units:CodeSource Key="xaml" Source="/Examples/BasicItem.xaml"/>
+        <units:CodeSource Key="xaml.cs" Source="/Examples/BasicItem.xaml.cs"/>
+    </units:ShowcaseItem.CodeSources>
+
+    <units:ShowcaseItem.DemoContent>
+        <Border Background="#F9FAFB" 
+                Padding="20" 
+                CornerRadius="12" 
+                BorderBrush="#E5E7EB" 
+                BorderThickness="1">
+            <controlskit:AnimatedNavigationBar Foreground="#4B5563"
+                                              SelectedForeground="#FFFFFF"
+                                              IndicatorBackground="#3B82F6"
+                                              Background="#F9FAFB"
+                                              CornerRadius="10"
+                                              Padding="8"
+                                              ItemPadding="16,10"
+                                              AnimationDuration="300"
+                                              IndicatorCornerRadius="8"
+                                              FontSize="14">
+                <ListBoxItem Content="Home" IsSelected="True"/>
+                <ListBoxItem Content="Products"/>
+                <ListBoxItem Content="Services"/>
+                <ListBoxItem Content="About"/>
+                <ListBoxItem Content="Contact"/>
+            </controlskit:AnimatedNavigationBar>
+        </Border>
+    </units:ShowcaseItem.DemoContent>
+</units:ShowcaseItem>

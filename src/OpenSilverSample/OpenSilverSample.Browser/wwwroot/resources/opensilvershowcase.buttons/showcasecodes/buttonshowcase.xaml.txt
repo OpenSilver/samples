@@ -1,0 +1,16 @@
+﻿<UserControl
+    x:Class="OpenSilverShowcase.Buttons.ButtonShowcase"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units;assembly=OpenSilverShowcase.Support"
+    xmlns:basicStyle="clr-namespace:OpenSilverShowcase.Buttons.Basic_Style"
+    xmlns:event="clr-namespace:OpenSilverShowcase.Buttons.Event">
+
+    <Grid>
+        <ScrollViewer Background="Transparent">
+            <StackPanel MaxWidth="800">
+                <units:ShowcaseContent x:Name="ShowcaseContainer"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

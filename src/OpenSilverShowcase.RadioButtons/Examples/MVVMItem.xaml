@@ -1,0 +1,135 @@
+﻿<units:ShowcaseItem
+    x:Class="OpenSilverShowcase.RadioButtons.Examples.MVVMItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    HorizontalContentAlignment="Stretch"
+    xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units;assembly=OpenSilverShowcase.Support"
+    xmlns:local="clr-namespace:OpenSilverShowcase.RadioButtons.Examples"
+    Description="RadioButton with MVVM pattern examples using ViewModel binding."
+    Title="MVVM"
+    Order="8">
+
+    <units:ShowcaseItem.Resources>
+        <local:EnumToBoolConverter x:Key="EnumToBoolConverter"/>
+        <local:StringComparisonConverter x:Key="StringComparisonConverter"/>
+        <local:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <local:InverseBoolConverter x:Key="InverseBoolConverter"/>
+    </units:ShowcaseItem.Resources>
+    <units:ShowcaseItem.CodeSources>
+        <units:CodeSource Key="xaml" Source="/Examples/MVVMItem.xaml"/>
+        <units:CodeSource Key="xaml.cs" Source="/Examples/MVVMItem.xaml.cs"/>
+        <units:CodeSource Key="ViewModel" Source="/Examples/RadioButtonViewModel.cs"/>
+        <units:CodeSource Key="Converters" Source="/Examples/CustomConverter.cs"/>
+    </units:ShowcaseItem.CodeSources>
+    <units:ShowcaseItem.DemoContent>
+        <ScrollViewer>
+            <StackPanel>
+                <!-- Enum-based RadioButton Group -->
+                <TextBlock Text="Enum-based Binding • Using Converter" FontWeight="SemiBold" FontSize="15" 
+                           Foreground="#2D3436" Margin="0,0,0,16"/>
+                <Border Background="#F8F9FA" BorderBrush="#E9ECEF" BorderThickness="1" 
+                        CornerRadius="8" Padding="20" Margin="0,0,0,32">
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton Content="Small" GroupName="SizeGroup" 
+                                   IsChecked="{Binding SelectedSize, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=Small}" 
+                                   Margin="0,0,20,0"/>
+                        <RadioButton Content="Medium" GroupName="SizeGroup" 
+                                   IsChecked="{Binding SelectedSize, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=Medium}" 
+                                   Margin="0,0,20,0"/>
+                        <RadioButton Content="Large" GroupName="SizeGroup" 
+                                   IsChecked="{Binding SelectedSize, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=Large}"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- String-based RadioButton Group -->
+                <TextBlock Text="String-based Binding • Direct Comparison" FontWeight="SemiBold" FontSize="15" 
+                           Foreground="#2D3436" Margin="0,0,0,16"/>
+                <Border Background="#F8F9FA" BorderBrush="#E9ECEF" BorderThickness="1" 
+                        CornerRadius="8" Padding="20" Margin="0,0,0,32">
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton Content="Red" GroupName="ColorGroup" 
+                                   IsChecked="{Binding SelectedColor, Converter={StaticResource StringComparisonConverter}, ConverterParameter=Red}" 
+                                   Margin="0,0,20,0"/>
+                        <RadioButton Content="Green" GroupName="ColorGroup" 
+                                   IsChecked="{Binding SelectedColor, Converter={StaticResource StringComparisonConverter}, ConverterParameter=Green}" 
+                                   Margin="0,0,20,0"/>
+                        <RadioButton Content="Blue" GroupName="ColorGroup" 
+                                   IsChecked="{Binding SelectedColor, Converter={StaticResource StringComparisonConverter}, ConverterParameter=Blue}"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Boolean Properties RadioButton Group -->
+                <TextBlock Text="Boolean Properties • Individual Binding" FontWeight="SemiBold" FontSize="15" 
+                           Foreground="#2D3436" Margin="0,0,0,16"/>
+                <Border Background="#F8F9FA" BorderBrush="#E9ECEF" BorderThickness="1" 
+                        CornerRadius="8" Padding="20" Margin="0,0,0,32">
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton Content="Basic" GroupName="PlanGroup" 
+                                   IsChecked="{Binding IsBasicPlan, Mode=TwoWay}" 
+                                   Margin="0,0,20,0"/>
+                        <RadioButton Content="Premium" GroupName="PlanGroup" 
+                                   IsChecked="{Binding IsPremiumPlan, Mode=TwoWay}" 
+                                   Margin="0,0,20,0"/>
+                        <RadioButton Content="Enterprise" GroupName="PlanGroup" 
+                                   IsChecked="{Binding IsEnterprisePlan, Mode=TwoWay}"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Command-based RadioButton Group -->
+                <TextBlock Text="Command-based • Action Binding" FontWeight="SemiBold" FontSize="15" 
+                           Foreground="#2D3436" Margin="0,0,0,16"/>
+                <Border Background="#F8F9FA" BorderBrush="#E9ECEF" BorderThickness="1" 
+                        CornerRadius="8" Padding="20" Margin="0,0,0,32">
+                    <StackPanel Orientation="Horizontal">
+                        <RadioButton Content="View Mode" GroupName="ActionGroup" 
+                                   IsChecked="{Binding IsViewMode}" 
+                                   Command="{Binding SetViewModeCommand}" 
+                                   Margin="0,0,20,0"/>
+                        <RadioButton Content="Edit Mode" GroupName="ActionGroup" 
+                                   IsChecked="{Binding IsEditMode}" 
+                                   Command="{Binding SetEditModeCommand}" 
+                                   Margin="0,0,20,0"/>
+                        <RadioButton Content="Admin Mode" GroupName="ActionGroup" 
+                                   IsChecked="{Binding IsAdminMode}" 
+                                   Command="{Binding SetAdminModeCommand}"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- ViewModel Status Display -->
+                <TextBlock Text="ViewModel Status Display" FontWeight="SemiBold" FontSize="15" 
+                           Foreground="#2D3436" Margin="0,0,0,16"/>
+                <Border Background="#F8F9FA" BorderBrush="#E9ECEF" BorderThickness="1" 
+                        CornerRadius="8" Padding="20">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBox Grid.Row="0" Grid.Column="0" Text="{Binding SelectedSize, StringFormat='Size: {0}'}" 
+                                 IsReadOnly="True" Height="32" Padding="8" Margin="0,0,6,8"/>
+                        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding SelectedColor, StringFormat='Color: {0}'}" 
+                                 IsReadOnly="True" Height="32" Padding="8" Margin="6,0,0,8"/>
+
+                        <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding SelectedPlan, StringFormat='Plan: {0}'}" 
+                                 IsReadOnly="True" Height="32" Padding="8" Margin="0,0,6,8"/>
+                        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding CurrentMode, StringFormat='Mode: {0}'}" 
+                                 IsReadOnly="True" Height="32" Padding="8" Margin="6,0,0,8"/>
+
+                        <TextBox Grid.Row="2" Grid.ColumnSpan="2" Text="{Binding StatusMessage}" 
+                                 IsReadOnly="True" Height="32" Padding="8" Margin="0,0,0,8"/>
+
+                        <Button Grid.Row="3" Grid.ColumnSpan="2" Content="Reset All Selections" 
+                                Command="{Binding ResetCommand}" Height="32"/>
+                    </Grid>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </units:ShowcaseItem.DemoContent>
+</units:ShowcaseItem>

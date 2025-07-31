@@ -1,0 +1,24 @@
+﻿<units:ShowcaseItem
+    x:Class="OpenSilverShowcase.Buttons.Basic_Style.BasicStyle"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units;assembly=OpenSilverShowcase.Support"
+    Title="Basic"
+    Order="1"
+    Description="You can provide a label to the Checkbox thanks to the FormControlLabel component.">
+    <units:ShowcaseItem.DemoContent>
+        <WrapPanel>
+            <Button Margin="5" Content="Basic"/>
+            <Button Margin="5" Content="Background = Brown" Background="Brown"/>
+            <Button Margin="5" Content="Black &amp; Pink" Foreground="Pink" Background="#000000"/>
+            <Button Margin="5" Content="FontSize = 20" FontSize="20"/>
+            <Button Margin="5">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/OpenSilverShowcase.Support;component/Local/Images/opensilver.png" 
+                            Width="20" Height="20" Stretch="Uniform"/>
+                    <TextBlock Text="Image" VerticalAlignment="Center" Margin="6 0 0 0"/>
+                </StackPanel>
+            </Button>
+        </WrapPanel>
+    </units:ShowcaseItem.DemoContent>    
+</units:ShowcaseItem>

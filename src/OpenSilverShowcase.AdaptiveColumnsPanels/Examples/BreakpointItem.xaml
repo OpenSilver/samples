@@ -1,0 +1,90 @@
+﻿<units:ShowcaseItem
+    x:Class="OpenSilverShowcase.AdaptiveColumnsPanels.Examples.BreakpointItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units;assembly=OpenSilverShowcase.Support"
+    xmlns:controlskit="clr-namespace:OpenSilverShowcase.Support.UI.Units;assembly=OpenSilverShowcase.Support"
+    Description="Demonstrates NoColumnsBelowWidth property with different breakpoint values."
+    Title="NoColumnsBelowWidth"
+    Order="2">
+
+    <units:ShowcaseItem.CodeSources>
+        <units:CodeSource Key="xaml" Source="/Examples/BreakpointItem.xaml"/>
+        <units:CodeSource Key="xaml.cs" Source="/Examples/BreakpointItem.xaml.cs"/>
+    </units:ShowcaseItem.CodeSources>
+
+    <units:ShowcaseItem.DemoContent>
+        <StackPanel Margin="20">
+
+            <!-- Simple Width Control -->
+            <StackPanel Margin="0,0,0,20">
+                <TextBlock Text="Container Width:" FontWeight="SemiBold" Margin="0,0,0,8"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Slider x:Name="WidthSlider" Minimum="200" Maximum="500" Value="400" Grid.Column="0" Margin="0,0,12,0"/>
+                    <TextBlock Text="{Binding ElementName=WidthSlider, Path=Value, StringFormat='{}{0:F0}px'}" 
+                               Grid.Column="1" 
+                               VerticalAlignment="Center"
+                               FontWeight="Bold"
+                               Foreground="#3B82F6"
+                               MinWidth="60"/>
+                </Grid>
+            </StackPanel>
+
+            <!-- Demo Panels -->
+            <StackPanel Width="{Binding ElementName=WidthSlider, Path=Value}" HorizontalAlignment="Left">
+
+                <!-- NoColumnsBelowWidth="250" -->
+                <StackPanel Margin="0,0,0,20">
+                    <TextBlock Text="NoColumnsBelowWidth=&quot;250&quot;" FontWeight="SemiBold" Margin="0,0,0,8"/>
+                    <Border Background="#E0F2FE" Padding="12" CornerRadius="8" BorderBrush="#0891B2" BorderThickness="1">
+                        <controlskit:AdaptiveColumnsPanel NoColumnsBelowWidth="250">
+                            <Border Height="60" CornerRadius="6" Margin="4" Background="#0891B2">
+                                <TextBlock Text="A" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                            </Border>
+                            <Border Height="60" CornerRadius="6" Margin="4" Background="#0891B2">
+                                <TextBlock Text="B" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                            </Border>
+                            <Border Height="60" CornerRadius="6" Margin="4" Background="#0891B2">
+                                <TextBlock Text="C" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                            </Border>
+                        </controlskit:AdaptiveColumnsPanel>
+                    </Border>
+                </StackPanel>
+
+                <!-- NoColumnsBelowWidth="350" -->
+                <StackPanel>
+                    <TextBlock Text="NoColumnsBelowWidth=&quot;350&quot;" FontWeight="SemiBold" Margin="0,0,0,8"/>
+                    <Border Background="#F0FDF4" Padding="12" CornerRadius="8" BorderBrush="#16A34A" BorderThickness="1">
+                        <controlskit:AdaptiveColumnsPanel NoColumnsBelowWidth="350">
+                            <Border Height="60" CornerRadius="6" Margin="4" Background="#16A34A">
+                                <TextBlock Text="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                            </Border>
+                            <Border Height="60" CornerRadius="6" Margin="4" Background="#16A34A">
+                                <TextBlock Text="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                            </Border>
+                            <Border Height="60" CornerRadius="6" Margin="4" Background="#16A34A">
+                                <TextBlock Text="3" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                            </Border>
+                            <Border Height="60" CornerRadius="6" Margin="4" Background="#16A34A">
+                                <TextBlock Text="4" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+                            </Border>
+                        </controlskit:AdaptiveColumnsPanel>
+                    </Border>
+                </StackPanel>
+
+            </StackPanel>
+
+            <!-- Simple Info -->
+            <TextBlock Text="💡 Try dragging the slider to see how different NoColumnsBelowWidth values affect the layout!"
+                       FontSize="12"
+                       Foreground="#6B7280"
+                       Margin="0,20,0,0"
+                       TextWrapping="Wrap"/>
+
+        </StackPanel>
+    </units:ShowcaseItem.DemoContent>
+</units:ShowcaseItem>

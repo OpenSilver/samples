@@ -1,0 +1,93 @@
+﻿<Page x:Class="OpenSilverSample.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:button="clr-namespace:OpenSilverShowcase.Buttons;assembly=OpenSilverShowcase.Buttons"
+      xmlns:toggle="clr-namespace:OpenSilverShowcase.ToggleButtons;assembly=OpenSilverShowcase.ToggleButtons"
+      xmlns:slider="clr-namespace:OpenSilverShowcase.Sliders;assembly=OpenSilverShowcase.Sliders"
+      xmlns:check="clr-namespace:OpenSilverShowcase.CheckBoxs;assembly=OpenSilverShowcase.CheckBoxs"
+      xmlns:radio="clr-namespace:OpenSilverShowcase.RadioButtons;assembly=OpenSilverShowcase.RadioButtons"
+      xmlns:combo="clr-namespace:OpenSilverShowcase.ComboBoxs;assembly=OpenSilverShowcase.ComboBoxs"
+      xmlns:list="clr-namespace:OpenSilverShowcase.ListBoxs;assembly=OpenSilverShowcase.ListBoxs"
+      xmlns:pgbar="clr-namespace:OpenSilverShowcase.ProgressBars;assembly=OpenSilverShowcase.ProgressBars"
+      xmlns:txtbox="clr-namespace:OpenSilverShowcase.TextBoxs;assembly=OpenSilverShowcase.TextBoxs"
+      xmlns:grid="clr-namespace:OpenSilverShowcase.Grids;assembly=OpenSilverShowcase.Grids"
+      xmlns:stack="clr-namespace:OpenSilverShowcase.StackPanels;assembly=OpenSilverShowcase.StackPanels"
+      xmlns:wrap="clr-namespace:OpenSilverShowcase.WrapPanels;assembly=OpenSilverShowcase.WrapPanels"
+      xmlns:border="clr-namespace:OpenSilverShowcase.Borders;assembly=OpenSilverShowcase.Borders"
+      xmlns:ckanb="clr-namespace:OpenSilverShowcase.AnimatedNavigationBars;assembly=OpenSilverShowcase.AnimatedNavigationBars"
+      xmlns:adpanel="clr-namespace:OpenSilverShowcase.AdaptiveColumnsPanels;assembly=OpenSilverShowcase.AdaptiveColumnsPanels"
+      xmlns:stagg="clr-namespace:OpenSilverShowcase.StaggeredPanels;assembly=OpenSilverShowcase.StaggeredPanels"
+      xmlns:mvvm="clr-namespace:OpenSilverShowcase.MvvmTemplate;assembly=OpenSilverShowcase.MvvmTemplate"
+      xmlns:binding="clr-namespace:OpenSilverShowcase.BindingTemplate;assembly=OpenSilverShowcase.BindingTemplate"
+      xmlns:datac="clr-namespace:OpenSilverShowcase.DataContextTemplate;assembly=OpenSilverShowcase.DataContextTemplate"
+      xmlns:resource="clr-namespace:OpenSilverShowcase.ResourceTemplate;assembly=OpenSilverShowcase.ResourceTemplate"
+      mc:Ignorable="d"
+      Foreground="{DynamicResource Theme_TextBrush}">
+    <ScrollViewer Background="Transparent" VerticalScrollBarVisibility="Visible">
+        <StackPanel MaxWidth="800">
+            <Grid Background="{DynamicResource Theme_BackgroundBrush}">
+                <TabControl>
+                    <TabItem Header="Button">
+                        <button:ButtonContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                    </TabItem>
+                    <TabItem Header="ToggleButton">
+                        <toggle:ToggleButtonContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                    </TabItem>
+                    <TabItem Header="Slider">
+                        <slider:SliderContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                    </TabItem>
+                    <TabItem Header="CheckBox">
+                        <check:CheckBoxContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                    </TabItem>
+                    <TabItem Header="RadioButton">
+                        <radio:RadioButtonContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                    </TabItem>
+                    <TabItem Header="ComboBox">
+                        <combo:ComboBoxContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                    </TabItem>
+                    <TabItem Header="ListBox">
+                        <list:ListBoxContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                    </TabItem>
+                    <TabItem Header="ProgressBar">
+                        <pgbar:ProgressBarContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                    </TabItem>
+                    <TabItem Header="TextBox">
+                        <txtbox:TextBoxContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                    </TabItem>
+                    <TabItem Header="Grid">
+                        <grid:GridContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                    </TabItem>
+                    <TabItem Header="WrapPanel">
+                        <wrap:WrapPanelContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                    </TabItem>
+                    <TabItem Header="Border">
+                        <border:BorderContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                    </TabItem>
+                    <TabItem Header="AnimatedNavigationBar">
+                        <ckanb:AnimatedNavigationBarContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                    </TabItem>
+                    <TabItem Header="AdaptiveColumnsPanel">
+                        <adpanel:AdaptiveColumnsPanelContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                    </TabItem>
+                    <TabItem Header="StaggeredPanel">
+                        <stagg:StaggeredPanelContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                    </TabItem>
+                    <TabItem Header="Mvvm">
+                        <mvvm:MvvmContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                    </TabItem>
+                    <TabItem Header="Binding">
+                        <binding:BindingContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                    </TabItem>
+                    <TabItem Header="DataContext">
+                        <datac:DataContextContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                    </TabItem>
+                    <TabItem Header="Resource">
+                        <resource:ResourceContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
+</Page>
