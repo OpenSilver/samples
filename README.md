@@ -1,106 +1,96 @@
-# OpenSilver Button Controls Samples
+# OpenSilver Samples
 
-This repository contains practical example code for OpenSilver Button controls, demonstrating various implementations and functionalities. The project aims to help developers better understand and use Button controls in OpenSilver.
+OpenSilver 애플리케이션 개발을 위한 샘플과 템플릿 모음입니다.
 
-## Project Background
+**XAML, C#, 데이터 바인딩, MVVM** 등 XAML 기반 요소들을 모듈화된 예제로 제공하며, 각 샘플은 독립적으로 구성되어 학습과 재사용이 쉽습니다.
 
-This project serves as supplementary material to the official OpenSilver technical documentation. The official documentation provides detailed explanations and usage instructions for Button controls, including interactive demonstrations.
+## 🌐 라이브 데모
 
-To help developers gain a deeper understanding of how OpenSilver Button controls are implemented, we've created this dedicated code repository containing complete source code for all examples, allowing developers to directly view, learn from, and use these samples.
+**[OpenSilver Hub](https://opensilverhub.azurewebsites.net)** (임시)에서 모든 예제를 바로 확인할 수 있습니다.
 
-## Content Overview
+- **실시간 실행** - 브라우저에서 바로 샘플 동작 확인
+- **인터랙티브 테스트** - 컨트롤 조작 및 동작 방식 학습  
+- **소스코드 보기** - XAML과 C# 코드 즉시 확인
+- **구현 아이디어** - 다양한 UI 패턴과 구현 방법 참고
 
-The repository includes the following Button control sample implementations:
+## 🚀 개발 환경 설정
 
-- **OSFSample.ButtonContent**: Demonstrates Button content configuration and binding
-- **OSFSample.ButtonClick**: Shows Button click event handling
-- **OSFSample.ButtonCommand**: Demonstrates basic Command binding usage
-- **OSFSample.ButtonCommandCanExecute**: Shows Command usage with CanExecute
-- **OSFSample.ButtonDisabled**: Demonstrates Button disabled state control
-- **OSFSample.Support**: Utility functions and helper classes
+### 1. 레포지터리 클론
+```bash
+git clone https://github.com/opensilver/samples
+cd samples
+```
 
-Each sample showcases different uses and features of OpenSilver Button controls, helping developers quickly understand how to implement similar functionality in their own applications.
+### 2. Visual Studio 템플릿 설치
+```bash
+cd templates
+install_templates.bat
+```
 
-## Sample Code
+설치되는 템플릿:
+- **Showcase Template (OpenSilver)** - 프로젝트 템플릿
+- **Showcase Content (OpenSilver)** - 아이템 템플릿
+- **Showcase Item (OpenSilver)** - 아이템 템플릿
 
-Below is the complete code for the Button Click Event sample, demonstrating how to handle Button click events and update UI elements:
+### 3. 솔루션 열기
+```bash
+cd ../src
+# OpenSilverSample.sln을 Visual Studio에서 열기
+```
 
-### XAML Part:
+## 🏗️ 프로젝트 구조
 
+```
+samples/
+├── templates/
+│   ├── install_templates.bat
+│   └── vs-templates/
+└── src/
+    ├── OpenSilverSample.sln     # 메인 솔루션
+    ├── OpenSilverSample/        # 샘플 프로젝트
+    │   └── MainPage.xaml        # 메인 쇼케이스 페이지
+    └── OpenSilverSample.Browser/ # 실행 프로젝트
+```
+
+## 🔧 새 샘플 만들기
+
+### 새 프로젝트 추가
+솔루션 우클릭 → 추가 → 새 프로젝트 → "Showcase Template (OpenSilver)" 선택
+
+![새 프로젝트 추가](https://github.com/user-attachments/assets/08c6eaf8-be4d-4c25-84b2-7368be21f7ed)
+
+### 새 아이템 추가
+프로젝트 우클릭 → 추가 → 새 항목 → "Showcase Content" 또는 "Showcase Item" 선택
+
+![새 아이템 추가](https://github.com/user-attachments/assets/7f818fcb-9bdd-44e3-8a4d-b28604711fd8)
+
+### 샘플 통합 및 테스트
+1. `MainPage.xaml`에 새 TabItem 추가:
 ```xml
-<units:ExampleBase x:Class="OSFSample.ButtonClick.ButtonClickExample"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:units="clr-namespace:OSFSample.Support.UI.Units;assembly=OSFSample.Support"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             Foreground="{DynamicResource Theme_TextBrush}"
-             Height="200"
-             MaxWidth="780"
-             mc:Ignorable="d">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Border Style="{StaticResource ExampleHeaderBorder}">
-            <TextBlock Style="{StaticResource ExampleHeaderItemAssemblyName}"/>
-        </Border>
-        <Border Style="{StaticResource ExampleHeaderItemBorder}">
-            <TextBlock Style="{StaticResource ExampleHeaderItemText}"/>
-        </Border>
-        <Border Style="{StaticResource ExampleContentBorder}"/>
-        <StackPanel Style="{StaticResource ExampleContentStackPanel}">
-            <Button Content="XAML Button Click" Click="Button_Click" Margin="10" Padding="10 5 10 7" />
-            <TextBlock x:Name="btnCount" Text="Click Count: 0" Margin="10"/>
-        </StackPanel>
-    </Grid>
-</units:ExampleBase>
+<TabItem Header="MySample">
+    <mysample:MySampleContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+</TabItem>
 ```
 
-### C# Part:
+2. `OpenSilverSample.Browser` 실행해서 테스트
 
-```csharp
-using OSFSample.Support.UI.Units;
-using System.Windows;
-namespace OSFSample.ButtonClick;
+## 📋 기존 샘플들
 
-public partial class ButtonClickExample : ExampleBase
-{
-    int count = 0;
-    
-    public ButtonClickExample()
-    {
-        this.InitializeComponent();
-    }
-    
-    private void Button_Click(object sender, RoutedEventArgs e)
-    {
-        count++;
-        btnCount.Text = $"Click Count: {count}";
-        System.Windows.MessageBox.Show("Button Clicked!");
-    }
-}
-```
+- **기본 컨트롤**: Button, ToggleButton, Slider, CheckBox, RadioButton
+- **데이터 컨트롤**: ComboBox, ListBox, TextBox, ProgressBar
+- **레이아웃**: Grid, StackPanel, WrapPanel, Border
+- **고급 컴포넌트**: AnimatedNavigationBar, AdaptiveColumnsPanel, StaggeredPanel
+- **패턴**: MVVM, Binding, DataContext, Resource
 
-This example demonstrates how to update a counter text and display a message box when a button is clicked. The repository also includes other types of Button control samples such as content configuration, Command binding, CanExecute functionality, and disabled state control.
+## 🤝 기여
 
-## How to Use
+1. 레포지터리 포크
+2. 로컬에 클론 후 템플릿 설치
+3. 새 샘플 개발
+4. 테스트 완료 후 Pull Request
 
-1. Clone this repository
-2. Open the solution using an IDE that supports OpenSilver (such as Visual Studio)
-3. Explore the code implementation in each sample folder
-4. Run the project to see the actual effects
+## 🔗 관련 링크
 
-## Related Resources
-
-- [OpenSilver Official Website](https://opensilver.net/)
-- [OpenSilver Documentation](https://opensilverdev.azurewebsites.net/docs/9/4168)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Contributing
-
-Issues and pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+- [OpenSilver 공식 사이트](https://opensilver.net/)
+- [OpenSilver GitHub](https://github.com/opensilver/opensilver)
+- [커뮤니티 포럼](https://forums.opensilver.net/)
