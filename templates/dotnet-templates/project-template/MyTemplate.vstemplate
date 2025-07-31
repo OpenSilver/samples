@@ -1,15 +1,25 @@
-<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
   <TemplateData>
-    <Name>Showcase Content (OpenSilver)</Name>
-    <Description>OpenSilver Showcase Content File</Description>
+    <Name>Showcase Template (OpenSilver)</Name>
+    <Description>Creates a new OpenSilver showcase project with demo content structure and base classes</Description>
     <ProjectType>CSharp</ProjectType>
-    <DefaultName>MyContent.xaml</DefaultName>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>OpenSilverShowcase.MyTemplate</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
-    <SortOrder>10</SortOrder>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <CreateInPlace>true</CreateInPlace>
     <Icon>__TemplateIcon.ico</Icon>
   </TemplateData>
   <TemplateContent>
-    <ProjectItem ReplaceParameters="true" TargetFileName="$safeitemname$.xaml">MyShowcaseContent.xaml</ProjectItem>
-    <ProjectItem ReplaceParameters="true" TargetFileName="$safeitemname$.xaml.cs">MyShowcaseContent.xaml.cs</ProjectItem>
+    <Project TargetFileName="$safeprojectname$.csproj" File="OpenSilverShowcase.ProjectTemplate.csproj" ReplaceParameters="true">
+      <Folder Name="Examples" TargetFolderName="Examples" />
+      <Folder Name="Themes" TargetFolderName="Themes">
+        <ProjectItem ReplaceParameters="true" TargetFileName="Generic.xaml">Generic.xaml</ProjectItem>
+      </Folder>
+    </Project>
   </TemplateContent>
 </VSTemplate>
