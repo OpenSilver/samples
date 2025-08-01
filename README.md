@@ -1,106 +1,94 @@
-# OpenSilver Button Controls Samples
+# OpenSilver Samples
+A collection of samples and templates for OpenSilver application development.
+Provides modularized examples of **XAML, C#, data binding, MVVM** and other XAML-based elements. Each sample is independently structured for easy learning and reuse.
 
-This repository contains practical example code for OpenSilver Button controls, demonstrating various implementations and functionalities. The project aims to help developers better understand and use Button controls in OpenSilver.
+## 🌐 Live Demo
+Check out all examples instantly at **[OpenSilver Hub](https://opensilverhub.azurewebsites.net)** (temporary).
+- **Real-time execution** - See samples running directly in your browser
+- **Interactive testing** - Manipulate controls and learn how they work  
+- **View source code** - Instantly examine XAML and C# code
+- **Implementation ideas** - Explore various UI patterns and implementation methods
 
-## Project Background
+## 🚀 Development Setup
 
-This project serves as supplementary material to the official OpenSilver technical documentation. The official documentation provides detailed explanations and usage instructions for Button controls, including interactive demonstrations.
+### 1. Install OpenSilver
+If OpenSilver is not installed, choose one of the following methods:
 
-To help developers gain a deeper understanding of how OpenSilver Button controls are implemented, we've created this dedicated code repository containing complete source code for all examples, allowing developers to directly view, learn from, and use these samples.
+**Method 1: Using .NET CLI**
+```bash
+dotnet new install OpenSilver.Templates
+```
 
-## Content Overview
+**Method 2: Visual Studio Extension**
+Download and install the VS extension from https://opensilver.net/download-sdk within Visual Studio
 
-The repository includes the following Button control sample implementations:
+### 2. Clone Repository
+```bash
+git clone https://github.com/opensilver/samples
+cd samples
+```
 
-- **OSFSample.ButtonContent**: Demonstrates Button content configuration and binding
-- **OSFSample.ButtonClick**: Shows Button click event handling
-- **OSFSample.ButtonCommand**: Demonstrates basic Command binding usage
-- **OSFSample.ButtonCommandCanExecute**: Shows Command usage with CanExecute
-- **OSFSample.ButtonDisabled**: Demonstrates Button disabled state control
-- **OSFSample.Support**: Utility functions and helper classes
+### 3. Install Visual Studio Templates
+```bash
+cd templates
+install_templates.bat
+```
+Installed templates:
+- **Showcase Template (OpenSilver)** - Project template
+- **Showcase Content (OpenSilver)** - Item template
+- **Showcase Item (OpenSilver)** - Item template
 
-Each sample showcases different uses and features of OpenSilver Button controls, helping developers quickly understand how to implement similar functionality in their own applications.
+### 4. Open Solution
+```bash
+cd ../src
+# Open OpenSilverSample.sln in Visual Studio
+```
 
-## Sample Code
+## 🏗️ Project Structure
+```
+samples/
+├── templates/
+│   ├── install_templates.bat
+│   └── vs-templates/
+└── src/
+    ├── OpenSilverSample.sln     # Main solution
+    ├── OpenSilverSample/        # Sample project
+    │   └── MainPage.xaml        # Main showcase page
+    └── OpenSilverSample.Browser/ # Execution project
+```
 
-Below is the complete code for the Button Click Event sample, demonstrating how to handle Button click events and update UI elements:
+## 🔧 Creating New Samples
+### Add New Project
+Right-click solution → Add → New Project → Select "Showcase Template (OpenSilver)"
+![Add New Project](https://github.com/user-attachments/assets/08c6eaf8-be4d-4c25-84b2-7368be21f7ed)
 
-### XAML Part:
+### Add New Item
+Right-click project → Add → New Item → Select "Showcase Content" or "Showcase Item"
+![Add New Item](https://github.com/user-attachments/assets/7f818fcb-9bdd-44e3-8a4d-b28604711fd8)
 
+### Integration and Testing
+1. Add new TabItem to `MainPage.xaml`:
 ```xml
-<units:ExampleBase x:Class="OSFSample.ButtonClick.ButtonClickExample"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:units="clr-namespace:OSFSample.Support.UI.Units;assembly=OSFSample.Support"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             Foreground="{DynamicResource Theme_TextBrush}"
-             Height="200"
-             MaxWidth="780"
-             mc:Ignorable="d">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Border Style="{StaticResource ExampleHeaderBorder}">
-            <TextBlock Style="{StaticResource ExampleHeaderItemAssemblyName}"/>
-        </Border>
-        <Border Style="{StaticResource ExampleHeaderItemBorder}">
-            <TextBlock Style="{StaticResource ExampleHeaderItemText}"/>
-        </Border>
-        <Border Style="{StaticResource ExampleContentBorder}"/>
-        <StackPanel Style="{StaticResource ExampleContentStackPanel}">
-            <Button Content="XAML Button Click" Click="Button_Click" Margin="10" Padding="10 5 10 7" />
-            <TextBlock x:Name="btnCount" Text="Click Count: 0" Margin="10"/>
-        </StackPanel>
-    </Grid>
-</units:ExampleBase>
+<TabItem Header="MySample">
+    <mysample:MySampleContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+</TabItem>
 ```
+2. Run `OpenSilverSample.Browser` to test
 
-### C# Part:
+## 📋 Existing Samples
+- **Basic Controls**: Button, ToggleButton, Slider, CheckBox, RadioButton
+- **Data Controls**: ComboBox, ListBox, TextBox, ProgressBar
+- **Layout**: Grid, StackPanel, WrapPanel, Border
+- **Advanced Components**: AnimatedNavigationBar, AdaptiveColumnsPanel, StaggeredPanel
+- **Patterns**: MVVM, Binding, DataContext, Resource
 
-```csharp
-using OSFSample.Support.UI.Units;
-using System.Windows;
-namespace OSFSample.ButtonClick;
+## 🤝 Contributing
+1. Fork the repository
+2. Clone locally and install templates
+3. Develop new samples
+4. Test thoroughly and submit Pull Request
 
-public partial class ButtonClickExample : ExampleBase
-{
-    int count = 0;
-    
-    public ButtonClickExample()
-    {
-        this.InitializeComponent();
-    }
-    
-    private void Button_Click(object sender, RoutedEventArgs e)
-    {
-        count++;
-        btnCount.Text = $"Click Count: {count}";
-        System.Windows.MessageBox.Show("Button Clicked!");
-    }
-}
-```
-
-This example demonstrates how to update a counter text and display a message box when a button is clicked. The repository also includes other types of Button control samples such as content configuration, Command binding, CanExecute functionality, and disabled state control.
-
-## How to Use
-
-1. Clone this repository
-2. Open the solution using an IDE that supports OpenSilver (such as Visual Studio)
-3. Explore the code implementation in each sample folder
-4. Run the project to see the actual effects
-
-## Related Resources
-
-- [OpenSilver Official Website](https://opensilver.net/)
-- [OpenSilver Documentation](https://opensilverdev.azurewebsites.net/docs/9/4168)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Contributing
-
-Issues and pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+## 🔗 Links
+- [OpenSilver Official Site](https://opensilver.net/)
+- [OpenSilver GitHub](https://github.com/opensilver/opensilver)
+- [Community Forums](https://forums.opensilver.net/)
