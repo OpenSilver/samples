@@ -1,7 +1,7 @@
 ﻿using System.Windows.Media;
 using System.Windows;
 
-namespace OpenSilverShowcase.Support.Local.Managers
+namespace OpenSilverShowcase.Support.Local.Helpers
 {
     public static class VisualTreeHelperExt
     {

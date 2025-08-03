@@ -39,11 +39,9 @@ public class CodeSource : INotifyPropertyChanged
 
     private string DetectLanguageFromSource()
     {
-        // Source URI 또는 Key로부터 언어 자동 감지
         string sourceString = Source?.ToString() ?? "";
         string keyString = Key?.ToLowerInvariant() ?? "";
 
-        // 먼저 Source 경로의 확장자로 감지 (가장 정확)
         if (!string.IsNullOrEmpty(sourceString))
         {
             try
@@ -73,14 +71,11 @@ public class CodeSource : INotifyPropertyChanged
             }
             catch
             {
-                // URI 파싱 실패 시 Key로 넘어감
             }
         }
 
-        // Source로 감지 실패 시 Key로 감지 (더 구체적인 것부터 검사)
         if (!string.IsNullOrEmpty(keyString))
         {
-            // 구체적인 조합부터 먼저 검사
             if (keyString.Contains("xaml.cs")) return "csharp";
             if (keyString.Contains("xaml")) return "xml";
             if (keyString.Contains("cs") || keyString.Contains("c#")) return "csharp";

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace OpenSilverShowcase.Support.Local.Managers
+namespace OpenSilverShowcase.Support.Local.Helpers
 {
     public static class EmbeddedResourceLoaderExtensions
     {

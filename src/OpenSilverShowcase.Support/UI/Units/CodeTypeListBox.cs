@@ -14,7 +14,6 @@ public class CodeTypeListBox : ListBox
     {
         if (DataContext is ShowcaseItem card && SelectedItem is TextBlock selectedTextBlock)
         {
-            //card.SelectedCodeTab = selectedTextBlock.;
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace OpenSilverShowcase.Support.Local.Managers
+namespace OpenSilverShowcase.Support.Local.Helpers
 {
     public class EmbeddedResourceLoader
     {
@@ -127,7 +127,7 @@ namespace OpenSilverShowcase.Support.Local.Managers
             else if (fileName.EndsWith(".cs", StringComparison.OrdinalIgnoreCase))
             {
                 fileNameWithoutExtension = Path.GetFileNameWithoutExtension(fileName);
-                suffix = "_cs.txt";
+                suffix = "_Cs.txt";
             }
             else if (fileName.EndsWith(".xaml", StringComparison.OrdinalIgnoreCase))
             {

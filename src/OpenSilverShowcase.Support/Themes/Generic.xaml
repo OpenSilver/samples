@@ -11,8 +11,6 @@
         <ResourceDictionary Source="/OpenSilverShowcase.Support;component/Themes/Units/SimpleCodeTextBox.xaml"/>
         <ResourceDictionary Source="/OpenSilverShowcase.Support;component/Themes/Units/IconButton.xaml"/>
         <ResourceDictionary Source="/OpenSilverShowcase.Support;component/Themes/Units/AnimatedNavigationBar.xaml"/>
-        <ResourceDictionary Source="/OpenSilverShowcase.Support;component/Themes/Units/ShowcaseContent2.xaml"/>
-        <ResourceDictionary Source="/OpenSilverShowcase.Support;component/Themes/Units/ShowcaseItem2.xaml"/>
         <ResourceDictionary Source="/OpenSilverShowcase.Support;component/Themes/Units/ShowcaseListBox.xaml"/>
         <ResourceDictionary Source="/OpenSilverShowcase.Support;component/Themes/Units/ShowcaseHeadline.xaml"/>
         <ResourceDictionary Source="/OpenSilverShowcase.Support;component/Themes/Units/ModernScrollViewer.xaml"/>

@@ -1,288 +1,182 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Collections.ObjectModel;
-//using System.Reflection;
-//using System.Windows;
-//using System.Windows.Browser;
-//using System.Windows.Controls;
-//using System.Windows.Media;
-//using System.Windows.Input;
-//using Jamesnet.Foundation;
+﻿using System;
+using System.Windows.Controls;
+using OpenSilverShowcase.Support.Local.Helpers;
+using System.Linq;
+using System.Windows.Controls.Primitives;
+using System.Threading.Tasks;
+using Jamesnet.Foundation;
+using System.Windows.Browser;
+using System.Windows;
+using OpenSilverShowcase.Support.UI.Primitives;
 
-//namespace OpenSilverShowcase.Support.UI.Units;
+namespace OpenSilverShowcase.Support.UI.Units
+{
+    public class ShowcaseItem : ShowcaseItemElement
+    {
+        public static MonacoEditor MonacoEditor;
 
-//public class ShowcaseItem : Control
-//{
+        private EmbeddedResourceLoader _resourceLoader;
+        private Selector _codeItems;
+        private ContentControl _codeContent;
+        private SimpleCodeTextBox _simpleCode;
+        private FullScreenButton _fullScreenButton;
+        private IconButton _githubButton;
+        private IconButton _shareButton;
+        private CopyIconButton _copyButton;
 
-//    public static readonly DependencyProperty CodeSourcesProperty =
-//    DependencyProperty.Register(
-//        nameof(CodeSources),
-//        typeof(ObservableCollection<CodeSource>),
-//        typeof(ShowcaseItem),
-//        new PropertyMetadata(null)
-//    );
+        public ShowcaseItem()
+        {
+            DefaultStyleKey = typeof(ShowcaseItem);
+            _resourceLoader = new EmbeddedResourceLoader(this.GetType().Assembly);
+            Loaded += ShowcaseItem2_Loaded;
+        }
 
+        private void ShowcaseItem2_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        {
+            ShowCode();
+        }
 
-//    public static readonly DependencyProperty TitleProperty =
-//        DependencyProperty.Register(nameof(Title), typeof(string), typeof(ShowcaseItem), new PropertyMetadata(string.Empty));
+        public override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
+            _codeItems = GetTemplateChild("PART_CodeItems") as Selector;
+            _codeContent = GetTemplateChild("PART_CodeContent") as ContentControl;
+            _simpleCode = GetTemplateChild("PART_SimpleCode") as SimpleCodeTextBox;
+            _fullScreenButton = GetTemplateChild("PART_FullScreen") as FullScreenButton;
+            _githubButton = GetTemplateChild("PART_GitHubButton") as IconButton;
+            _shareButton = GetTemplateChild("PART_ShareButton") as IconButton;
+            _shareButton = GetTemplateChild("PART_ShareButton") as IconButton;
+            _copyButton = GetTemplateChild("PART_CopyButton") as CopyIconButton;
 
-//    public static readonly DependencyProperty DescriptionProperty =
-//        DependencyProperty.Register(nameof(Description), typeof(string), typeof(ShowcaseItem), new PropertyMetadata(string.Empty));
+            if (_codeItems != null)
+            {
+                _codeItems.ItemsSource = this.CodeSources;
+                _codeItems.SelectionChanged += OnCodeItemSelected;
+                _codeItems.SelectedItem = this.CodeSources?.FirstOrDefault();
+            }
+            if (_fullScreenButton != null)
+            {
+                _fullScreenButton.Command = new RelayCommand(OnFullScreen);
+            }
+            if (_githubButton != null)
+            {
+                _githubButton.Click += OnGitHubClick;
+            }
+            if (_shareButton != null)
+            {
+                _shareButton.Click += OnShareClick;
+            }
+            if (_shareButton != null)
+            {
+                _shareButton.Click += OnShareClick;
+            }
+            if (_copyButton != null)
+            {
+                _copyButton.Click += OnCopyClick;
+            }
+        }
 
-//    public static readonly DependencyProperty DemoContentProperty =
-//        DependencyProperty.Register(nameof(DemoContent), typeof(object), typeof(ShowcaseItem), new PropertyMetadata(null));
+        private void OnFullScreen()
+        {
+            var parent = this.FindParent<ShowcaseContent>();
+            if (parent != null && _codeItems?.SelectedItem is CodeSource selectedCodeSource)
+            {
+                string code = _simpleCode?.Text;
+                string language = selectedCodeSource.Language;
+                parent.RaiseFullScreenCode(code, language);
+            }
+        }
 
-//    public static readonly DependencyProperty XamlCodeProperty =
-//        DependencyProperty.Register(nameof(XamlCode), typeof(string), typeof(ShowcaseItem), new PropertyMetadata(string.Empty));
+        private void OnCodeItemSelected(object sender, SelectionChangedEventArgs e)
+        {
+            ShowCode();
+        }
 
-//    public static readonly DependencyProperty CSharpCodeProperty =
-//        DependencyProperty.Register(nameof(CSharpCode), typeof(string), typeof(ShowcaseItem), new PropertyMetadata(string.Empty));
+        private async void ShowCode()
+        {
+            await Task.Delay(50);
+            if (MonacoEditor == null)
+            {
+                MonacoEditor = new MonacoEditor();
+            }
 
-//    public static readonly DependencyProperty ViewModelCodeProperty =
-//        DependencyProperty.Register(nameof(ViewModelCode), typeof(string), typeof(ShowcaseItem), new PropertyMetadata(string.Empty));
+            if (_codeItems?.SelectedItem is CodeSource selectedCodeSource && _codeContent != null)
+            {
+                try
+                {
+                    string code = _resourceLoader.LoadTextByPath(selectedCodeSource.Source);
+                    code = XamlDemoExtractor.ExtractDemoContentOnly(code);
+                    MonacoEditor.IsReadOnly = true;
+                    MonacoEditor.Code = code ?? "// Unable to load code.";
+                    MonacoEditor.Language = selectedCodeSource.Language;
+                    MonacoEditor.Theme = "vs-dark";
+                    Console.WriteLine($"Code loaded: {selectedCodeSource.Source}");
 
-//    public static readonly DependencyProperty ShowXamlCodeProperty =
-//        DependencyProperty.Register(nameof(ShowXamlCode), typeof(bool), typeof(ShowcaseItem), new PropertyMetadata(true));
+                    if (_simpleCode != null)
+                        _simpleCode.Text = code ?? "// Unable to load code.";
+                }
+                catch (Exception ex)
+                {
+                    MonacoEditor.Code = $"// Failed to load code: {ex.Message}";
+                    Console.WriteLine($"Failed to load code: {selectedCodeSource.Source} - {ex.Message}");
+                }
 
-//    public static readonly DependencyProperty ShowCSharpCodeProperty =
-//        DependencyProperty.Register(nameof(ShowCSharpCode), typeof(bool), typeof(ShowcaseItem), new PropertyMetadata(true));
+                var parent = MonacoEditor.Parent;
+                if (parent is ContentControl parentContent)
+                {
+                    parentContent.Content = null;
+                }
+                _codeContent.Content = MonacoEditor;
+            }
+        }
 
-//    public static readonly DependencyProperty ShowViewModelCodeProperty =
-//        DependencyProperty.Register(nameof(ShowViewModelCode), typeof(bool), typeof(ShowcaseItem), new PropertyMetadata(false));
+        public void OnGitHubClick(object sender, RoutedEventArgs e)
+        {
+            var item = _codeItems?.SelectedItem as CodeSource;
 
-//    public static readonly DependencyProperty OrderProperty =
-//        DependencyProperty.Register(nameof(Order), typeof(int), typeof(ShowcaseItem), new PropertyMetadata(0));
+            if (item != null && item.Source != null)
+            {
+                string ns = this.GetType().Namespace;
+                string[] parts = ns?.Split('.') ?? Array.Empty<string>();
+                string projectName = (parts.Length >= 2) ? $"{parts[0]}.{parts[1]}" : "Unknown";
 
-//    public static readonly DependencyProperty SelectedCodeTabProperty =
-//        DependencyProperty.Register(nameof(SelectedCodeTab), typeof(CodeSource), typeof(ShowcaseItem), new PropertyMetadata(null, OnSelectedCodeTabChanged));
+                string path = item.Source.OriginalString.TrimStart('/');
 
-//    private static void OnSelectedCodeTabChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-//    {
-//        if (d is ShowcaseItem ShowcaseItem)
-//        {
-//            var selectedTab = e.NewValue as CodeSource;
+                string prefix = $"{projectName};component/";
+                if (path.StartsWith(prefix, StringComparison.OrdinalIgnoreCase))
+                    path = path.Substring(prefix.Length);
 
-//            // 모든 CodeSources의 IsSelected 업데이트
-//            foreach (var codeSource in ShowcaseItem.CodeSources)
-//            {
-//                if (codeSource is CodeSource cs)
-//                {
-//                    cs.IsSelected = string.Equals(cs.Key, selectedTab.Key, StringComparison.OrdinalIgnoreCase);
-//                }
-//            }
-//        }
-//    }
+                if (!path.StartsWith("Examples/", StringComparison.OrdinalIgnoreCase))
+                {
+                    string fileName = System.IO.Path.GetFileName(path);
+                    path = $"Examples/{fileName}";
+                }
 
-//    public static readonly DependencyProperty AvailableCodeTabsProperty =
-//        DependencyProperty.Register(nameof(AvailableCodeTabs), typeof(ObservableCollection<string>), typeof(ShowcaseItem), new PropertyMetadata(new ObservableCollection<string>()));
-//    public static readonly DependencyProperty DemoBackgroundProperty =
-//        DependencyProperty.Register(
-//            nameof(DemoBackground),
-//            typeof(object),
-//            typeof(ShowcaseItem),
-//            new PropertyMetadata(null)
-//        );
-//    public static readonly DependencyProperty DemoBorderBrushProperty =
-//        DependencyProperty.Register(
-//            nameof(DemoBorderBrush),
-//            typeof(object),
-//            typeof(ShowcaseItem),
-//            new PropertyMetadata(null)
-//        );
+                string githubUrl = $"https://github.com/OpenSilver/samples/blob/master/src/OpenSilver.Samples/{projectName}/{path}";
 
-//    public static readonly DependencyProperty FullScreenCommandProperty =
-//        DependencyProperty.Register(nameof(FullScreenCommand), typeof(ICommand), typeof(ShowcaseItem), new PropertyMetadata(null));
+                HtmlPage.Window.Navigate(new Uri(githubUrl, UriKind.Absolute), "_blank");
+            }
+        }
 
-//    private Grid _fullScreen;
+        public void OnShareClick(object sender, RoutedEventArgs e)
+        {
+            var item = _codeItems?.SelectedItem as CodeSource;
+            var parent = this.FindParent<ShowcaseContent>();
 
-//    public ObservableCollection<CodeSource> CodeSources
-//    {
-//        get => (ObservableCollection<CodeSource>)GetValue(CodeSourcesProperty);
-//        set => SetValue(CodeSourcesProperty, value);
-//    }
+            if (parent != null)
+            {
+                parent.RaiseShare(item);
+            }
+        }
 
-//    public string Title
-//    {
-//        get => (string)GetValue(TitleProperty);
-//        set => SetValue(TitleProperty, value);
-//    }
-
-//    public string Description
-//    {
-//        get => (string)GetValue(DescriptionProperty);
-//        set => SetValue(DescriptionProperty, value);
-//    }
-
-//    public object DemoContent
-//    {
-//        get => GetValue(DemoContentProperty);
-//        set => SetValue(DemoContentProperty, value);
-//    }
-
-//    public string XamlCode
-//    {
-//        get => (string)GetValue(XamlCodeProperty);
-//        set => SetValue(XamlCodeProperty, value);
-//    }
-
-//    public string CSharpCode
-//    {
-//        get => (string)GetValue(CSharpCodeProperty);
-//        set => SetValue(CSharpCodeProperty, value);
-//    }
-
-//    public string ViewModelCode
-//    {
-//        get => (string)GetValue(ViewModelCodeProperty);
-//        set => SetValue(ViewModelCodeProperty, value);
-//    }
-
-//    public bool ShowXamlCode
-//    {
-//        get => (bool)GetValue(ShowXamlCodeProperty);
-//        set => SetValue(ShowXamlCodeProperty, value);
-//    }
-
-//    public bool ShowCSharpCode
-//    {
-//        get => (bool)GetValue(ShowCSharpCodeProperty);
-//        set => SetValue(ShowCSharpCodeProperty, value);
-//    }
-
-//    public bool ShowViewModelCode
-//    {
-//        get => (bool)GetValue(ShowViewModelCodeProperty);
-//        set => SetValue(ShowViewModelCodeProperty, value);
-//    }
-
-//    public int Order
-//    {
-//        get => (int)GetValue(OrderProperty);
-//        set => SetValue(OrderProperty, value);
-//    }
-
-//    public CodeSource SelectedCodeTab
-//    {
-//        get { return (CodeSource)GetValue(SelectedCodeTabProperty); }
-//        set { SetValue(SelectedCodeTabProperty, value); }
-//    }
-
-//    public ObservableCollection<string> AvailableCodeTabs
-//    {
-//        get => (ObservableCollection<string>)GetValue(AvailableCodeTabsProperty);
-//        set => SetValue(AvailableCodeTabsProperty, value);
-//    }
-
-//    public object DemoBackground
-//    {
-//        get => GetValue(DemoBackgroundProperty);
-//        set => SetValue(DemoBackgroundProperty, value);
-//    }
-
-//    public object DemoBorderBrush
-//    {
-//        get => GetValue(DemoBorderBrushProperty);
-//        set => SetValue(DemoBorderBrushProperty, value);
-//    }
-
-//    public ICommand FullScreenCommand
-//    {
-//        get => (ICommand)GetValue(FullScreenCommandProperty);
-//        set => SetValue(FullScreenCommandProperty, value);
-//    }
-
-//    public ShowcaseItem()
-//    {
-//        DefaultStyleKey = typeof(ShowcaseItem);
-//        CodeSources = new();
-
-//        FullScreenCommand = new RelayCommand<CodeSource>(OnFullScreen);
-//    }
-
-//    public override void OnApplyTemplate()
-//    {
-//        base.OnApplyTemplate();
-
-//        if (GetTemplateChild("PART_CopyButton") is CopyIconButton copyBtn)
-//        {
-//            copyBtn.Click += OnCopyClick;
-//        }
-
-//        if (GetTemplateChild("PART_GitHubButton") is IconButton gitHubBtn)
-//        {
-//            gitHubBtn.Click += OnGitHubClick;
-//        }
-
-//        if (GetTemplateChild("PART_ShareButton") is IconButton shareBtn)
-//        {
-//            shareBtn.Click += OnShareClick;
-//        }
-
-//        if (GetTemplateChild("PART_FullScreen") is Grid fullScreen)
-//        {
-//            _fullScreen = fullScreen;
-//        }
-//    }
-
-//    private void OnFullScreen(CodeSource obj)
-//    {
-
-//        var parent = FindParentShowcaseContent(this);
-//        parent.CodeItem(obj);
-//    }
-
-//    public void OnCopyClick(object sender, RoutedEventArgs e)
-//    {
-//        if (SelectedCodeTab != null && !string.IsNullOrEmpty(SelectedCodeTab.Code))
-//        {
-//            System.Windows.Clipboard.SetText(SelectedCodeTab.Code);
-//        }
-//    }
-//    public void OnGitHubClick(object sender, RoutedEventArgs e)
-//    {
-//        if (SelectedCodeTab != null && SelectedCodeTab.Source != null)
-//        {
-//            string ns = this.GetType().Namespace;
-//            string[] parts = ns?.Split('.') ?? Array.Empty<string>();
-//            string projectName = (parts.Length >= 2) ? $"{parts[0]}.{parts[1]}" : "Unknown";
-
-//            string path = SelectedCodeTab.Source.OriginalString.TrimStart('/');
-
-//            string prefix = $"{projectName};component/";
-//            if (path.StartsWith(prefix, StringComparison.OrdinalIgnoreCase))
-//                path = path.Substring(prefix.Length);
-
-//            if (!path.StartsWith("Examples/", StringComparison.OrdinalIgnoreCase))
-//            {
-//                string fileName = System.IO.Path.GetFileName(path);
-//                path = $"Examples/{fileName}";
-//            }
-
-//            string githubUrl = $"https://github.com/OpenSilver/samples/blob/master/src/OpenSilver.Samples/{projectName}/{path}";
-
-//            HtmlPage.Window.Navigate(new Uri(githubUrl, UriKind.Absolute), "_blank");
-//        }
-//    }
-
-
-
-
-
-//    public void OnShareClick(object sender, RoutedEventArgs e)
-//    {
-//        var parent = FindParentShowcaseContent(this);
-//        if (parent != null)
-//        {
-//            parent.ShareItem(SelectedCodeTab);
-//        }
-//    }
-
-//    private ShowcaseContent FindParentShowcaseContent(DependencyObject obj)
-//    {
-//        DependencyObject parent = VisualTreeHelper.GetParent(obj);
-//        while (parent != null && !(parent is ShowcaseContent))
-//            parent = VisualTreeHelper.GetParent(parent);
-
-//        return parent as ShowcaseContent;
-//    }
-//}
+        [Obsolete]
+        public void OnCopyClick(object sender, RoutedEventArgs e)
+        {
+            var item = _codeItems?.SelectedItem as CodeSource;
+            if (item != null && !string.IsNullOrEmpty(item.Code))
+            {
+                Clipboard.SetText(item.Code);
+            }
+        }
+    }
+}

@@ -9,19 +9,28 @@
 
   <ItemGroup>
     <Compile Include="Local\Converters\SelectionBrushConverter.cs" />
-    <Compile Include="Local\Managers\EmbeddedResourceLoader .cs" />
-    <Compile Include="Local\Managers\EmbeddedResourceLoaderExtensions.cs" />
-    <Compile Include="Local\Managers\VisualTreeHelperExt.cs" />
-    <Compile Include="Local\Managers\XamlDemoExtractor.cs" />
+    <Compile Include="Local\Helpers\EmbeddedResourceLoader .cs" />
+    <Compile Include="Local\Helpers\EmbeddedResourceLoaderExtensions.cs" />
+    <Compile Include="Local\Helpers\MonacoScriptHelper.cs" />
+    <Compile Include="Local\Helpers\VisualTreeHelperExt.cs" />
+    <Compile Include="Local\Helpers\XamlDemoExtractor.cs" />
+    <Compile Include="Local\Models\ItemClickedEventArgs.cs" />
+    <Compile Include="Local\Models\ShowcaseItemInfo.cs" />
     <Compile Include="Local\Utils\EmbededCodeLoader.cs" />
+    <Compile Include="UI\Primitives\BaseListBox.cs" />
+    <Compile Include="UI\Primitives\BaseListBoxItem.cs" />
+    <Compile Include="UI\Primitives\CodeEditorBase.cs" />
     <Compile Include="UI\Units\FullScreenButton.cs" />
     <Compile Include="UI\Units\ModernScrollViewer.cs" />
     <Compile Include="UI\Units\MonacoEditor.cs" />
-    <Compile Include="UI\Units\MonacoEditor2.cs" />
+    <Compile Include="UI\Units\SelectableListBox.cs" />
+    <Compile Include="UI\Units\SelectableListBoxItem.cs" />
+    <Compile Include="UI\Primitives\ShowcaseFrameworkElement.cs" />
     <Compile Include="UI\Units\ShowcaseHeadline.cs" />
+    <Compile Include="UI\Primitives\ShowcaseItemElement.cs" />
     <Compile Include="UI\Units\ShowcaseListBox.cs" />
-    <Compile Include="UI\Units\ShowcaseContent2.cs" />
-    <Compile Include="UI\Units\ShowcaseElement.cs" />
+    <Compile Include="UI\Primitives\ShowcaseContentElement.cs" />
+    <Compile Include="UI\Units\ShowcaseListBoxItem.cs" />
     <Compile Include="UI\Units\SimpleCodeTextBox.cs" />
     <Compile Include="UI\Units\StaggeredPanel.cs" />
     <Compile Include="UI\Units\AdaptiveColumnsPanel.cs" />
@@ -31,7 +40,6 @@
     <Compile Include="UI\Units\IconButton.cs" />
     <Compile Include="UI\Units\ShowcaseItem.cs" />
     <Compile Include="UI\Units\ShowcaseContent.cs" />
-    <Compile Include="UI\Units\ExampleBase.cs" />
     <Compile Include="UI\Units\TabMenuBar.cs" />
   </ItemGroup>
 
@@ -61,13 +69,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Units\ModernScrollViewer.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Themes\Units\ShowcaseItem2.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Themes\Units\ShowcaseContent2.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Units\ShowcaseItem.xaml">
