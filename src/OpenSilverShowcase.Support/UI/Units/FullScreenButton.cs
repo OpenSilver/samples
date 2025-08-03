@@ -8,17 +8,24 @@ namespace OpenSilverShowcase.Support.UI.Units
 {
     public class FullScreenButton : ContentControl
     {
-        // 스크롤 감지를 위한 필드들
         private double _lastKnownScrollOffset = 0;
         private const double ScrollThreshold = 1.0;
 
         public static readonly DependencyProperty CommandProperty =
             DependencyProperty.Register("Command", typeof(ICommand), typeof(FullScreenButton), new PropertyMetadata(null));
 
+        public static readonly DependencyProperty CommandParameterProperty =
+            DependencyProperty.Register("CommandParameter", typeof(object), typeof(FullScreenButton), new PropertyMetadata(null));
+
         public ICommand Command
         {
             get { return (ICommand)GetValue(CommandProperty); }
             set { SetValue(CommandProperty, value); }
+        }
+        public object CommandParameter
+        {
+            get { return (object)GetValue(CommandParameterProperty); }
+            set { SetValue(CommandParameterProperty, value); }
         }
 
         public FullScreenButton()

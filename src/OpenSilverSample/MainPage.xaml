@@ -23,6 +23,7 @@
       xmlns:binding="clr-namespace:OpenSilverShowcase.BindingTemplate;assembly=OpenSilverShowcase.BindingTemplate"
       xmlns:datac="clr-namespace:OpenSilverShowcase.DataContextTemplate;assembly=OpenSilverShowcase.DataContextTemplate"
       xmlns:resource="clr-namespace:OpenSilverShowcase.ResourceTemplate;assembly=OpenSilverShowcase.ResourceTemplate"
+      xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units;assembly=OpenSilverShowcase.Support"
       mc:Ignorable="d"
       Foreground="{DynamicResource Theme_TextBrush}">
     <ScrollViewer Background="Transparent" VerticalScrollBarVisibility="Visible">
@@ -30,61 +31,118 @@
             <Grid Background="{DynamicResource Theme_BackgroundBrush}">
                 <TabControl>
                     <TabItem Header="Button">
-                        <button:ButtonContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=ButtonShowcase}"/>
+                            <button:ButtonContent x:Name="ButtonShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
                     </TabItem>
                     <TabItem Header="ToggleButton">
-                        <toggle:ToggleButtonContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=ToggleButtonShowcase}"/>
+                            <toggle:ToggleButtonContent x:Name="ToggleButtonShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
                     </TabItem>
                     <TabItem Header="Slider">
-                        <slider:SliderContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=SliderShowcase}"/>
+                            <slider:SliderContent x:Name="SliderShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
                     </TabItem>
                     <TabItem Header="CheckBox">
-                        <check:CheckBoxContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=CheckBoxShowcase}"/>
+                            <check:CheckBoxContent x:Name="CheckBoxShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
                     </TabItem>
                     <TabItem Header="RadioButton">
-                        <radio:RadioButtonContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=RadioButtonShowcase}"/>
+                            <radio:RadioButtonContent x:Name="RadioButtonShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
                     </TabItem>
                     <TabItem Header="ComboBox">
-                        <combo:ComboBoxContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=ComboBoxShowcase}"/>
+                            <combo:ComboBoxContent x:Name="ComboBoxShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
                     </TabItem>
                     <TabItem Header="ListBox">
-                        <list:ListBoxContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=ListBoxShowcase}"/>
+                            <list:ListBoxContent x:Name="ListBoxShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
                     </TabItem>
                     <TabItem Header="ProgressBar">
-                        <pgbar:ProgressBarContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=ProgressBarShowcase}"/>
+                            <pgbar:ProgressBarContent x:Name="ProgressBarShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
                     </TabItem>
                     <TabItem Header="TextBox">
-                        <txtbox:TextBoxContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=TextBoxShowcase}"/>
+                            <txtbox:TextBoxContent x:Name="TextBoxShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
                     </TabItem>
                     <TabItem Header="Grid">
-                        <grid:GridContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=GridShowcase}"/>
+                            <grid:GridContent x:Name="GridShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
                     </TabItem>
                     <TabItem Header="WrapPanel">
-                        <wrap:WrapPanelContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=WrapPanelShowcase}"/>
+                            <wrap:WrapPanelContent x:Name="WrapPanelShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
                     </TabItem>
                     <TabItem Header="Border">
-                        <border:BorderContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=BorderShowcase}"/>
+                            <border:BorderContent x:Name="BorderShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
                     </TabItem>
                     <TabItem Header="AnimatedNavigationBar">
-                        <ckanb:AnimatedNavigationBarContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=AnimatedNavigationBarShowcase}"/>
+                            <ckanb:AnimatedNavigationBarContent x:Name="AnimatedNavigationBarShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
                     </TabItem>
                     <TabItem Header="AdaptiveColumnsPanel">
-                        <adpanel:AdaptiveColumnsPanelContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=AdaptiveColumnsPanelShowcase}"/>
+                            <adpanel:AdaptiveColumnsPanelContent x:Name="AdaptiveColumnsPanelShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
                     </TabItem>
                     <TabItem Header="StaggeredPanel">
-                        <stagg:StaggeredPanelContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=StaggeredPanelShowcase}"/>
+                            <stagg:StaggeredPanelContent x:Name="StaggeredPanelShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
                     </TabItem>
                     <TabItem Header="Mvvm">
-                        <mvvm:MvvmContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=MvvmShowcase}"/>
+                            <mvvm:MvvmContent x:Name="MvvmShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
                     </TabItem>
                     <TabItem Header="Binding">
-                        <binding:BindingContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=BindingShowcase}"/>
+                            <binding:BindingContent x:Name="BindingShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
                     </TabItem>
                     <TabItem Header="DataContext">
-                        <datac:DataContextContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=DataContextShowcase}"/>
+                            <datac:DataContextContent x:Name="DataContextShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
                     </TabItem>
                     <TabItem Header="Resource">
-                        <resource:ResourceContent IsMenuPanelVisible="True" DefaultSelectedItemName="Basic"/>
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=ResourceShowcase}"/>
+                            <resource:ResourceContent x:Name="ResourceShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
                     </TabItem>
                 </TabControl>
             </Grid>

@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units">
 
-    <!-- 탭 라디오 버튼 스타일 -->
+    <!-- 탭 라디오 버튼 스타일 --><!--
     <Style x:Key="TabRadioButtonStyle" TargetType="RadioButton">
         <Setter Property="Template">
             <Setter.Value>
@@ -18,7 +18,7 @@
         </Setter>
     </Style>
 
-    <!-- 버튼 라운드 스타일 -->
+    --><!-- 버튼 라운드 스타일 --><!--
     <Style x:Key="RoundedButtonStyle" TargetType="Button">
         <Setter Property="Template">
             <Setter.Value>
@@ -33,7 +33,7 @@
         </Setter>
     </Style>
 
-    <!-- 필터 버튼 스타일 -->
+    --><!-- 필터 버튼 스타일 --><!--
     <Style x:Key="FilterButtonStyle" TargetType="Button" BasedOn="{StaticResource RoundedButtonStyle}">
         <Setter Property="Margin" Value="0,0,10,0"/>
         <Setter Property="MinWidth" Value="80"/>
@@ -42,7 +42,7 @@
         <Setter Property="BorderBrush" Value="#FFD2DCE4"/>
     </Style>
 
-    <!-- 속성 테이블 스타일 -->
+    --><!-- 속성 테이블 스타일 --><!--
     <Style x:Key="PropertyTableStyle" TargetType="Grid">
         <Setter Property="Margin" Value="0,0,0,20"/>
         <Setter Property="Background" Value="White"/>
@@ -64,7 +64,7 @@
         <Setter Property="BorderThickness" Value="0,0,0,1"/>
     </Style>
 
-    <!-- ShowcaseContent 컨트롤 스타일 -->
+    --><!-- ShowcaseContent 컨트롤 스타일 --><!--
     <Style TargetType="units:ShowcaseContent">
         <Setter Property="Margin" Value="20"/>
         <Setter Property="Template">
@@ -129,5 +129,5 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
+    </Style>-->
 </ResourceDictionary>

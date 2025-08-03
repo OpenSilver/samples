@@ -7,6 +7,9 @@
 	</PropertyGroup>
 	<ItemGroup>
 	  <Compile Include="Examples\BasicItem.xaml.cs" />
+	  <Compile Include="Examples\DynamicResourceItem.xaml.cs" />
+	  <Compile Include="Examples\StaticResourceItem.xaml.cs" />
+	  <Compile Include="ResourceContent2.xaml.cs" />
 	  <Compile Include="ResourceContent.xaml.cs" />
 	</ItemGroup>
 	<ItemGroup>
@@ -15,6 +18,16 @@
 	</ItemGroup>
 	<ItemGroup>
 		<Page Include="Examples\BasicItem.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Include="Examples\DynamicResourceItem.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Include="Examples\StaticResourceItem.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Include="ResourceContent2.xaml">
+		  <SubType>Designer</SubType>
 		  <Generator>MSBuild:Compile</Generator>
 		</Page>
 		<Page Include="ResourceContent.xaml">

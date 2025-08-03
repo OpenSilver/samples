@@ -24,17 +24,17 @@ public static class EmbeddedCodeLoader
     {
         string[] startTags = new[]
         {
-    "<DemoContent>",
-    "<ShowcaseItem.DemoContent>",
-    "<units:ShowcaseItem.DemoContent>"
-};
+            "<DemoContent>",
+            "<ShowcaseItem.DemoContent>",
+            "<units:ShowcaseItem.DemoContent>"
+        };
 
         string[] endTags = new[]
         {
-    "</DemoContent>",
-    "</ShowcaseItem.DemoContent>",
-    "</units:ShowcaseItem.DemoContent>"
-};
+            "</DemoContent>",
+            "</ShowcaseItem.DemoContent>",
+            "</units:ShowcaseItem.DemoContent>"
+        };
 
         foreach (var startTag in startTags)
         {
@@ -52,7 +52,6 @@ public static class EmbeddedCodeLoader
             }
         }
 
-        // ✅ DemoContent 태그가 없을 경우 전체 반환 (Normalize 포함)
         return NormalizeIndentation(xamlText).Trim();
     }
 
@@ -133,7 +132,6 @@ public static class EmbeddedUriResolver
             suffix = ".txt";
         }
 
-        // 중복 제거된 폴더 경로
         var folderParts = parts.Take(parts.Length - 1).ToArray();
         var folder = string.Join(".", folderParts);
 

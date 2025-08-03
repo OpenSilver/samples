@@ -5,7 +5,7 @@
     xmlns:cnvts="clr-namespace:OpenSilverShowcase.Support.Local.Converters"
     xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units">
 
-    <cnvts:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    <!--<cnvts:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
 
     <Style TargetType="units:ShowcaseItem">
         <Setter Property="Background" Value="#FFFFFF"/>
@@ -66,13 +66,13 @@
                                             </Grid.ColumnDefinitions>
 
                                             <units:CodeTypeListBox
-                    x:Name="PART_CodeTab"
-                    Grid.Column="0"
-                    Height="32"
-                    Margin="0,0,8,0"
-                    SelectedIndex="0"
-                    SelectedItem="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedCodeTab, Mode=TwoWay}"
-                    ItemsSource="{TemplateBinding CodeSources}">
+                                                x:Name="PART_CodeTab"
+                                                Grid.Column="0"
+                                                Height="32"
+                                                Margin="0,0,8,0"
+                                                SelectedIndex="0"
+                                                SelectedItem="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=SelectedCodeTab, Mode=TwoWay}"
+                                                ItemsSource="{TemplateBinding CodeSources}">
                                                 <units:CodeTypeListBox.ItemTemplate>
                                                     <DataTemplate>
                                                         <TextBlock Text="{Binding Key}" FontSize="12" />
@@ -148,6 +148,6 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
+    </Style>-->
 
 </ResourceDictionary>

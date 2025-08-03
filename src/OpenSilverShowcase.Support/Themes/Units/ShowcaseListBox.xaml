@@ -1,0 +1,80 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units">
+
+    <Style TargetType="units:ShowcaseListBox">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="units:ShowcaseListBox">
+                    <units:ModernScrollViewer ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                        <ItemsPresenter/>
+                    </units:ModernScrollViewer>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="units:ShowcaseListBoxItem">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="units:ShowcaseListBoxItem">
+                    <Border x:Name="RootBorder" 
+                                                                Background="Transparent" 
+                                                                BorderBrush="Transparent" 
+                                                                BorderThickness="1"
+                                                                CornerRadius="6">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CustomStates">
+                                <VisualState x:Name="CustomNormal"/>
+                                <VisualState x:Name="CustomHover">
+                                    <Storyboard>
+                                        <ColorAnimation Duration="0:0:0.2" 
+                                                                                            To="#E5E5E5" 
+                                                                                            Storyboard.TargetName="RootBorder" 
+                                                                                            Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="CustomPressed">
+                                    <Storyboard>
+                                        <ColorAnimation Duration="0:0:0.1" 
+                                                          To="#D1D1D1" 
+                                                          Storyboard.TargetName="RootBorder" 
+                                                          Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="CustomSelected">
+                                    <Storyboard>
+                                        <ColorAnimation Duration="0:0:0.2" 
+                                                          To="#444444" 
+                                                          Storyboard.TargetName="RootBorder" 
+                                                          Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)"/>
+                                        <ColorAnimation Duration="0:0:0.2" 
+                                                          To="White" 
+                                                          Storyboard.TargetName="ContentText" 
+                                                          Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <TextBlock x:Name="ContentText" 
+                                       Text="{Binding Name}" 
+                                       Padding="8,6" 
+                                       FontSize="13"
+                                       FontWeight="SemiBold"
+                                       Foreground="#555555"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
