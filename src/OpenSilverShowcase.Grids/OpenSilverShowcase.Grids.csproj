@@ -7,6 +7,7 @@
 	</PropertyGroup>
 	<ItemGroup>
 	  <Compile Include="Examples\BasicItem.xaml.cs" />
+	  <Compile Include="Examples\SpanItem.xaml.cs" />
 	  <Compile Include="GridContent.xaml.cs" />
 	</ItemGroup>
 	<ItemGroup>
@@ -15,6 +16,9 @@
 	</ItemGroup>
 	<ItemGroup>
 		<Page Include="Examples\BasicItem.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Include="Examples\SpanItem.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</Page>
 		<Page Include="GridContent.xaml">

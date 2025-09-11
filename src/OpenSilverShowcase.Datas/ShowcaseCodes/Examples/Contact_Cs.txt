@@ -1,0 +1,57 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Text;
+
+namespace OpenSilverShowcase.DataGrids.Examples
+{
+
+    public class Contact
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string State { get; set; }
+        public string City { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
+        public string Address { get; set; }
+
+        public static ObservableCollection<Contact> People { get; } = new ObservableCollection<Contact>
+        {
+            new Contact { FirstName = "김", LastName = "민수", State = "서울특별시", City = "강남구", Email = "minsu.kim@email.com", Phone = "010-1234-5678", Address = "테헤란로 123" },
+            new Contact { FirstName = "이", LastName = "영희", State = "서울특별시", City = "강남구", Email = "younghee.lee@email.com", Phone = "010-2345-6789", Address = "역삼동 456" },
+            new Contact { FirstName = "박", LastName = "철수", State = "서울특별시", City = "종로구", Email = "chulsoo.park@email.com", Phone = "010-3456-7890", Address = "종로 789" },
+            new Contact { FirstName = "최", LastName = "수정", State = "서울특별시", City = "종로구", Email = "sujung.choi@email.com", Phone = "010-4567-8901", Address = "인사동 101" },
+            new Contact { FirstName = "정", LastName = "현우", State = "서울특별시", City = "마포구", Email = "hyunwoo.jung@email.com", Phone = "010-5678-9012", Address = "홍대입구 202" },
+
+            new Contact { FirstName = "강", LastName = "지혜", State = "부산광역시", City = "해운대구", Email = "jihye.kang@email.com", Phone = "010-6789-0123", Address = "해운대해변로 303" },
+            new Contact { FirstName = "윤", LastName = "태준", State = "부산광역시", City = "해운대구", Email = "taejun.yoon@email.com", Phone = "010-7890-1234", Address = "센텀시티 404" },
+            new Contact { FirstName = "송", LastName = "미경", State = "부산광역시", City = "부산진구", Email = "mikyung.song@email.com", Phone = "010-8901-2345", Address = "서면로 505" },
+            new Contact { FirstName = "조", LastName = "동호", State = "부산광역시", City = "사하구", Email = "dongho.cho@email.com", Phone = "010-9012-3456", Address = "하단동 606" },
+
+            new Contact { FirstName = "한", LastName = "소영", State = "대구광역시", City = "중구", Email = "soyoung.han@email.com", Phone = "010-0123-4567", Address = "중앙로 707" },
+            new Contact { FirstName = "임", LastName = "준호", State = "대구광역시", City = "수성구", Email = "junho.lim@email.com", Phone = "010-1234-5679", Address = "수성못 808" },
+            new Contact { FirstName = "신", LastName = "예린", State = "대구광역시", City = "달서구", Email = "yerin.shin@email.com", Phone = "010-2345-6780", Address = "성서공단 909" },
+
+            new Contact { FirstName = "오", LastName = "성민", State = "인천광역시", City = "연수구", Email = "sungmin.oh@email.com", Phone = "010-3456-7891", Address = "송도국제도시 110" },
+            new Contact { FirstName = "권", LastName = "나영", State = "인천광역시", City = "남동구", Email = "nayoung.kwon@email.com", Phone = "010-4567-8902", Address = "구월동 220" },
+            new Contact { FirstName = "장", LastName = "우진", State = "인천광역시", City = "부평구", Email = "woojin.jang@email.com", Phone = "010-5678-9013", Address = "부평역 330" },
+
+            new Contact { FirstName = "배", LastName = "은정", State = "광주광역시", City = "서구", Email = "eunjung.bae@email.com", Phone = "010-6789-0124", Address = "상무지구 440" },
+            new Contact { FirstName = "노", LastName = "재훈", State = "광주광역시", City = "북구", Email = "jaehoon.noh@email.com", Phone = "010-7890-1235", Address = "첨단과학단지 550" },
+            
+            new Contact { FirstName = "서", LastName = "혜진", State = "대전광역시", City = "유성구", Email = "hyejin.seo@email.com", Phone = "010-8901-2346", Address = "KAIST 660" },
+            new Contact { FirstName = "문", LastName = "상호", State = "대전광역시", City = "서구", Email = "sangho.moon@email.com", Phone = "010-9012-3457", Address = "둔산동 770" },
+
+            new Contact { FirstName = "고", LastName = "미나", State = "울산광역시", City = "남구", Email = "mina.ko@email.com", Phone = "010-0123-4568", Address = "삼산동 880" },
+            new Contact { FirstName = "안", LastName = "준영", State = "울산광역시", City = "동구", Email = "junyoung.ahn@email.com", Phone = "010-1234-5680", Address = "화정동 990" }
+        };
+
+        public string FullName => $"{FirstName} {LastName}";
+
+        public override string ToString()
+        {
+            return $"{FullName} ({City}, {State})";
+        }
+    }
+}

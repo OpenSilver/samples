@@ -23,6 +23,9 @@
       xmlns:binding="clr-namespace:OpenSilverShowcase.BindingTemplate;assembly=OpenSilverShowcase.BindingTemplate"
       xmlns:datac="clr-namespace:OpenSilverShowcase.DataContextTemplate;assembly=OpenSilverShowcase.DataContextTemplate"
       xmlns:resource="clr-namespace:OpenSilverShowcase.ResourceTemplate;assembly=OpenSilverShowcase.ResourceTemplate"
+      xmlns:data="clr-namespace:OpenSilverShowcase.Datas;assembly=OpenSilverShowcase.Datas"
+      xmlns:calendar="clr-namespace:OpenSilverShowcase.Calendars;assembly=OpenSilverShowcase.Calendars"
+      xmlns:uniform="clr-namespace:OpenSilverShowcase.UniformGrids;assembly=OpenSilverShowcase.UniformGrids"
       xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units;assembly=OpenSilverShowcase.Support"
       mc:Ignorable="d"
       Foreground="{DynamicResource Theme_TextBrush}">
@@ -142,6 +145,24 @@
                         <StackPanel>
                             <units:ShowcaseHeadline DataContext="{Binding ElementName=ResourceShowcase}"/>
                             <resource:ResourceContent x:Name="ResourceShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="DataGrid">
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=DataShowcase}"/>
+                            <data:DataContent x:Name="DataShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Calendar">
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=CalendarShowcase}"/>
+                            <calendar:CalendarContent x:Name="CalendarShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="UniformGrid">
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=UniformGridShowcase}"/>
+                            <uniform:UniformGridContent x:Name="UniformGridShowcase" FirstSelectedItemName="Basic"/>
                         </StackPanel>
                     </TabItem>
                 </TabControl>

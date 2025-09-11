@@ -23,8 +23,19 @@ namespace OpenSilverShowcase.Support.UI.Units
 
             try
             {
-                HtmlPage.RegisterScriptableObject($"MonacoCallback_{_editorId}", this);
-                Console.WriteLine($"[MonacoEditor] Registered scriptable object: MonacoCallback_{_editorId}");
+                var callbackName = $"MonacoCallback_{_editorId}";
+                HtmlPage.RegisterScriptableObject(callbackName, this);
+                Console.WriteLine($"[MonacoEditor] Registered scriptable object: {callbackName}");
+
+                Interop.ExecuteJavaScriptVoid($@"
+                    console.log('[MonacoEditor] Checking if callback is registered:', '{callbackName}');
+                    if (window['{callbackName}']) {{
+                        console.log('[MonacoEditor] Callback found in window:', typeof window['{callbackName}']);
+                        console.log('[MonacoEditor] OnCodeChanged method:', typeof window['{callbackName}'].OnCodeChanged);
+                    }} else {{
+                        console.error('[MonacoEditor] Callback NOT found in window');
+                    }}
+                ");
             }
             catch (Exception ex)
             {
@@ -59,7 +70,6 @@ namespace OpenSilverShowcase.Support.UI.Units
         {
             if (_div == null) return;
 
-            MonacoScriptHelper.RegisterCallback(_editorId, this);
             MonacoScriptHelper.LoadAndCreateEditor(_div, Code, Language, Theme, IsReadOnly, width, height, _editorId);
             _editorCreated = true;
         }
@@ -67,16 +77,34 @@ namespace OpenSilverShowcase.Support.UI.Units
         [ScriptableMember]
         public void OnCodeChanged(string newCode)
         {
-            Console.WriteLine($"[MonacoEditor] User changed code: {newCode?.Length ?? 0} chars");
+            Console.WriteLine($"[MonacoEditor] OnCodeChanged called with {newCode?.Length ?? 0} chars");
+
             if (!_isUpdatingFromCallback && !IsReadOnly)
             {
+                Console.WriteLine($"[MonacoEditor] Processing code change - ReadOnly: {IsReadOnly}, Updating: {_isUpdatingFromCallback}");
                 _isUpdatingFromCallback = true;
+
                 Dispatcher.BeginInvoke(new Action(() =>
                 {
-                    Code = newCode;
-                    base.OnCodeChanged(newCode);
-                    _isUpdatingFromCallback = false;
+                    try
+                    {
+                        Code = newCode;
+                        base.OnCodeChanged(newCode);
+                        Console.WriteLine($"[MonacoEditor] Code updated successfully");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"[MonacoEditor] Error updating code: {ex.Message}");
+                    }
+                    finally
+                    {
+                        _isUpdatingFromCallback = false;
+                    }
                 }), System.Windows.Threading.DispatcherPriority.Normal);
+            }
+            else
+            {
+                Console.WriteLine($"[MonacoEditor] Code change ignored - ReadOnly: {IsReadOnly}, Updating: {_isUpdatingFromCallback}");
             }
         }
 
@@ -84,6 +112,7 @@ namespace OpenSilverShowcase.Support.UI.Units
         {
             if (_editorCreated && _div != null && newCode != null && !_isUpdatingFromCallback)
             {
+                Console.WriteLine($"[MonacoEditor] Updating editor code programmatically: {newCode?.Length ?? 0} chars");
                 MonacoScriptHelper.UpdateEditorCode(_div, newCode);
             }
         }
@@ -92,6 +121,7 @@ namespace OpenSilverShowcase.Support.UI.Units
         {
             if (_editorCreated && _div != null)
             {
+                Console.WriteLine($"[MonacoEditor] Updating ReadOnly to: {isReadOnly}");
                 MonacoScriptHelper.UpdateEditorReadOnly(_div, isReadOnly, _editorId);
             }
         }
@@ -100,6 +130,7 @@ namespace OpenSilverShowcase.Support.UI.Units
         {
             if (_editorCreated && _div != null && !string.IsNullOrEmpty(language))
             {
+                Console.WriteLine($"[MonacoEditor] Updating language to: {language}");
                 MonacoScriptHelper.UpdateEditorLanguage(_div, language);
             }
         }
@@ -108,6 +139,7 @@ namespace OpenSilverShowcase.Support.UI.Units
         {
             if (_editorCreated && _div != null && !string.IsNullOrEmpty(theme))
             {
+                Console.WriteLine($"[MonacoEditor] Updating theme to: {theme}");
                 MonacoScriptHelper.UpdateEditorTheme(_div, theme);
             }
         }

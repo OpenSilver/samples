@@ -106,10 +106,10 @@ namespace OpenSilverShowcase.Support.UI.Units
                 {
                     string code = _resourceLoader.LoadTextByPath(selectedCodeSource.Source);
                     code = XamlDemoExtractor.ExtractDemoContentOnly(code);
+                    MonacoEditor.Theme = "vs-dark";
                     MonacoEditor.IsReadOnly = true;
                     MonacoEditor.Code = code ?? "// Unable to load code.";
                     MonacoEditor.Language = selectedCodeSource.Language;
-                    MonacoEditor.Theme = "vs-dark";
                     Console.WriteLine($"Code loaded: {selectedCodeSource.Source}");
 
                     if (_simpleCode != null)

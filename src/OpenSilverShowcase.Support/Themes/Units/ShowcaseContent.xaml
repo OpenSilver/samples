@@ -4,18 +4,17 @@
     xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units">
 
     <Style TargetType="units:ShowcaseContent">
-        <Setter Property="Margin" Value="20"/>
+        <Setter Property="Margin" Value="19"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="units:ShowcaseContent">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <units:ShowcaseListBox Grid.Row="1" x:Name="PART_ShowcaseItems"/>
-                        <ContentPresenter Grid.Row="2"/>
+                        <units:ShowcaseListBox Grid.Row="0" x:Name="PART_ShowcaseItems" Margin="0 0 0 10"/>
+                        <ContentPresenter Grid.Row="1"/>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

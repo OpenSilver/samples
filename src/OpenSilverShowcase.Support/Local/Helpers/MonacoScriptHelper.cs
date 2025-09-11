@@ -15,7 +15,71 @@ namespace OpenSilverShowcase.Support.Local.Helpers
                 div.style.backgroundColor = '#1e1e1e';
                 div.style.border = '0px solid #007acc';
                 div.style.boxSizing = 'border-box';
-                div.innerHTML = '<div style=""padding:20px;color:#cccccc;font-family:monospace;height:100%;display:flex;align-items:center;justify-content:center;"">Loading Monaco Editor...</div>';
+                div.style.overflow = 'hidden';
+                div.innerHTML = '<div style=""padding:20px;color:#cccccc;font-family:monospace;height:100%;width:100%;display:flex;align-items:center;justify-content:center;overflow:hidden;"">Loading Monaco Editor...</div>';
+
+                function getCookieValue(name) {{
+                    const cookies=document.cookie.split(';');
+                    for(let cookie of cookies){{
+                        cookie=cookie.trim();
+                        if(cookie.startsWith(`${{name}}=`)) return cookie.substring(`${{name}}=`.length);
+                    }}
+                    return null;
+                }}
+
+                async function uploadImage(blob) {{
+                    const jwtToken=getCookieValue('JwtToken');
+                    if(!jwtToken) throw new Error('No JWT');
+                    const formData=new FormData();
+                    formData.append('image',blob);
+                    if(window.currentPageId) formData.append('pageId',window.currentPageId);
+                    const res=await fetch('https://opensilverserver.azurewebsites.net/api/docs/contents/upload-image',{{
+                        method:'POST',
+                        body:formData,
+                        headers:{{Authorization:`Bearer ${{jwtToken}}`}}
+                    }});
+                    if(!res.ok) throw new Error(`Upload failed: ${{res.statusText}}`);
+                    return await res.text();
+                }}
+
+                function insertAtCursor(editor,text){{
+                    const sel=editor.getSelection();
+                    editor.executeEdits('image-upload',[{{range:sel,text,forceMoveMarkers:true}}]);
+                    editor.focus();
+                }}
+
+                async function handleFiles(editor,files){{
+                    for(const f of files){{
+                        if(!f.type||!f.type.startsWith('image/')) continue;
+                        try {{
+                            const url=await uploadImage(f);
+                            insertAtCursor(editor,`![](${{url}})`);
+                        }} catch(e){{
+                            insertAtCursor(editor,'');
+                        }}
+                    }}
+                }}
+
+                function attachMonacoImageUpload(editor,{{pageIdProvider}}={{}}){{
+                    const node=editor.getDomNode();
+                    node.addEventListener('paste',e=>{{
+                        const items=e.clipboardData&&e.clipboardData.items?Array.from(e.clipboardData.items):[];
+                        const files=items.map(i=>i.getAsFile&&i.getAsFile()).filter(f=>f&&f.type&&f.type.startsWith('image/'));
+                        if(files.length){{
+                            e.preventDefault();
+                            if(typeof pageIdProvider==='function') window.currentPageId=pageIdProvider();
+                            handleFiles(editor,files);
+                        }}
+                    }});
+                    node.addEventListener('drop',e=>{{
+                        const files=Array.from(e.dataTransfer.files||[]).filter(f=>f.type&&f.type.startsWith('image/'));
+                        if(files.length){{
+                            e.preventDefault();
+                            if(typeof pageIdProvider==='function') window.currentPageId=pageIdProvider();
+                            handleFiles(editor,files);
+                        }}
+                    }});
+                }}
 
                 if (window.monaco) {{
                     createEditor();
@@ -48,31 +112,27 @@ namespace OpenSilverShowcase.Support.Local.Helpers
                         scrollBeyondLastLine: false,
                         lineNumbers: 'on'
                     }});
-                    
+
+                    attachMonacoImageUpload(editor, {{ pageIdProvider: () => window.currentPageId }});
+
                     div._monacoEditor = editor;
                     div._editorId = '{editorId}';
-                    
-                    // 코드 변경 이벤트 리스너 추가 (ReadOnly가 false일 때만)
-                    if (!{isReadOnly.ToString().ToLower()}) {{
-                        editor.onDidChangeModelContent(function(e) {{
-                            try {{
-                                const newCode = editor.getValue();
-                                // C# 콜백 호출
-                                if (window.MonacoCallbacks && window.MonacoCallbacks['{editorId}']) {{
-                                    window.MonacoCallbacks['{editorId}'].OnCodeChanged(newCode);
-                                    console.log('[Monaco] Code changed event fired for editor: {editorId}');
-                                }}
-                            }} catch (error) {{
-                                console.error('[Monaco] Error in code change callback:', error);
+            
+                    editor.onDidChangeModelContent(function(e) {{
+                        try {{
+                            const newCode = editor.getValue();
+                            const callbackName = 'MonacoCallback_{editorId}';
+                            if (window[callbackName] && typeof window[callbackName].OnCodeChanged === 'function') {{
+                                window[callbackName].OnCodeChanged(newCode);
                             }}
-                        }});
-                        console.log('[Monaco] Code change listener added for editor: {editorId}');
-                    }}
-                    
+                        }} catch (error) {{
+                            console.error('[Monaco] Error in code change callback:', error);
+                        }}
+                    }});
+            
                     const editorWidth = {width - 2};
                     const editorHeight = {height - 2};
                     editor.layout({{ width: editorWidth, height: editorHeight }});
-                    console.log('[Monaco] Editor created with readOnly:', {isReadOnly.ToString().ToLower()});
                 }}
             ", div);
         }
@@ -82,7 +142,6 @@ namespace OpenSilverShowcase.Support.Local.Helpers
             Interop.ExecuteJavaScriptVoid($@"
                 const div = $0;
                 if (div._monacoEditor) {{
-                    // 무한 루프 방지: 현재 값과 다를 때만 설정
                     const currentCode = div._monacoEditor.getValue();
                     if (currentCode !== {System.Text.Json.JsonSerializer.Serialize(newCode)}) {{
                         div._monacoEditor.setValue({System.Text.Json.JsonSerializer.Serialize(newCode)});
@@ -98,24 +157,6 @@ namespace OpenSilverShowcase.Support.Local.Helpers
                 const div = $0;
                 if (div._monacoEditor) {{
                     div._monacoEditor.updateOptions({{ readOnly: {isReadOnly.ToString().ToLower()} }});
-                    
-                    // ReadOnly 변경에 따라 이벤트 리스너 추가/제거
-                    if (!{isReadOnly.ToString().ToLower()} && !div._hasChangeListener) {{
-                        // ReadOnly가 false가 되면 이벤트 리스너 추가
-                        div._monacoEditor.onDidChangeModelContent(function(e) {{
-                            try {{
-                                const newCode = div._monacoEditor.getValue();
-                                if (window.MonacoCallbacks && window.MonacoCallbacks['{editorId}']) {{
-                                    window.MonacoCallbacks['{editorId}'].OnCodeChanged(newCode);
-                                }}
-                            }} catch (error) {{
-                                console.error('[Monaco] Error in code change callback:', error);
-                            }}
-                        }});
-                        div._hasChangeListener = true;
-                        console.log('[Monaco] Code change listener added');
-                    }}
-                    
                     console.log('[Monaco] ReadOnly updated to:', {isReadOnly.ToString().ToLower()});
                 }}
             ", div);
@@ -141,17 +182,6 @@ namespace OpenSilverShowcase.Support.Local.Helpers
                     console.log('[Monaco] Theme updated to:', {System.Text.Json.JsonSerializer.Serialize(theme)});
                 }}
             ", div);
-        }
-
-        public static void RegisterCallback(string editorId, object callbackObject)
-        {
-            Interop.ExecuteJavaScriptVoid($@"
-                if (!window.MonacoCallbacks) {{
-                    window.MonacoCallbacks = {{}};
-                }}
-                window.MonacoCallbacks['{editorId}'] = $0;
-                console.log('[Monaco] Callback registered for editor:', '{editorId}');
-            ", callbackObject);
         }
     }
 }

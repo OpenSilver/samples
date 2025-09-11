@@ -32,9 +32,11 @@
     <ProjectReference Include="..\OpenSilverShowcase.BindingTemplate\OpenSilverShowcase.BindingTemplate.csproj" />
     <ProjectReference Include="..\OpenSilverShowcase.Borders\OpenSilverShowcase.Borders.csproj" />
     <ProjectReference Include="..\OpenSilverShowcase.Buttons\OpenSilverShowcase.Buttons.csproj" />
+    <ProjectReference Include="..\OpenSilverShowcase.Calendars\OpenSilverShowcase.Calendars.csproj" />
     <ProjectReference Include="..\OpenSilverShowcase.CheckBoxs\OpenSilverShowcase.CheckBoxs.csproj" />
     <ProjectReference Include="..\OpenSilverShowcase.ComboBoxs\OpenSilverShowcase.ComboBoxs.csproj" />
     <ProjectReference Include="..\OpenSilverShowcase.DataContextTemplate\OpenSilverShowcase.DataContextTemplate.csproj" />
+    <ProjectReference Include="..\OpenSilverShowcase.Datas\OpenSilverShowcase.Datas.csproj" />
     <ProjectReference Include="..\OpenSilverShowcase.Grids\OpenSilverShowcase.Grids.csproj" />
     <ProjectReference Include="..\OpenSilverShowcase.ListBoxs\OpenSilverShowcase.ListBoxs.csproj" />
     <ProjectReference Include="..\OpenSilverShowcase.MvvmTemplate\OpenSilverShowcase.MvvmTemplate.csproj" />
@@ -46,6 +48,7 @@
     <ProjectReference Include="..\OpenSilverShowcase.StaggeredPanels\OpenSilverShowcase.StaggeredPanels.csproj" />
     <ProjectReference Include="..\OpenSilverShowcase.TextBoxs\OpenSilverShowcase.TextBoxs.csproj" />
     <ProjectReference Include="..\OpenSilverShowcase.ToggleButtons\OpenSilverShowcase.ToggleButtons.csproj" />
+    <ProjectReference Include="..\OpenSilverShowcase.UniformGrids\OpenSilverShowcase.UniformGrids.csproj" />
     <ProjectReference Include="..\OpenSilverShowcase.WrapPanels\OpenSilverShowcase.WrapPanels.csproj" />
     <ProjectReference Include="..\OpenSilverShowcase.Support\OpenSilverShowcase.Support.csproj" />
   </ItemGroup>

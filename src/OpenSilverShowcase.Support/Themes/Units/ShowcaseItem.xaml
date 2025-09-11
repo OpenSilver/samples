@@ -99,7 +99,7 @@
                                 rspns:ResponsiveVisibility.Desktop="Visible"
                                 rspns:ResponsiveVisibility.Mobile="Collapsed"
                                 rspns:ResponsiveVisibility.Breakpoint="800">
-                            <ContentControl x:Name="PART_CodeContent" Height="400"/>
+                            <ContentControl x:Name="PART_CodeContent"/>
                         </Border>
                         <Border Grid.Row="4"
                                 Background="#1e1e1e" ClipToBounds="True"
