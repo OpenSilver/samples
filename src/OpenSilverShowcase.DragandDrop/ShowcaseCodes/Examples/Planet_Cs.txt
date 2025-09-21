@@ -1,0 +1,25 @@
+﻿using System.Collections.Generic;
+
+namespace OpenSilverShowcase.DragandDrop.Examples;
+
+public class Planet
+{
+    public string Name { get; set; }
+
+    public Planet(string name)
+    {
+        Name = name;
+    }
+
+    public static List<Planet> Planets { get; } = new List<Planet>
+    {
+        new Planet("Mercury"),
+        new Planet("Venus"),
+        new Planet("Earth"),
+        new Planet("Mars"),
+        new Planet("Jupiter"),
+        new Planet("Saturn"),
+        new Planet("Uranus"),
+        new Planet("Neptune")
+    };
+}

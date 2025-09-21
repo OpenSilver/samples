@@ -1,0 +1,418 @@
+<units:ShowcaseItem
+    x:Class="OpenSilverShowcase.RenderTransforms.Examples.RenderItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units;assembly=OpenSilverShowcase.Support"
+    Description="Interactive 2D transformation examples"
+    Title="Basic"
+    Order="1">
+    <units:ShowcaseItem.CodeSources>
+        <units:CodeSource Key="xaml" Source="/Examples/RenderItem.xaml"/>
+        <units:CodeSource Key="xaml.cs" Source="/Examples/RenderItem.xaml.cs"/>
+    </units:ShowcaseItem.CodeSources>
+    <units:ShowcaseItem.DemoContent>
+        <Grid Background="#FFF6F9FC">
+            <Border Background="White" 
+                    CornerRadius="20" 
+                    Padding="30" 
+                    Margin="20">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Header -->
+                    <StackPanel Grid.Row="0" HorizontalAlignment="Center" Margin="0,0,0,30">
+                        <TextBlock Text="Render Transforms" 
+                                   FontSize="32" 
+                                   FontWeight="Bold" 
+                                   Foreground="#FF1F2937" 
+                                   HorizontalAlignment="Center"/>
+                        <TextBlock Text="Interactive 2D transformation examples" 
+                                   FontSize="16" 
+                                   Foreground="#FF6B7280" 
+                                   HorizontalAlignment="Center" 
+                                   Margin="0,8,0,0"/>
+                    </StackPanel>
+
+                    <!-- Transform Examples Grid -->
+                    <Grid Grid.Row="1" Margin="0,0,0,30">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <!-- Scale Transform -->
+                        <Border Grid.Row="0" Grid.Column="0" 
+                                Background="#FFF8FAFC" 
+                                BorderBrush="#FFE2E8F0" 
+                                BorderThickness="1" 
+                                CornerRadius="12" 
+                                Padding="20" 
+                                Margin="0,0,10,10">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+                                    <Border Width="20" Height="20" 
+                                            Background="#FFEF4444" 
+                                            CornerRadius="4" 
+                                            Margin="0,0,8,0">
+                                        <TextBlock Text="S" 
+                                                   FontSize="10" 
+                                                   FontWeight="Bold" 
+                                                   Foreground="White" 
+                                                   HorizontalAlignment="Center" 
+                                                   VerticalAlignment="Center"/>
+                                    </Border>
+                                    <TextBlock Text="Scale" 
+                                               FontSize="18" 
+                                               FontWeight="SemiBold" 
+                                               Foreground="#FF1F2937"/>
+                                </StackPanel>
+
+                                <Border Height="80" 
+                                        Background="White" 
+                                        BorderBrush="#FFE2E8F0" 
+                                        BorderThickness="2" 
+                                        CornerRadius="8" 
+                                        Margin="0,0,0,12">
+                                    <Canvas>
+                                        <Border x:Name="ScaleElement"
+                                                Canvas.Left="45" Canvas.Top="25"
+                                                Width="50" Height="30"
+                                                Background="#FFEF4444"
+                                                CornerRadius="6"
+                                                Cursor="Hand"
+                                                MouseEnter="OnScaleMouseEnter"
+                                                MouseLeave="OnScaleMouseLeave">
+                                            <TextBlock Text="SCALE" 
+                                                       FontSize="9" 
+                                                       FontWeight="Bold" 
+                                                       Foreground="White" 
+                                                       HorizontalAlignment="Center" 
+                                                       VerticalAlignment="Center"/>
+                                        </Border>
+                                    </Canvas>
+                                </Border>
+
+                                <Border Background="#FF1E293B" 
+                                        CornerRadius="6" 
+                                        Padding="8,8">
+                                    <TextBlock Text='ScaleX="1.4" ScaleY="1.4"' 
+                                               FontFamily="Courier New" 
+                                               FontSize="12" 
+                                               Foreground="#FFE2E8F0"/>
+                                </Border>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Rotate Transform -->
+                        <Border Grid.Row="0" Grid.Column="1" 
+                                Background="#FFF8FAFC" 
+                                BorderBrush="#FFE2E8F0" 
+                                BorderThickness="1" 
+                                CornerRadius="12" 
+                                Padding="20" 
+                                Margin="10,0,0,10">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+                                    <Border Width="20" Height="20" 
+                                            Background="#FFF59E0B" 
+                                            CornerRadius="4" 
+                                            Margin="0,0,8,0">
+                                        <TextBlock Text="R" 
+                                                   FontSize="10" 
+                                                   FontWeight="Bold" 
+                                                   Foreground="White" 
+                                                   HorizontalAlignment="Center" 
+                                                   VerticalAlignment="Center"/>
+                                    </Border>
+                                    <TextBlock Text="Rotate" 
+                                               FontSize="18" 
+                                               FontWeight="SemiBold" 
+                                               Foreground="#FF1F2937"/>
+                                </StackPanel>
+
+                                <Border Height="80" 
+                                        Background="White" 
+                                        BorderBrush="#FFE2E8F0" 
+                                        BorderThickness="2" 
+                                        CornerRadius="8" 
+                                        Margin="0,0,0,12">
+                                    <Canvas>
+                                        <Border x:Name="RotateElement"
+                                                Canvas.Left="45" Canvas.Top="25"
+                                                Width="50" Height="30"
+                                                Background="#FFF59E0B"
+                                                CornerRadius="6"
+                                                RenderTransformOrigin="0.5,0.5"
+                                                Cursor="Hand"
+                                                MouseEnter="OnRotateMouseEnter"
+                                                MouseLeave="OnRotateMouseLeave">
+                                            <TextBlock Text="ROTATE" 
+                                                       FontSize="9" 
+                                                       FontWeight="Bold" 
+                                                       Foreground="White" 
+                                                       HorizontalAlignment="Center" 
+                                                       VerticalAlignment="Center"/>
+                                        </Border>
+                                    </Canvas>
+                                </Border>
+
+                                <Border Background="#FF1E293B" 
+                                        CornerRadius="6" 
+                                        Padding="8,8">
+                                    <TextBlock Text='Angle="45"' 
+                                               FontFamily="Courier New" 
+                                               FontSize="12" 
+                                               Foreground="#FFE2E8F0"/>
+                                </Border>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Translate Transform -->
+                        <Border Grid.Row="1" Grid.Column="0" 
+                                Background="#FFF8FAFC" 
+                                BorderBrush="#FFE2E8F0" 
+                                BorderThickness="1" 
+                                CornerRadius="12" 
+                                Padding="20" 
+                                Margin="0,10,10,0">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+                                    <Border Width="20" Height="20" 
+                                            Background="#FF10B981" 
+                                            CornerRadius="4" 
+                                            Margin="0,0,8,0">
+                                        <TextBlock Text="T" 
+                                                   FontSize="10" 
+                                                   FontWeight="Bold" 
+                                                   Foreground="White" 
+                                                   HorizontalAlignment="Center" 
+                                                   VerticalAlignment="Center"/>
+                                    </Border>
+                                    <TextBlock Text="Translate" 
+                                               FontSize="18" 
+                                               FontWeight="SemiBold" 
+                                               Foreground="#FF1F2937"/>
+                                </StackPanel>
+
+                                <Border Height="80" 
+                                        Background="White" 
+                                        BorderBrush="#FFE2E8F0" 
+                                        BorderThickness="2" 
+                                        CornerRadius="8" 
+                                        Margin="0,0,0,12">
+                                    <Canvas>
+                                        <Border x:Name="TranslateElement"
+                                                Canvas.Left="45" Canvas.Top="25"
+                                                Width="50" Height="30"
+                                                Background="#FF10B981"
+                                                CornerRadius="6"
+                                                Cursor="Hand"
+                                                MouseEnter="OnTranslateMouseEnter"
+                                                MouseLeave="OnTranslateMouseLeave">
+                                            <TextBlock Text="MOVE" 
+                                                       FontSize="9" 
+                                                       FontWeight="Bold" 
+                                                       Foreground="White" 
+                                                       HorizontalAlignment="Center" 
+                                                       VerticalAlignment="Center"/>
+                                        </Border>
+                                    </Canvas>
+                                </Border>
+
+                                <Border Background="#FF1E293B" 
+                                        CornerRadius="6" 
+                                        Padding="8,8">
+                                    <TextBlock Text='X="15" Y="0"' 
+                                               FontFamily="Courier New" 
+                                               FontSize="12" 
+                                               Foreground="#FFE2E8F0"/>
+                                </Border>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Composite Transform -->
+                        <Border Grid.Row="1" Grid.Column="1" 
+                                Background="#FFF8FAFC" 
+                                BorderBrush="#FFE2E8F0" 
+                                BorderThickness="1" 
+                                CornerRadius="12" 
+                                Padding="20" 
+                                Margin="10,10,0,0">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+                                    <Border Width="20" Height="20" 
+                                            Background="#FF8B5CF6" 
+                                            CornerRadius="4" 
+                                            Margin="0,0,8,0">
+                                        <TextBlock Text="C" 
+                                                   FontSize="10" 
+                                                   FontWeight="Bold" 
+                                                   Foreground="White" 
+                                                   HorizontalAlignment="Center" 
+                                                   VerticalAlignment="Center"/>
+                                    </Border>
+                                    <TextBlock Text="Composite" 
+                                               FontSize="18" 
+                                               FontWeight="SemiBold" 
+                                               Foreground="#FF1F2937"/>
+                                </StackPanel>
+
+                                <Border Height="80" 
+                                        Background="White" 
+                                        BorderBrush="#FFE2E8F0" 
+                                        BorderThickness="2" 
+                                        CornerRadius="8" 
+                                        Margin="0,0,0,12">
+                                    <Canvas>
+                                        <Border x:Name="CompositeElement"
+                                                Canvas.Left="45" Canvas.Top="25"
+                                                Width="50" Height="30"
+                                                Background="#FF8B5CF6"
+                                                CornerRadius="6"
+                                                RenderTransformOrigin="0.5,0.5"
+                                                Cursor="Hand"
+                                                MouseEnter="OnCompositeMouseEnter"
+                                                MouseLeave="OnCompositeMouseLeave">
+                                            <TextBlock Text="COMBO" 
+                                                       FontSize="9" 
+                                                       FontWeight="Bold" 
+                                                       Foreground="White" 
+                                                       HorizontalAlignment="Center" 
+                                                       VerticalAlignment="Center"/>
+                                        </Border>
+                                    </Canvas>
+                                </Border>
+
+                                <Border Background="#FF1E293B" 
+                                        CornerRadius="6" 
+                                        Padding="8,8">
+                                    <TextBlock Text='TranslateX="10" Rotation="20" ScaleX="1.2"' 
+                                               FontFamily="Courier New" 
+                                               FontSize="10" 
+                                               Foreground="#FFE2E8F0"/>
+                                </Border>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+
+                    <!-- Interactive Demo -->
+                    <Border Grid.Row="2" 
+                            Background="#FFF8FAFC" 
+                            BorderBrush="#FFE2E8F0" 
+                            BorderThickness="1" 
+                            CornerRadius="12" 
+                            Padding="25">
+                        <StackPanel>
+                            <TextBlock Text="Live Transform Controls" 
+                                       FontSize="20" 
+                                       FontWeight="SemiBold" 
+                                       Foreground="#FF1F2937" 
+                                       HorizontalAlignment="Center" 
+                                       Margin="0,0,0,20"/>
+
+                            <!-- Controls -->
+                            <StackPanel Orientation="Horizontal" 
+                                        HorizontalAlignment="Center" 
+                                        Margin="0,0,0,20">
+                                <StackPanel Margin="0,0,15,0">
+                                    <TextBlock Text="Scale" 
+                                               FontSize="12" 
+                                               Foreground="#FF6B7280" 
+                                               HorizontalAlignment="Center" 
+                                               Margin="0,0,0,5"/>
+                                    <Slider x:Name="ScaleSlider" 
+                                            Width="80" 
+                                            Minimum="0.5" 
+                                            Maximum="2" 
+                                            Value="1" 
+                                            ValueChanged="OnSliderValueChanged"/>
+                                </StackPanel>
+
+                                <StackPanel Margin="0,0,15,0">
+                                    <TextBlock Text="Rotation" 
+                                               FontSize="12" 
+                                               Foreground="#FF6B7280" 
+                                               HorizontalAlignment="Center" 
+                                               Margin="0,0,0,5"/>
+                                    <Slider x:Name="RotationSlider" 
+                                            Width="80" 
+                                            Minimum="0" 
+                                            Maximum="360" 
+                                            Value="0" 
+                                            ValueChanged="OnSliderValueChanged"/>
+                                </StackPanel>
+
+                                <StackPanel Margin="0,0,15,0">
+                                    <TextBlock Text="Translate X" 
+                                               FontSize="12" 
+                                               Foreground="#FF6B7280" 
+                                               HorizontalAlignment="Center" 
+                                               Margin="0,0,0,5"/>
+                                    <Slider x:Name="TranslateXSlider" 
+                                            Width="80" 
+                                            Minimum="-30" 
+                                            Maximum="30" 
+                                            Value="0" 
+                                            ValueChanged="OnSliderValueChanged"/>
+                                </StackPanel>
+
+                                <StackPanel>
+                                    <TextBlock Text="Translate Y" 
+                                               FontSize="12" 
+                                               Foreground="#FF6B7280" 
+                                               HorizontalAlignment="Center" 
+                                               Margin="0,0,0,5"/>
+                                    <Slider x:Name="TranslateYSlider" 
+                                            Width="80" 
+                                            Minimum="-20" 
+                                            Maximum="20" 
+                                            Value="0" 
+                                            ValueChanged="OnSliderValueChanged"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <!-- Live Demo Stage -->
+                            <Border Height="120" 
+                                    Background="White" 
+                                    BorderBrush="#FFE2E8F0" 
+                                    BorderThickness="2" 
+                                    CornerRadius="8">
+                                <Canvas>
+                                    <Border x:Name="LiveElement"
+                                            Canvas.Left="110" Canvas.Top="40"
+                                            Width="60" Height="40"
+                                            CornerRadius="8"
+                                            RenderTransformOrigin="0.5,0.5">
+                                        <Border.Background>
+                                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                                <GradientStop Color="#FF6366F1" Offset="0"/>
+                                                <GradientStop Color="#FF8B5CF6" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                        <TextBlock Text="LIVE" 
+                                                   FontSize="12" 
+                                                   FontWeight="Bold" 
+                                                   Foreground="White" 
+                                                   HorizontalAlignment="Center" 
+                                                   VerticalAlignment="Center"/>
+                                        <Border.RenderTransform>
+                                            <CompositeTransform x:Name="LiveTransform"/>
+                                        </Border.RenderTransform>
+                                    </Border>
+                                </Canvas>
+                            </Border>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </Border>
+        </Grid>
+    </units:ShowcaseItem.DemoContent>
+</units:ShowcaseItem>

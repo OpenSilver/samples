@@ -26,6 +26,20 @@
       xmlns:data="clr-namespace:OpenSilverShowcase.Datas;assembly=OpenSilverShowcase.Datas"
       xmlns:calendar="clr-namespace:OpenSilverShowcase.Calendars;assembly=OpenSilverShowcase.Calendars"
       xmlns:uniform="clr-namespace:OpenSilverShowcase.UniformGrids;assembly=OpenSilverShowcase.UniformGrids"
+      xmlns:dock="clr-namespace:OpenSilverShowcase.DockPanel;assembly=OpenSilverShowcase.DockPanel"
+      xmlns:canvas="clr-namespace:OpenSilverShowcase.Canvas;assembly=OpenSilverShowcase.Canvas"
+      xmlns:rating="clr-namespace:OpenSilverShowcase.Rating;assembly=OpenSilverShowcase.Rating"
+      xmlns:scroll="clr-namespace:OpenSilverShowcase.ScrollViewer;assembly=OpenSilverShowcase.ScrollViewer"
+      xmlns:cuspanel="clr-namespace:OpenSilverShowcase.CustomPanels;assembly=OpenSilverShowcase.CustomPanels"
+      xmlns:tablectrl="clr-namespace:OpenSilverShowcase.TableControls;assembly=OpenSilverShowcase.TableControls"
+      xmlns:gridsplit="clr-namespace:OpenSilverShowcase.GridSplitters;assembly=OpenSilverShowcase.GridSplitters"
+      xmlns:popup="clr-namespace:OpenSilverShowcase.Popups;assembly=OpenSilverShowcase.Popups"
+      xmlns:viewbox="clr-namespace:OpenSilverShowcase.Viewbox;assembly=OpenSilverShowcase.Viewbox"
+      xmlns:layouttrans="clr-namespace:OpenSilverShowcase.LayoutTransformer;assembly=OpenSilverShowcase.LayoutTransformer"
+      xmlns:transcon="clr-namespace:OpenSilverShowcase.TransContent;assembly=OpenSilverShowcase.TransContent"
+      xmlns:dragdrop="clr-namespace:OpenSilverShowcase.DragandDrop;assembly=OpenSilverShowcase.DragandDrop"
+      xmlns:rendertrans="clr-namespace:OpenSilverShowcase.RenderTransforms;assembly=OpenSilverShowcase.RenderTransforms"
+      xmlns:animat="clr-namespace:OpenSilverShowcase.Animations;assembly=OpenSilverShowcase.Animations"
       xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units;assembly=OpenSilverShowcase.Support"
       mc:Ignorable="d"
       Foreground="{DynamicResource Theme_TextBrush}">
@@ -163,6 +177,96 @@
                         <StackPanel>
                             <units:ShowcaseHeadline DataContext="{Binding ElementName=UniformGridShowcase}"/>
                             <uniform:UniformGridContent x:Name="UniformGridShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="StackPanel">
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=StackPanelShowcase}"/>
+                            <stack:StackPanelContent x:Name="StackPanelShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="DockPanel">
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=DockPanelShowcase}"/>
+                            <dock:DockPanelContent x:Name="DockPanelShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Canvas">
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=CanvasShowcase}"/>
+                            <canvas:CanvasContent x:Name="CanvasShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Rating">
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=RatingShowcase}"/>
+                            <rating:RatingContent x:Name="RatingShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="ScrollViewer">
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=ScrollViewerShowcase}"/>
+                            <scroll:ScrollViewerContent x:Name="ScrollViewerShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="CustomPanels">
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=CustomPanelsShowcase}"/>
+                            <cuspanel:CustomPanelsContent x:Name="CustomPanelsShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="TableControls">
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=TableControlShowcase}"/>
+                            <tablectrl:TableControlContent x:Name="TableControlShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="GridSplitters">
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=GridSplittersShowcase}"/>
+                            <gridsplit:GridSplittersContent x:Name="GridSplittersShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Popups">
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=PopupsShowcase}"/>
+                            <popup:PopupContent x:Name="PopupsShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Viewbox">
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=ViewboxShowcase}"/>
+                            <viewbox:ViewboxContent x:Name="ViewboxShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="LayoutTransformer">
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=LayoutTransformerShowcase}"/>
+                            <layouttrans:LayoutTransformerContent x:Name="LayoutTransformerShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="TransContent">
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=TransContentShowcase}"/>
+                            <transcon:TransContent x:Name="TransContentShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="DragandDrop">
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=DragandDropShowcase}"/>
+                            <dragdrop:DragandDropContent x:Name="DragandDropShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="RenderTransforms">
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=RenderTransformsShowcase}"/>
+                            <rendertrans:RenderTransformsContent x:Name="RenderTransformsShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Animations">
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=AnimationsShowcase}"/>
+                            <animat:AnimationsContent x:Name="AnimationsShowcase" FirstSelectedItemName="Basic"/>
                         </StackPanel>
                     </TabItem>
                 </TabControl>

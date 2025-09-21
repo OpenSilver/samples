@@ -1,0 +1,27 @@
+<units:ShowcaseItem
+    x:Class="OpenSilverShowcase.ScrollViewer.Examples.ScrollViewerItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units;assembly=OpenSilverShowcase.Support"
+    Description="fundamentals of button styling with colors, fonts, and images."
+    Title="Basic"
+    Order="1">
+    <units:ShowcaseItem.CodeSources>
+        <units:CodeSource Key="xaml" Source="/Examples/ScrollViewerItem.xaml"/>
+        <units:CodeSource Key="xaml.cs" Source="/Examples/ScrollViewerItem.xaml.cs"/>
+    </units:ShowcaseItem.CodeSources>
+    <units:ShowcaseItem.DemoContent>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <ContentControl Content="ScrollViewer" Foreground="#FF3ADE8F" Background="#FF91C3C5"/>
+            <ScrollViewer Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" Height="120" >
+                <Image Source="/OpenSilverShowcase.ScrollViewer;component/Images/earth.png" Width="170" Height="170"/>
+            </ScrollViewer>
+            
+        </Grid>
+    </units:ShowcaseItem.DemoContent>
+</units:ShowcaseItem>

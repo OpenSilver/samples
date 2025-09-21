@@ -1,0 +1,143 @@
+<units:ShowcaseItem
+    x:Class="OpenSilverShowcase.TableControls.Examples.TableItems"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units;assembly=OpenSilverShowcase.Support"
+    Description="fundamentals of button styling with colors, fonts, and images."
+    Title="Basic"
+    Order="1">
+    <units:ShowcaseItem.CodeSources>
+        <units:CodeSource Key="xaml" Source="/Examples/TableItems.xaml"/>
+        <units:CodeSource Key="xaml.cs" Source="/Examples/TableItems.xaml.cs"/>
+    </units:ShowcaseItem.CodeSources>
+    <units:ShowcaseItem.DemoContent>
+        <Grid xmlns:cnvts="clr-namespace:OpenSilverShowcase.TableControls.Converters">
+            <Grid.Resources>
+                <cnvts:EnumToListConverter x:Key="EnumToListConverter"/>
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Header Area -->
+            <ContentControl Background="#FF8FCBBE"
+                            Content="TabControl Demo"
+                            Foreground="#FF89B8AD"/>
+
+            <!-- Main TabControl -->
+            <TabControl x:Name="MyTabControl"
+                        Grid.Row="1"
+                        HorizontalAlignment="Stretch"
+                        Margin="10"
+                        MinHeight="180">
+
+                <!-- Basic Text Tab -->
+                <TabItem Header="Basic Text" IsSelected="True">
+                    <StackPanel Margin="15">
+                        <TextBlock Text="This is the first tab" 
+                                   FontWeight="Bold" 
+                                   Margin="0,0,0,10"/>
+                        <TextBlock Text="Demonstrates basic text content display functionality. TabItem can contain any UI elements." 
+                                   TextWrapping="Wrap"
+                                   Foreground="Gray"/>
+                        <Button Content="Sample Button" 
+                                Margin="0,10,0,0" 
+                                HorizontalAlignment="Left"/>
+                    </StackPanel>
+                </TabItem>
+
+                <!-- Rich Content Tab -->
+                <TabItem Header="Rich Content">
+                    <Grid Margin="15">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Rich Content Demo" 
+                                   FontWeight="Bold" 
+                                   Margin="0,0,0,10"/>
+
+                        <StackPanel Grid.Row="1">
+                            <CheckBox Content="Option 1" Margin="0,5"/>
+                            <CheckBox Content="Option 2" Margin="0,5"/>
+                            <TextBox Text="Input box example" Margin="0,10"/>
+                            <Slider Minimum="0" Maximum="100" Value="50" Margin="0,10"/>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+
+                <!-- Custom Header Tab -->
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <!-- User Icon -->
+                            <Path Width="16"
+                                  Height="16"
+                                  Margin="0,0,5,0"
+                                  Data="M8.3560181,18.363037C10.371002,19.880005 12.873993,20.779053 15.584991,20.779053 18.295013,20.779053 20.799011,19.880005 22.813995,18.363037 27.524017,18.955994 31.167999,22.973022 31.167999,27.843994L31.167999,32 0,32 0,27.843994C0,22.973022,3.6459961,18.955994,8.3560181,18.363037z M15.584991,0C20.403992,0 24.311005,3.90802 24.311005,8.7280273 24.311005,13.548035 20.403992,17.454041 15.584991,17.454041 10.765015,17.454041 6.8580017,13.548035 6.8580017,8.7280273 6.8580017,3.90802 10.765015,0 15.584991,0z"
+                                 Stretch="Fill"/>
+                            <TextBlock Text="Custom Header"/>
+                        </StackPanel>
+                    </TabItem.Header>
+                    <StackPanel Margin="15">
+                        <TextBlock Text="Custom TabItem Header" 
+                                   FontWeight="Bold" 
+                                   Margin="0,0,0,10"/>
+                        <TextBlock Text="This tab demonstrates how to add icons to headers. Uses StackPanel to combine Path icons and TextBlock text." 
+                                   TextWrapping="Wrap"
+                                   Foreground="Gray"/>
+                    </StackPanel>
+                </TabItem>
+
+                <!-- List Data Tab -->
+                <TabItem Header="List Data">
+                    <ScrollViewer Margin="15">
+                        <StackPanel>
+                            <TextBlock Text="Data List Demo" 
+                                       FontWeight="Bold" 
+                                       Margin="0,0,0,10"/>
+                            <ListBox Height="100">
+                                <ListBoxItem Content="Item 1"/>
+                                <ListBoxItem Content="Item 2"/>
+                                <ListBoxItem Content="Item 3"/>
+                                <ListBoxItem Content="Item 4"/>
+                            </ListBox>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+            </TabControl>
+
+            <!-- Configuration Control Area -->
+            <Border Grid.Row="2" 
+                    Background="#FFF0F0F0" 
+                    Padding="10" 
+                    Margin="10,5">
+                <StackPanel>
+                    <TextBlock Text="Configuration Options:" 
+                               FontWeight="Bold" 
+                               Margin="0,0,0,5"/>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,5">
+                        <TextBlock VerticalAlignment="Center" 
+                                   Text="Tab Position: " 
+                                   Width="100"/>
+                        <ComboBox Width="120"
+                                  ItemsSource="{Binding Converter={StaticResource EnumToListConverter}, ConverterParameter={x:Type Dock}}" 
+                                  SelectedItem="{Binding TabStripPlacement, ElementName=MyTabControl, Mode=TwoWay}"/>
+                    </StackPanel>
+
+                    <TextBlock Text="Try switching different positions to see the effect" 
+                               FontSize="11" 
+                               Foreground="Gray" 
+                               Margin="0,5,0,0"/>
+                </StackPanel>
+            </Border>
+
+        </Grid>
+    </units:ShowcaseItem.DemoContent>
+</units:ShowcaseItem>

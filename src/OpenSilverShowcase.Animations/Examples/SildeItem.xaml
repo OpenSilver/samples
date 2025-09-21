@@ -1,0 +1,75 @@
+<units:ShowcaseItem
+    x:Class="OpenSilverShowcase.Animations.Examples.SildeItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units;assembly=OpenSilverShowcase.Support"
+    Description="fundamentals of button styling with colors, fonts, and images."
+    Title="Slide"
+    Order="1">
+    <units:ShowcaseItem.CodeSources>
+        <units:CodeSource Key="xaml" Source="/Examples/SildeItem.xaml"/>
+        <units:CodeSource Key="xaml.cs" Source="/Examples/SildeItem.xaml.cs"/>
+    </units:ShowcaseItem.CodeSources>
+    <units:ShowcaseItem.DemoContent>
+        <Grid Background="#FFF8FAFC">
+            <Border Background="White" 
+                    CornerRadius="20" 
+                    Padding="40" 
+                    Margin="20">
+                <StackPanel HorizontalAlignment="Center">
+                    <!-- Header -->
+                    <TextBlock Text="Elastic Slide Animation" 
+                               FontSize="24" 
+                               FontWeight="Bold" 
+                               Foreground="#FF1F2937" 
+                               HorizontalAlignment="Center"
+                               Margin="0,0,0,8"/>
+                    <TextBlock Text="Click to see smooth sliding with elastic effect" 
+                               FontSize="14" 
+                               Foreground="#FF6B7280" 
+                               HorizontalAlignment="Center" 
+                               Margin="0,0,0,30"/>
+
+                    <!-- Animation Demo Area -->
+                    <Border Width="280"
+                            Height="120" 
+                            Background="#FFF9FAFB" 
+                            BorderBrush="#FFE5E7EB" 
+                            BorderThickness="2" 
+                            CornerRadius="12" 
+                            Margin="0,0,0,25">
+                        <Canvas>
+                            <Border x:Name="AnimatedElement"
+                                    Canvas.Left="20" Canvas.Top="30"
+                                    Width="60" Height="60"
+                                    Background="#FFF59E0B"
+                                    CornerRadius="12"
+                                    RenderTransformOrigin="0.5,0.5">
+                                <Border.RenderTransform>
+                                    <CompositeTransform x:Name="ElementTransform"/>
+                                </Border.RenderTransform>
+                                <TextBlock Text="SLIDE" 
+                                           FontSize="12" 
+                                           FontWeight="Bold" 
+                                           Foreground="White" 
+                                           HorizontalAlignment="Center" 
+                                           VerticalAlignment="Center"/>
+                            </Border>
+                        </Canvas>
+                    </Border>
+
+                    <!-- Control Button -->
+                    <Button Content="Slide" 
+                            Background="#FFF59E0B" 
+                            Foreground="White" 
+                            BorderThickness="0" 
+                            Padding="20,12"
+                            FontSize="14"
+                            FontWeight="Medium"
+                            Cursor="Hand"
+                            Click="OnAnimateClick"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </units:ShowcaseItem.DemoContent>
+</units:ShowcaseItem>

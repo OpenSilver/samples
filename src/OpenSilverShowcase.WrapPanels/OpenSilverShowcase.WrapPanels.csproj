@@ -6,7 +6,9 @@
 		<LangVersion>12</LangVersion>
 	</PropertyGroup>
 	<ItemGroup>
+	  <Compile Include="Converters\EnumToListConverter.cs" />
 	  <Compile Include="Examples\BasicItem.xaml.cs" />
+	  <Compile Include="Examples\InteractiveItem.xaml.cs" />
 	  <Compile Include="WrapPanelContent.xaml.cs" />
 	</ItemGroup>
 	<ItemGroup>
@@ -15,6 +17,9 @@
 	</ItemGroup>
 	<ItemGroup>
 		<Page Include="Examples\BasicItem.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Include="Examples\InteractiveItem.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</Page>
 		<Page Include="Themes\Generic.xaml">
