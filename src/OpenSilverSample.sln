@@ -97,6 +97,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverShowcase.RenderTr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverShowcase.Animations", "OpenSilverShowcase.Animations\OpenSilverShowcase.Animations.csproj", "{6C231B3C-BB41-4B6A-B435-09F6D7C40948}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverShowcase.Gradients", "OpenSilverShowcase.Gradients\OpenSilverShowcase.Gradients.csproj", "{7DBA81DE-6550-4512-A10F-766FB664718D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverShowcase.XamlReader", "OpenSilverShowcase.XamlReader\OpenSilverShowcase.XamlReader.csproj", "{FAA2DA10-6FC8-45D7-868B-ED7E52D99793}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverShowcase.Styles", "OpenSilverShowcase.Styles\OpenSilverShowcase.Styles.csproj", "{C3DE5070-E637-4EE0-A3FB-91062DB574CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverShowcase.AnimationTools", "OpenSilverShowcase.AnimationTools\OpenSilverShowcase.AnimationTools.csproj", "{92AD3CDC-7FD4-4EBC-AB17-7CBCB421DAAF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -271,6 +279,22 @@ Global
 		{6C231B3C-BB41-4B6A-B435-09F6D7C40948}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C231B3C-BB41-4B6A-B435-09F6D7C40948}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C231B3C-BB41-4B6A-B435-09F6D7C40948}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DBA81DE-6550-4512-A10F-766FB664718D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DBA81DE-6550-4512-A10F-766FB664718D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DBA81DE-6550-4512-A10F-766FB664718D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DBA81DE-6550-4512-A10F-766FB664718D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAA2DA10-6FC8-45D7-868B-ED7E52D99793}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAA2DA10-6FC8-45D7-868B-ED7E52D99793}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAA2DA10-6FC8-45D7-868B-ED7E52D99793}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAA2DA10-6FC8-45D7-868B-ED7E52D99793}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3DE5070-E637-4EE0-A3FB-91062DB574CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3DE5070-E637-4EE0-A3FB-91062DB574CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3DE5070-E637-4EE0-A3FB-91062DB574CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3DE5070-E637-4EE0-A3FB-91062DB574CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92AD3CDC-7FD4-4EBC-AB17-7CBCB421DAAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92AD3CDC-7FD4-4EBC-AB17-7CBCB421DAAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92AD3CDC-7FD4-4EBC-AB17-7CBCB421DAAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92AD3CDC-7FD4-4EBC-AB17-7CBCB421DAAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -318,6 +342,10 @@ Global
 		{C1992F93-70AC-443F-A342-16028F5ADAE8} = {6DCE7F39-A782-4D98-9C32-CAC7A7FEFB92}
 		{E103945C-E071-4466-8173-0F7E8DA5C2E5} = {6DCE7F39-A782-4D98-9C32-CAC7A7FEFB92}
 		{6C231B3C-BB41-4B6A-B435-09F6D7C40948} = {6DCE7F39-A782-4D98-9C32-CAC7A7FEFB92}
+		{7DBA81DE-6550-4512-A10F-766FB664718D} = {6DCE7F39-A782-4D98-9C32-CAC7A7FEFB92}
+		{FAA2DA10-6FC8-45D7-868B-ED7E52D99793} = {6DCE7F39-A782-4D98-9C32-CAC7A7FEFB92}
+		{C3DE5070-E637-4EE0-A3FB-91062DB574CB} = {6DCE7F39-A782-4D98-9C32-CAC7A7FEFB92}
+		{92AD3CDC-7FD4-4EBC-AB17-7CBCB421DAAF} = {6DCE7F39-A782-4D98-9C32-CAC7A7FEFB92}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5DDCEE59-1BF9-4C25-AB29-551F61F68B50}

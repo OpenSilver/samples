@@ -6,30 +6,18 @@
 		<LangVersion>12</LangVersion>
 	</PropertyGroup>
 	<ItemGroup>
-	  <Compile Include="AnimationsContent.xaml.cs" />
-	  <Compile Include="Examples\BasicItem.xaml.cs" />
-	  <Compile Include="Examples\RotateItem.xaml.cs" />
-	  <Compile Include="Examples\SildeItem.xaml.cs" />
-	  <Compile Include="Examples\SliderDemoItem.xaml.cs" />
+	  <Compile Include="Examples\GradientItem.xaml.cs" />
+	  <Compile Include="GradientsContent.xaml.cs" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Jamesnet.Platform.OpenSilver" Version="9.1.12" />
 		<PackageReference Include="OpenSilver" Version="3.2.3" />
 	</ItemGroup>
 	<ItemGroup>
-		<Page Include="AnimationsContent.xaml">
+		<Page Include="Examples\GradientItem.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</Page>
-		<Page Include="Examples\BasicItem.xaml">
-		  <Generator>MSBuild:Compile</Generator>
-		</Page>
-		<Page Include="Examples\RotateItem.xaml">
-		  <Generator>MSBuild:Compile</Generator>
-		</Page>
-		<Page Include="Examples\SildeItem.xaml">
-		  <Generator>MSBuild:Compile</Generator>
-		</Page>
-		<Page Include="Examples\SliderDemoItem.xaml">
+		<Page Include="GradientsContent.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</Page>
 		<Page Include="Themes\Generic.xaml">

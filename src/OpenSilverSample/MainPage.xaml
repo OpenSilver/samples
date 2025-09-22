@@ -40,6 +40,10 @@
       xmlns:dragdrop="clr-namespace:OpenSilverShowcase.DragandDrop;assembly=OpenSilverShowcase.DragandDrop"
       xmlns:rendertrans="clr-namespace:OpenSilverShowcase.RenderTransforms;assembly=OpenSilverShowcase.RenderTransforms"
       xmlns:animat="clr-namespace:OpenSilverShowcase.Animations;assembly=OpenSilverShowcase.Animations"
+      xmlns:gradient="clr-namespace:OpenSilverShowcase.Gradients;assembly=OpenSilverShowcase.Gradients"
+      xmlns:xamlreader="clr-namespace:OpenSilverShowcase.XamlReader;assembly=OpenSilverShowcase.XamlReader"
+      xmlns:styles="clr-namespace:OpenSilverShowcase.Styles;assembly=OpenSilverShowcase.Styles"
+      xmlns:anitools="clr-namespace:OpenSilverShowcase.AnimationTools;assembly=OpenSilverShowcase.AnimationTools"
       xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units;assembly=OpenSilverShowcase.Support"
       mc:Ignorable="d"
       Foreground="{DynamicResource Theme_TextBrush}">
@@ -267,6 +271,30 @@
                         <StackPanel>
                             <units:ShowcaseHeadline DataContext="{Binding ElementName=AnimationsShowcase}"/>
                             <animat:AnimationsContent x:Name="AnimationsShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Gradients">
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=GradientsShowcase}"/>
+                            <gradient:GradientsContent x:Name="GradientsShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="XamlReader">
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=XamlReaderShowcase}"/>
+                            <xamlreader:XamlReaderContent x:Name="XamlReaderShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Styles">
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=StylesShowcase}"/>
+                            <styles:StylesContent x:Name="StylesShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="AnimationTools">
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=AnimationToolsShowcase}"/>
+                            <anitools:AnimationToolsContent x:Name="AnimationToolsShowcase" FirstSelectedItemName="Basic"/>
                         </StackPanel>
                     </TabItem>
                 </TabControl>

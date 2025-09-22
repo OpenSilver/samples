@@ -29,7 +29,6 @@
                                HorizontalAlignment="Center" 
                                Margin="0,0,0,30"/>
 
-                    <!-- Animation Demo Area -->
                     <Border Width="200"
                             Height="120" 
                             Background="#FFF9FAFB" 
@@ -56,7 +55,6 @@
                         </Grid>
                     </Border>
 
-                    <!-- Control Button -->
                     <Button Content="Rotate" 
                             Background="#FF10B981" 
                             Foreground="White" 

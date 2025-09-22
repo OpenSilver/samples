@@ -1,14 +1,12 @@
-﻿using OpenSilverShowcase.Support.UI.Units;
-using System;
-using System.Windows;
-using System.Windows.Controls;
+using OpenSilverShowcase.Support.UI.Units;
 using System.Windows.Media.Animation;
+using System.Windows;
 
 namespace OpenSilverShowcase.Animations.Examples
 {
-    public partial class QuarticEaseItem : ShowcaseItem
+    public partial class SliderDemoItem : ShowcaseItem
     {
-        public QuarticEaseItem()
+        public SliderDemoItem()
         {
             this.InitializeComponent();
         }
@@ -27,6 +25,5 @@ namespace OpenSilverShowcase.Animations.Examples
             ButtonToStartAnimationOpen.Visibility = Visibility.Visible;
             ButtonToStartAnimationClose.Visibility = Visibility.Collapsed;
         }
-
     }
 }

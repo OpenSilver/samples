@@ -17,7 +17,6 @@
                     Padding="40" 
                     Margin="20">
                 <StackPanel HorizontalAlignment="Center">
-                    <!-- Header -->
                     <TextBlock Text="Bounce Scale Animation" 
                                FontSize="24" 
                                FontWeight="Bold" 
@@ -30,7 +29,6 @@
                                HorizontalAlignment="Center" 
                                Margin="0,0,0,30"/>
 
-                    <!-- Animation Demo Area -->
                     <Border Width="200"
                             Height="120" 
                             Background="#FFF9FAFB" 
@@ -57,7 +55,6 @@
                         </Grid>
                     </Border>
 
-                    <!-- Control Button -->
                     <Button Content="Animate" 
                             Background="#FF3B82F6" 
                             Foreground="White" 
