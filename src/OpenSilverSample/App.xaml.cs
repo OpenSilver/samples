@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using OpenSilverShowcase.Support.Local.Helpers;
+using System.Windows;
 
 namespace OpenSilverSample
 {
@@ -7,7 +8,6 @@ namespace OpenSilverSample
         public App()
         {
             this.InitializeComponent();
-
             // Enter construction logic here...
 
             var mainPage = new MainPage();

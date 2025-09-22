@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units;assembly=OpenSilverShowcase.Support"
     Description="fundamentals of button styling with colors, fonts, and images."
-    Title="Basic Style"
+    Title="Basic"
     Order="1">
     <units:ShowcaseItem.CodeSources>
         <units:CodeSource Key="xaml" Source="/Examples/TransItem.xaml"/>
