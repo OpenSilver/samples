@@ -46,6 +46,7 @@
     <ProjectReference Include="..\OpenSilverShowcase.Gradients\OpenSilverShowcase.Gradients.csproj" />
     <ProjectReference Include="..\OpenSilverShowcase.GridSplitters\OpenSilverShowcase.GridSplitters.csproj" />
     <ProjectReference Include="..\OpenSilverShowcase.Grids\OpenSilverShowcase.Grids.csproj" />
+    <ProjectReference Include="..\OpenSilverShowcase.ItemsControls\OpenSilverShowcase.ItemsControls.csproj" />
     <ProjectReference Include="..\OpenSilverShowcase.LayoutTransformer\OpenSilverShowcase.LayoutTransformer.csproj" />
     <ProjectReference Include="..\OpenSilverShowcase.ListBoxs\OpenSilverShowcase.ListBoxs.csproj" />
     <ProjectReference Include="..\OpenSilverShowcase.MvvmTemplate\OpenSilverShowcase.MvvmTemplate.csproj" />

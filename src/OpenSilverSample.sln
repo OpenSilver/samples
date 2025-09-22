@@ -105,6 +105,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverShowcase.Styles",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverShowcase.AnimationTools", "OpenSilverShowcase.AnimationTools\OpenSilverShowcase.AnimationTools.csproj", "{92AD3CDC-7FD4-4EBC-AB17-7CBCB421DAAF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverShowcase.ItemsControls", "OpenSilverShowcase.ItemsControls\OpenSilverShowcase.ItemsControls.csproj", "{B67F9479-E4C6-41D0-8ED0-E6C72E9A7EBE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -295,6 +297,10 @@ Global
 		{92AD3CDC-7FD4-4EBC-AB17-7CBCB421DAAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92AD3CDC-7FD4-4EBC-AB17-7CBCB421DAAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92AD3CDC-7FD4-4EBC-AB17-7CBCB421DAAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B67F9479-E4C6-41D0-8ED0-E6C72E9A7EBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B67F9479-E4C6-41D0-8ED0-E6C72E9A7EBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B67F9479-E4C6-41D0-8ED0-E6C72E9A7EBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B67F9479-E4C6-41D0-8ED0-E6C72E9A7EBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -346,6 +352,7 @@ Global
 		{FAA2DA10-6FC8-45D7-868B-ED7E52D99793} = {6DCE7F39-A782-4D98-9C32-CAC7A7FEFB92}
 		{C3DE5070-E637-4EE0-A3FB-91062DB574CB} = {6DCE7F39-A782-4D98-9C32-CAC7A7FEFB92}
 		{92AD3CDC-7FD4-4EBC-AB17-7CBCB421DAAF} = {6DCE7F39-A782-4D98-9C32-CAC7A7FEFB92}
+		{B67F9479-E4C6-41D0-8ED0-E6C72E9A7EBE} = {6DCE7F39-A782-4D98-9C32-CAC7A7FEFB92}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5DDCEE59-1BF9-4C25-AB29-551F61F68B50}

@@ -44,6 +44,7 @@
       xmlns:xamlreader="clr-namespace:OpenSilverShowcase.XamlReader;assembly=OpenSilverShowcase.XamlReader"
       xmlns:styles="clr-namespace:OpenSilverShowcase.Styles;assembly=OpenSilverShowcase.Styles"
       xmlns:anitools="clr-namespace:OpenSilverShowcase.AnimationTools;assembly=OpenSilverShowcase.AnimationTools"
+      xmlns:itemsctrl="clr-namespace:OpenSilverShowcase.ItemsControls;assembly=OpenSilverShowcase.ItemsControls"
       xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units;assembly=OpenSilverShowcase.Support"
       mc:Ignorable="d"
       Foreground="{DynamicResource Theme_TextBrush}">
@@ -295,6 +296,12 @@
                         <StackPanel>
                             <units:ShowcaseHeadline DataContext="{Binding ElementName=AnimationToolsShowcase}"/>
                             <anitools:AnimationToolsContent x:Name="AnimationToolsShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="ItemsControls">
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=ItemsControlsShowcase}"/>
+                            <itemsctrl:ItemsControlsContent x:Name="ItemsControlsShowcase" FirstSelectedItemName="Basic"/>
                         </StackPanel>
                     </TabItem>
                 </TabControl>
