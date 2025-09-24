@@ -52,6 +52,7 @@ namespace OpenSilverShowcase.Support.UI.Units
         {
             base.OnApplyTemplate();
             _showcaseListBox = GetTemplateChild("PART_ShowcaseItems") as ShowcaseListBox;
+
             if (_showcaseListBox != null)
             {
                 var source = GetShowcaseItemInfos();
@@ -68,6 +69,12 @@ namespace OpenSilverShowcase.Support.UI.Units
                     await _showcaseListBox.SelectItemByDataContext(source.FirstOrDefault(), true);
                 }
             }
+        }
+
+        public void SelectItemByName(string name)
+        {
+            FirstSelectedItemName = name;
+            _showcaseListBox?.SelectItemByName(name, true);
         }
 
         private void ShowcaseItemClicked(object sender, ItemClickedEventArgs e)
@@ -124,7 +131,11 @@ namespace OpenSilverShowcase.Support.UI.Units
             return this.GetType().Assembly.GetTypes()
                 .Where(t => t.IsClass && !t.IsAbstract && t.IsSubclassOf(typeof(ShowcaseItem)))
                 .ToArray();
-        }
+        }public string GetFirstItemName()
+{
+    var items = GetShowcaseItemInfos();
+    return items.OrderBy(x => x.Name).FirstOrDefault()?.Name;
+}
 
         public void ClearInstanceCache()
         {
