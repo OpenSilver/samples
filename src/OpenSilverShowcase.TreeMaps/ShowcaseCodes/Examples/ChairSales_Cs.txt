@@ -1,0 +1,42 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Text;
+
+namespace OpenSilverShowcase.TreeMaps.Examples
+{
+    internal class ChairSales
+    {
+        public string Month { get; set; }
+        public double Sales { get; set; }
+
+        public ChairSales(string month, double sales)
+        {
+            Month = month;
+            Sales = sales;
+        }
+    }
+
+    public static class Sales
+    {
+        private static ObservableCollection<ChairSales> _chairs;
+
+        public static ObservableCollection<ChairSales> Chairs
+        {
+            get
+            {
+                if (_chairs == null)
+                {
+                    _chairs = new ObservableCollection<ChairSales>
+                    {
+                        new ChairSales("Apr", 14),
+                        new ChairSales("Feb", 6),
+                        new ChairSales("Mar", 4),
+                        new ChairSales("Jan", 3) 
+                    };
+                }
+                return _chairs;
+            }
+        }
+    }
+}

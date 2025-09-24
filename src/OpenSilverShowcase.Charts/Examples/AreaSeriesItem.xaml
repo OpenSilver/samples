@@ -1,0 +1,48 @@
+<units:ShowcaseItem
+    x:Class="OpenSilverShowcase.Charts.Examples.AreaSeriesItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units;assembly=OpenSilverShowcase.Support"
+    Description="Demonstrates area series charts for visualizing data trends over time periods."
+    HorizontalContentAlignment="Stretch"
+    Title="AreaSeries"
+    Order="1">
+    <units:ShowcaseItem.CodeSources>
+        <units:CodeSource Key="xaml" Source="/Examples/AreaSeriesItem.xaml"/>
+        <units:CodeSource Key="xaml.cs" Source="/Examples/AreaSeriesItem.xaml.cs"/>
+        <units:CodeSource Key="Data" Source="/Examples/SalesData.cs"/>
+    </units:ShowcaseItem.CodeSources>
+    <units:ShowcaseItem.DemoContent>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="250"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <ContentControl Background="#FFD2BD9C"
+                            Content="AreaSeries"
+                            Foreground="#FFDEA542"/>
+            <Chart Grid.Row="1" Margin="20">
+                <Chart.Axes>
+                    <CategoryAxis Title="Period" Orientation="X"/>
+                    <LinearAxis Title="Sales" 
+                               Orientation="Y"
+                               Minimum="0"
+                               Maximum="200"
+                               Interval="50"/>
+                </Chart.Axes>
+                <Chart.Series>
+                    <AreaSeries x:Name="ChairsSeries"
+                                Title="Chairs"
+                                DependentValuePath="Sales"
+                                IndependentValuePath="Month"/>
+                    <AreaSeries x:Name="TablesSeries"
+                                Title="Tables"
+                                DependentValuePath="Sales"
+                                IndependentValuePath="Month"
+                               AnimationSequence="FirstToLast"/>
+                </Chart.Series>
+            </Chart>
+        </Grid>
+    </units:ShowcaseItem.DemoContent>
+</units:ShowcaseItem>

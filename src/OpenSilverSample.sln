@@ -107,6 +107,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverShowcase.Animatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverShowcase.ItemsControls", "OpenSilverShowcase.ItemsControls\OpenSilverShowcase.ItemsControls.csproj", "{B67F9479-E4C6-41D0-8ED0-E6C72E9A7EBE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverShowcase.HtmlPresenters", "OpenSilverShowcase.HtmlPresenters\OpenSilverShowcase.HtmlPresenters.csproj", "{C09006C4-B494-4B34-AA93-46093E2EDB74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverShowcase.TreeMaps", "OpenSilverShowcase.TreeMaps\OpenSilverShowcase.TreeMaps.csproj", "{2802E0A7-BE1D-439E-ADE3-35EFAC4BE908}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverShowcase.MonacoEditor", "OpenSilverShowcase.MonacoEditor\OpenSilverShowcase.MonacoEditor.csproj", "{AB5E90C3-B2F9-4384-9012-92A797E8A108}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverShowcase.ToastUIEditor", "OpenSilverShowcase.ToastUIEditor\OpenSilverShowcase.ToastUIEditor.csproj", "{106B04F5-0F40-4BA0-BDF5-4CD662FC4CBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSilverShowcase.Charts", "OpenSilverShowcase.Charts\OpenSilverShowcase.Charts.csproj", "{08EFB255-3584-41AA-8F51-C95755D9B16E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -301,6 +311,26 @@ Global
 		{B67F9479-E4C6-41D0-8ED0-E6C72E9A7EBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B67F9479-E4C6-41D0-8ED0-E6C72E9A7EBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B67F9479-E4C6-41D0-8ED0-E6C72E9A7EBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C09006C4-B494-4B34-AA93-46093E2EDB74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C09006C4-B494-4B34-AA93-46093E2EDB74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C09006C4-B494-4B34-AA93-46093E2EDB74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C09006C4-B494-4B34-AA93-46093E2EDB74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2802E0A7-BE1D-439E-ADE3-35EFAC4BE908}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2802E0A7-BE1D-439E-ADE3-35EFAC4BE908}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2802E0A7-BE1D-439E-ADE3-35EFAC4BE908}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2802E0A7-BE1D-439E-ADE3-35EFAC4BE908}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB5E90C3-B2F9-4384-9012-92A797E8A108}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB5E90C3-B2F9-4384-9012-92A797E8A108}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB5E90C3-B2F9-4384-9012-92A797E8A108}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB5E90C3-B2F9-4384-9012-92A797E8A108}.Release|Any CPU.Build.0 = Release|Any CPU
+		{106B04F5-0F40-4BA0-BDF5-4CD662FC4CBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{106B04F5-0F40-4BA0-BDF5-4CD662FC4CBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{106B04F5-0F40-4BA0-BDF5-4CD662FC4CBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{106B04F5-0F40-4BA0-BDF5-4CD662FC4CBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08EFB255-3584-41AA-8F51-C95755D9B16E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08EFB255-3584-41AA-8F51-C95755D9B16E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08EFB255-3584-41AA-8F51-C95755D9B16E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08EFB255-3584-41AA-8F51-C95755D9B16E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -353,6 +383,11 @@ Global
 		{C3DE5070-E637-4EE0-A3FB-91062DB574CB} = {6DCE7F39-A782-4D98-9C32-CAC7A7FEFB92}
 		{92AD3CDC-7FD4-4EBC-AB17-7CBCB421DAAF} = {6DCE7F39-A782-4D98-9C32-CAC7A7FEFB92}
 		{B67F9479-E4C6-41D0-8ED0-E6C72E9A7EBE} = {6DCE7F39-A782-4D98-9C32-CAC7A7FEFB92}
+		{C09006C4-B494-4B34-AA93-46093E2EDB74} = {6DCE7F39-A782-4D98-9C32-CAC7A7FEFB92}
+		{2802E0A7-BE1D-439E-ADE3-35EFAC4BE908} = {6DCE7F39-A782-4D98-9C32-CAC7A7FEFB92}
+		{AB5E90C3-B2F9-4384-9012-92A797E8A108} = {6DCE7F39-A782-4D98-9C32-CAC7A7FEFB92}
+		{106B04F5-0F40-4BA0-BDF5-4CD662FC4CBB} = {6DCE7F39-A782-4D98-9C32-CAC7A7FEFB92}
+		{08EFB255-3584-41AA-8F51-C95755D9B16E} = {6DCE7F39-A782-4D98-9C32-CAC7A7FEFB92}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5DDCEE59-1BF9-4C25-AB29-551F61F68B50}

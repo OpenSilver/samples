@@ -1,0 +1,39 @@
+<units:ShowcaseItem
+    x:Class="OpenSilverShowcase.ToastUIEditor.Examples.ToastUIEditorItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units;assembly=OpenSilverShowcase.Support"
+    xmlns:local="clr-namespace:OpenSilverShowcase.ToastUIEditor.Examples"
+    Description="fundamentals of button styling with colors, fonts, and images."
+    Title="Basic"
+    Order="1">
+    <units:ShowcaseItem.CodeSources>
+        <units:CodeSource Key="xaml" Source="/Examples/ToastUIEditorItem.xaml"/>
+        <units:CodeSource Key="xaml.cs" Source="/Examples/ToastUIEditorItem.xaml.cs"/>
+        <units:CodeSource Key="FileLoader" Source="/Examples/FileLoader.cs"/>
+        <units:CodeSource Key="Data" Source="/Examples/ToastUIEditor.cs"/>
+    </units:ShowcaseItem.CodeSources>
+    <units:ShowcaseItem.DemoContent>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <ContentControl Content="Toast UI Editor"
+                            Foreground="#FF458B3C"/>
+
+            <TextBlock Grid.Row="1"
+                       Margin="0,0,0,10"
+                       TextWrapping="Wrap">
+                <Hyperlink NavigateUri="https://ui.toast.com/tui-editor" TargetName="_blank">Toast UI Editor</Hyperlink>
+                -
+                a powerful markdown WYSIWYG editor.</TextBlock>
+            <local:ToastUiEditor Name="toastUiEditor"
+                                 Grid.Row="2"
+                                 Height="320"/>
+        </Grid>
+    </units:ShowcaseItem.DemoContent>
+</units:ShowcaseItem>

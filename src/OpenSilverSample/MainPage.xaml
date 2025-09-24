@@ -45,6 +45,11 @@
       xmlns:styles="clr-namespace:OpenSilverShowcase.Styles;assembly=OpenSilverShowcase.Styles"
       xmlns:anitools="clr-namespace:OpenSilverShowcase.AnimationTools;assembly=OpenSilverShowcase.AnimationTools"
       xmlns:itemsctrl="clr-namespace:OpenSilverShowcase.ItemsControls;assembly=OpenSilverShowcase.ItemsControls"
+      xmlns:htmlpre="clr-namespace:OpenSilverShowcase.HtmlPresenters;assembly=OpenSilverShowcase.HtmlPresenters"
+      xmlns:treemap="clr-namespace:OpenSilverShowcase.TreeMaps;assembly=OpenSilverShowcase.TreeMaps"
+      xmlns:monacoedit="clr-namespace:OpenSilverShowcase.MonacoEditor;assembly=OpenSilverShowcase.MonacoEditor"
+      xmlns:toastui="clr-namespace:OpenSilverShowcase.ToastUIEditor;assembly=OpenSilverShowcase.ToastUIEditor"
+      xmlns:chart="clr-namespace:OpenSilverShowcase.Charts;assembly=OpenSilverShowcase.Charts"
       xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units;assembly=OpenSilverShowcase.Support"
       mc:Ignorable="d"
       Foreground="{DynamicResource Theme_TextBrush}">
@@ -302,6 +307,36 @@
                         <StackPanel>
                             <units:ShowcaseHeadline DataContext="{Binding ElementName=ItemsControlsShowcase}"/>
                             <itemsctrl:ItemsControlsContent x:Name="ItemsControlsShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="HtmlPresenters">
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=HtmlPresenterShowcase}"/>
+                            <htmlpre:HtmlPresenterContent x:Name="HtmlPresenterShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="TreeMap">
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=TreeMapShowcase}"/>
+                            <treemap:TreeMapContent x:Name="TreeMapShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="MonacoEditor">
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=MonacoEditorShowcase}"/>
+                            <monacoedit:MonacoEditorContent x:Name="MonacoEditorShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="ToastUIEditor">
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=ToastUIEditorShowcase}"/>
+                            <toastui:ToastUIEditorContent x:Name="ToastUIEditorShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Chart">
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=ChartShowcase}"/>
+                            <chart:ChartContent x:Name="ChartShowcase" FirstSelectedItemName="Basic"/>
                         </StackPanel>
                     </TabItem>
                 </TabControl>
