@@ -217,7 +217,7 @@
                     <TabItem Header="CustomPanels">
                         <StackPanel>
                             <units:ShowcaseHeadline DataContext="{Binding ElementName=CustomPanelsShowcase}"/>
-                            <cuspanel:CustomPanelsContent x:Name="CustomPanelsShowcase" FirstSelectedItemName="Basic"/>
+                            <cuspanel:CustomPanelsContent x:Name="CustomPanelsShowcase" FirstSelectedItemName="Layout"/>
                         </StackPanel>
                     </TabItem>
                     <TabItem Header="TableControls">
