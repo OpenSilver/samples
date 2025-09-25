@@ -22,14 +22,10 @@
             <ContentControl Background="#FFD2BD9C"
                             Content="AreaSeries"
                             Foreground="#FFDEA542"/>
-            <Chart Grid.Row="1" Margin="20">
+            <Chart Grid.Row="1">
                 <Chart.Axes>
                     <CategoryAxis Title="Period" Orientation="X"/>
-                    <LinearAxis Title="Sales" 
-                               Orientation="Y"
-                               Minimum="0"
-                               Maximum="200"
-                               Interval="50"/>
+                    <CategoryAxis Title="Sales" Orientation="Y"/>
                 </Chart.Axes>
                 <Chart.Series>
                     <AreaSeries x:Name="ChairsSeries"
@@ -39,8 +35,7 @@
                     <AreaSeries x:Name="TablesSeries"
                                 Title="Tables"
                                 DependentValuePath="Sales"
-                                IndependentValuePath="Month"
-                               AnimationSequence="FirstToLast"/>
+                                IndependentValuePath="Month"/>
                 </Chart.Series>
             </Chart>
         </Grid>

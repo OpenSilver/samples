@@ -22,41 +22,20 @@
             <ContentControl Background="#FFD2BD9C"
                             Content="ColumnSeries"
                             Foreground="#FFDEA542"/>
-            <Chart Grid.Row="1" Margin="20">
+            <Chart Grid.Row="1">
                 <Chart.Axes>
                     <CategoryAxis Title="Period" Orientation="X"/>
-                    <LinearAxis Title="Sales" 
-                               Orientation="Y"
-                               Minimum="0"
-                               Maximum="220"
-                               Interval="50"
-                               ShowGridLines="True"/>
+                    <CategoryAxis Title="Sales" Orientation="Y"/>
                 </Chart.Axes>
                 <Chart.Series>
                     <ColumnSeries x:Name="ChairsSeries"
                                   Title="Chairs"
                                   DependentValuePath="Sales"
-                                  IndependentValuePath="Month">
-                        <ColumnSeries.DataPointStyle>
-                            <Style TargetType="ColumnDataPoint">
-                                <Setter Property="Background" Value="#FF00C853"/>
-                                <Setter Property="BorderBrush" Value="#FF00A043"/>
-                                <Setter Property="BorderThickness" Value="1"/>
-                            </Style>
-                        </ColumnSeries.DataPointStyle>
-                    </ColumnSeries>
+                                  IndependentValuePath="Month"/>
                     <ColumnSeries x:Name="TablesSeries"
                                   Title="Tables"
                                   DependentValuePath="Sales"
-                                  IndependentValuePath="Month">
-                        <ColumnSeries.DataPointStyle>
-                            <Style TargetType="ColumnDataPoint">
-                                <Setter Property="Background" Value="#FF7C4DFF"/>
-                                <Setter Property="BorderBrush" Value="#FF5E35B1"/>
-                                <Setter Property="BorderThickness" Value="1"/>
-                            </Style>
-                        </ColumnSeries.DataPointStyle>
-                    </ColumnSeries>
+                                  IndependentValuePath="Month"/>
                 </Chart.Series>
             </Chart>
         </Grid>

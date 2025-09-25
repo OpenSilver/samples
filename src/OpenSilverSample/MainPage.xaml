@@ -47,9 +47,11 @@
       xmlns:itemsctrl="clr-namespace:OpenSilverShowcase.ItemsControls;assembly=OpenSilverShowcase.ItemsControls"
       xmlns:htmlpre="clr-namespace:OpenSilverShowcase.HtmlPresenters;assembly=OpenSilverShowcase.HtmlPresenters"
       xmlns:treemap="clr-namespace:OpenSilverShowcase.TreeMaps;assembly=OpenSilverShowcase.TreeMaps"
-      xmlns:monacoedit="clr-namespace:OpenSilverShowcase.MonacoEditor;assembly=OpenSilverShowcase.MonacoEditor"
       xmlns:toastui="clr-namespace:OpenSilverShowcase.ToastUIEditor;assembly=OpenSilverShowcase.ToastUIEditor"
       xmlns:chart="clr-namespace:OpenSilverShowcase.Charts;assembly=OpenSilverShowcase.Charts"
+      xmlns:jslobs="clr-namespace:OpenSilverShowcase.JSLibs;assembly=OpenSilverShowcase.JSLibs"
+      xmlns:interop="clr-namespace:OpenSilverShowcase.Interops;assembly=OpenSilverShowcase.Interops"
+      xmlns:dotnet="clr-namespace:OpenSilverShowcase.Dotnet;assembly=OpenSilverShowcase.Dotnet"
       xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units;assembly=OpenSilverShowcase.Support"
       mc:Ignorable="d"
       Foreground="{DynamicResource Theme_TextBrush}">
@@ -321,12 +323,6 @@
                             <treemap:TreeMapContent x:Name="TreeMapShowcase" FirstSelectedItemName="Basic"/>
                         </StackPanel>
                     </TabItem>
-                    <TabItem Header="MonacoEditor">
-                        <StackPanel>
-                            <units:ShowcaseHeadline DataContext="{Binding ElementName=MonacoEditorShowcase}"/>
-                            <monacoedit:MonacoEditorContent x:Name="MonacoEditorShowcase" FirstSelectedItemName="Basic"/>
-                        </StackPanel>
-                    </TabItem>
                     <TabItem Header="ToastUIEditor">
                         <StackPanel>
                             <units:ShowcaseHeadline DataContext="{Binding ElementName=ToastUIEditorShowcase}"/>
@@ -337,6 +333,24 @@
                         <StackPanel>
                             <units:ShowcaseHeadline DataContext="{Binding ElementName=ChartShowcase}"/>
                             <chart:ChartContent x:Name="ChartShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="JSLibs">
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=JSLibsShowcase}"/>
+                            <jslobs:JSLibsContent x:Name="JSLibsShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Interop">
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=InteropShowcase}"/>
+                            <interop:InteropContent x:Name="InteropShowcase" FirstSelectedItemName="Basic"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Header="Dotnet">
+                        <StackPanel>
+                            <units:ShowcaseHeadline DataContext="{Binding ElementName=DotnetShowcase}"/>
+                            <dotnet:DotnetContent x:Name="DotnetShowcase" FirstSelectedItemName="Basic"/>
                         </StackPanel>
                     </TabItem>
                 </TabControl>

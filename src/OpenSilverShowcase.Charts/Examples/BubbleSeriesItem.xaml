@@ -22,48 +22,20 @@
             <ContentControl Background="#FFD2BD9C"
                             Content="BubbleSeries"
                             Foreground="#FFDEA542"/>
-            <Chart Grid.Row="1" Margin="20">
+            <Chart Grid.Row="1">
                 <Chart.Axes>
                     <CategoryAxis Title="Period" Orientation="X"/>
-                    <LinearAxis Title="Sales" 
-                               Orientation="Y"
-                               Minimum="0"
-                               Maximum="220"
-                               Interval="50"
-                               ShowGridLines="True"/>
+                    <CategoryAxis Title="Sales" Orientation="Y"/>
                 </Chart.Axes>
                 <Chart.Series>
                     <BubbleSeries x:Name="ChairsSeries"
                                   Title="Chairs"
                                   DependentValuePath="Sales"
-                                  IndependentValuePath="Month"
-                                  SizeValuePath="Sales">
-                        <BubbleSeries.DataPointStyle>
-                            <Style TargetType="BubbleDataPoint">
-                                <Setter Property="Background" Value="#FF00C853"/>
-                                <Setter Property="BorderBrush" Value="#FF00A043"/>
-                                <Setter Property="BorderThickness" Value="2"/>
-                                <Setter Property="MaxWidth" Value="40"/>
-                                <Setter Property="MaxHeight" Value="40"/>
-                            </Style>
-                        </BubbleSeries.DataPointStyle>
-                    </BubbleSeries>
+                                  IndependentValuePath="Month"/>
                     <BubbleSeries x:Name="TablesSeries"
                                   Title="Tables"
                                   DependentValuePath="Sales"
-                                  IndependentValuePath="Month"
-                                  SizeValuePath="Sales"
-                                  AnimationSequence="FirstToLast">
-                        <BubbleSeries.DataPointStyle>
-                            <Style TargetType="BubbleDataPoint">
-                                <Setter Property="Background" Value="#FF7C4DFF"/>
-                                <Setter Property="BorderBrush" Value="#FF5E35B1"/>
-                                <Setter Property="BorderThickness" Value="2"/>
-                                <Setter Property="MaxWidth" Value="40"/>
-                                <Setter Property="MaxHeight" Value="40"/>
-                            </Style>
-                        </BubbleSeries.DataPointStyle>
-                    </BubbleSeries>
+                                  IndependentValuePath="Month"/>
                 </Chart.Series>
             </Chart>
         </Grid>

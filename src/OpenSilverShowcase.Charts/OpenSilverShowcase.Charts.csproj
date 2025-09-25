@@ -15,6 +15,8 @@
 	  <Compile Include="Examples\PieSeriesItem.xaml.cs" />
 	  <Compile Include="Examples\ProductSalesData.cs" />
 	  <Compile Include="Examples\SalesData.cs" />
+	  <Compile Include="Examples\ScatterSeriesItem.xaml.cs" />
+	  <Compile Include="Examples\Stacked100AreaItem.xaml.cs" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Jamesnet.Platform.OpenSilver" Version="9.1.12" />
@@ -40,6 +42,12 @@
 		  <Generator>MSBuild:Compile</Generator>
 		</Page>
 		<Page Include="Examples\PieSeriesItem.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Include="Examples\ScatterSeriesItem.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</Page>
+		<Page Include="Examples\Stacked100AreaItem.xaml">
 		  <Generator>MSBuild:Compile</Generator>
 		</Page>
 		<Page Include="Themes\Generic.xaml">

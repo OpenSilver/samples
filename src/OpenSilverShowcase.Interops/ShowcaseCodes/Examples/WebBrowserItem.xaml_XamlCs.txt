@@ -1,0 +1,20 @@
+using Jamesnet.Platform.OpenSilver.Scripts;
+using OpenSilverShowcase.Support.UI.Units;
+using System.Windows;
+using System;
+
+namespace OpenSilverShowcase.Interops.Examples
+{
+    public partial class WebBrowserItem : ShowcaseItem
+    {
+        public WebBrowserItem()
+        {
+            this.InitializeComponent();
+            TextBoxWithURL.IsEnabled = DeviceInfo.Current.Platform == DevicePlatform.Unknown;
+        }
+        private void ButtonNavigate_Click(object sender, RoutedEventArgs e)
+        {
+            WebView1.Navigate(new Uri(TextBoxWithURL.Text));
+        }
+    }
+}

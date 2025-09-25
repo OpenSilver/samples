@@ -1,0 +1,38 @@
+<units:ShowcaseItem
+    x:Class="OpenSilverShowcase.Dotnet.Examples.WriteableBitmapItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units;assembly=OpenSilverShowcase.Support"
+    Description="fundamentals of button styling with colors, fonts, and images."
+    Title="WriteableBitmap"
+    Order="1">
+    <units:ShowcaseItem.CodeSources>
+        <units:CodeSource Key="xaml" Source="/Examples/WriteableBitmapItem.xaml"/>
+        <units:CodeSource Key="xaml.cs" Source="/Examples/WriteableBitmapItem.xaml.cs"/>
+    </units:ShowcaseItem.CodeSources>
+    <units:ShowcaseItem.DemoContent>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <ContentControl Content="WriteableBitmap" Foreground="#FF6FA9FF" Background="#FF95ABCB"/>
+            <Grid Grid.Row="1" x:Name="LayoutRoot" HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="200"/>
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" x:Name="ivSource" Source="/Other/SampleProfilePhoto.png" Width="200" Height="200" Visibility="Visible" Stretch="Fill"/>
+                <StackPanel Grid.Row="1" HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Button Margin="10,10" Content="Mirror" Click="MirrorButton_Click"/>
+                    <Button Margin="0,10" Content="Clear" Click="ClearButton_Click" />
+                </StackPanel>
+                <Border Grid.Row="2" BorderThickness="1" BorderBrush="Gray" Height="200">
+                    <Image x:Name="ivDestination" Width="200" Height="200" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Fill"/>
+                </Border>
+            </Grid>
+        </Grid>
+    </units:ShowcaseItem.DemoContent>
+</units:ShowcaseItem>

@@ -11,6 +11,7 @@
     <units:ShowcaseItem.CodeSources>
         <units:CodeSource Key="xaml" Source="/Examples/PieSeriesItem.xaml"/>
         <units:CodeSource Key="xaml.cs" Source="/Examples/PieSeriesItem.xaml.cs"/>
+        <units:CodeSource Key="Data" Source="/Examples/ProductSalesData.cs"/>
     </units:ShowcaseItem.CodeSources>
     <units:ShowcaseItem.DemoContent>
         <Grid>

@@ -22,30 +22,20 @@
             <ContentControl Background="#FFD2BD9C"
                             Content="BarSeries"
                             Foreground="#FFDEA542"/>
-            <Chart Grid.Row="1" Margin="20" x:Name="MainChart">
+            <Chart Grid.Row="1">
                 <Chart.Axes>
-                    <CategoryAxis Title="Sales" 
-                                 Orientation="Y"
-                                 Location="Left"/>
-                    <LinearAxis Title="Period" 
-                               Orientation="X"
-                               Location="Bottom"
-                               Minimum="0"
-                               Maximum="220"
-                               Interval="50"
-                               ShowGridLines="True"/>
+                    <CategoryAxis Title="Period" Orientation="X"/>
+                    <CategoryAxis Title="Sales" Orientation="Y"/>
                 </Chart.Axes>
                 <Chart.Series>
                     <BarSeries x:Name="ChairsSeries"
                                Title="Chairs"
                                DependentValuePath="Sales"
-                               IndependentValuePath="Month"
-                               AnimationSequence="FirstToLast"/>
+                               IndependentValuePath="Month"/>
                     <BarSeries x:Name="TablesSeries"
                                Title="Tables"
                                DependentValuePath="Sales"
-                               IndependentValuePath="Month"
-                               AnimationSequence="FirstToLast"/>
+                               IndependentValuePath="Month"/>
                 </Chart.Series>
             </Chart>
         </Grid>
