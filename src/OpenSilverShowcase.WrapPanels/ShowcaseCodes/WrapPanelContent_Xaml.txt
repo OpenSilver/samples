@@ -4,5 +4,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units;assembly=OpenSilverShowcase.Support"
     Title="WrapPanel Controls"
+    Category="Layout"
     Description="Explore various examples and usage methods for OpenSilver's WrapPanel controls. We provide examples from basic styles to custom controls that you can set up.">
 </units:ShowcaseContent>

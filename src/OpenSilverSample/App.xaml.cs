@@ -8,7 +8,8 @@ namespace OpenSilverSample
         public App()
         {
             this.InitializeComponent();
-            // Enter construction logic here...
+
+            var code = ShowcaseExtractor.ExtractAllControlItemsAsCode();
 
             var mainPage = new MainPage();
             Window.Current.Content = mainPage;

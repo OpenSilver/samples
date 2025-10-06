@@ -1,5 +1,5 @@
 // Generated RegisterSingleton code 
-// Generated on 09/23/2025 Tue at  2:58:02.94 
+// Generated on Mon 10/06/2025 at 14:29:55.96 
  
 container.RegisterSingleton<IView, AdaptiveColumnsPanelsContent>(nameof(AdaptiveColumnsPanelsContent)); 
 container.RegisterSingleton<IView, AnimatedNavigationBarsContent>(nameof(AnimatedNavigationBarsContent)); 

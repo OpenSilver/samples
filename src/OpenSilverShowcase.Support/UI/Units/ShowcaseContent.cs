@@ -20,6 +20,7 @@ namespace OpenSilverShowcase.Support.UI.Units
         private string _currentShowcaseName;
         private bool _isFirst = true;
 
+
         public ShowcaseContent()
         {
             DefaultStyleKey = typeof(ShowcaseContent);
