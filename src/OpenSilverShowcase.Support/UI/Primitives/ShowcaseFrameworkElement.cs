@@ -19,5 +19,19 @@ namespace OpenSilverShowcase.Support.UI.Primitives
             get => (string)GetValue(DescriptionProperty);
             set => SetValue(DescriptionProperty, value);
         }
+
+
+
+        public string Category
+        {
+            get { return (string)GetValue(CategoryProperty); }
+            set { SetValue(CategoryProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Category.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty CategoryProperty =
+            DependencyProperty.Register("Category", typeof(string), typeof(ShowcaseFrameworkElement), new PropertyMetadata("Control"));
+
+
     }
 }

@@ -22,6 +22,7 @@ namespace OpenSilverShowcase.Support.UI.Units
         private bool _isFirst = true;
 
 
+<<<<<<< HEAD
 
 
         public ShowcaseListBox ShowcaseList
@@ -35,6 +36,8 @@ namespace OpenSilverShowcase.Support.UI.Units
 
 
 
+=======
+>>>>>>> 7e49d2fb675296363a19f5e008e12362afe70909
         public ShowcaseContent()
         {
             DefaultStyleKey = typeof(ShowcaseContent);
