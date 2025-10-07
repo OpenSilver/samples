@@ -1,5 +1,5 @@
 // Generated RegisterSingleton code 
-// Generated on 09/23/2025 Tue at  2:58:02.94 
+// Generated on 10/06/2025 Mon at 19:05:57.11 
  
 container.RegisterSingleton<IView, AdaptiveColumnsPanelsContent>(nameof(AdaptiveColumnsPanelsContent)); 
 container.RegisterSingleton<IView, AnimatedNavigationBarsContent>(nameof(AnimatedNavigationBarsContent)); 
@@ -10,17 +10,22 @@ container.RegisterSingleton<IView, BordersContent>(nameof(BordersContent));
 container.RegisterSingleton<IView, ButtonsContent>(nameof(ButtonsContent)); 
 container.RegisterSingleton<IView, CalendarsContent>(nameof(CalendarsContent)); 
 container.RegisterSingleton<IView, CanvasContent>(nameof(CanvasContent)); 
+container.RegisterSingleton<IView, ChartsContent>(nameof(ChartsContent)); 
 container.RegisterSingleton<IView, CheckBoxsContent>(nameof(CheckBoxsContent)); 
 container.RegisterSingleton<IView, ComboBoxsContent>(nameof(ComboBoxsContent)); 
 container.RegisterSingleton<IView, CustomPanelsContent>(nameof(CustomPanelsContent)); 
 container.RegisterSingleton<IView, DataContextTemplateContent>(nameof(DataContextTemplateContent)); 
 container.RegisterSingleton<IView, DatasContent>(nameof(DatasContent)); 
 container.RegisterSingleton<IView, DockPanelContent>(nameof(DockPanelContent)); 
+container.RegisterSingleton<IView, DotnetContent>(nameof(DotnetContent)); 
 container.RegisterSingleton<IView, DragandDropContent>(nameof(DragandDropContent)); 
 container.RegisterSingleton<IView, GradientsContent>(nameof(GradientsContent)); 
 container.RegisterSingleton<IView, GridsContent>(nameof(GridsContent)); 
 container.RegisterSingleton<IView, GridSplittersContent>(nameof(GridSplittersContent)); 
+container.RegisterSingleton<IView, HtmlPresentersContent>(nameof(HtmlPresentersContent)); 
+container.RegisterSingleton<IView, InteropsContent>(nameof(InteropsContent)); 
 container.RegisterSingleton<IView, ItemsControlsContent>(nameof(ItemsControlsContent)); 
+container.RegisterSingleton<IView, JSLibsContent>(nameof(JSLibsContent)); 
 container.RegisterSingleton<IView, LayoutTransformerContent>(nameof(LayoutTransformerContent)); 
 container.RegisterSingleton<IView, ListBoxsContent>(nameof(ListBoxsContent)); 
 container.RegisterSingleton<IView, MvvmTemplateContent>(nameof(MvvmTemplateContent)); 
@@ -41,8 +46,10 @@ container.RegisterSingleton<IView, StaggeredPanelsContent>(nameof(StaggeredPanel
 container.RegisterSingleton<IView, StylesContent>(nameof(StylesContent)); 
 container.RegisterSingleton<IView, TableControlsContent>(nameof(TableControlsContent)); 
 container.RegisterSingleton<IView, TextBoxsContent>(nameof(TextBoxsContent)); 
+container.RegisterSingleton<IView, ToastUIEditorContent>(nameof(ToastUIEditorContent)); 
 container.RegisterSingleton<IView, ToggleButtonsContent>(nameof(ToggleButtonsContent)); 
 container.RegisterSingleton<IView, TransContentContent>(nameof(TransContentContent)); 
+container.RegisterSingleton<IView, TreeMapsContent>(nameof(TreeMapsContent)); 
 container.RegisterSingleton<IView, UniformGridsContent>(nameof(UniformGridsContent)); 
 container.RegisterSingleton<IView, ViewboxContent>(nameof(ViewboxContent)); 
 container.RegisterSingleton<IView, WrapPanelsContent>(nameof(WrapPanelsContent)); 

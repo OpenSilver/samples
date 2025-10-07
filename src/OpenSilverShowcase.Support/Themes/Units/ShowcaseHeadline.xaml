@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:rspns="clr-namespace:Jamesnet.Platform.OpenSilver.Responsive;assembly=Jamesnet.Platform.OpenSilver"
     xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units">
 
     <Style TargetType="units:ShowcaseHeadline">
@@ -11,29 +12,49 @@
             <Setter.Value>
                 <ControlTemplate TargetType="units:ShowcaseHeadline">
                     <Grid>
-                        <!-- Main Border -->
-                        <Border Background="#F12A68A1" Margin="0" CornerRadius="10,10,10,10">
-                            <StackPanel Margin="20">
-                                <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
-                                    <Image Source="/OpenSilverShowcase.Support;component/Local/Images/opensilver.png"
-                                           Width="30" Height="30" Stretch="Uniform" VerticalAlignment="Center"/>
-                                    <TextBlock Text="{TemplateBinding Title}" FontSize="28" FontWeight="Medium"
-                                               Foreground="White" Margin="10,0" VerticalAlignment="Center"/>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid rspns:ResponsiveVisibility.Desktop="Visible"
+                              rspns:ResponsiveVisibility.Mobile="Collapsed"
+                              rspns:ResponsiveVisibility.Breakpoint="800">
+                            <Border Background="#F12A68A1" 
+                                    Margin="0" 
+                                    BorderThickness="1"
+                                    BorderBrush="#FF103F85"
+                                    CornerRadius="8">
+                                <StackPanel Margin="20 10">
+                                    <StackPanel Orientation="Horizontal" 
+                                                Margin="0 0 0 0">
+                                        <Image Source="/OpenSilverShowcase.Support;component/Local/Images/opensilver.png"
+                                               Width="30" 
+                                               Height="30" 
+                                               Stretch="Uniform" 
+                                               VerticalAlignment="Center"/>
+                                        <TextBlock Text="{TemplateBinding Title}" 
+                                                   FontSize="22" 
+                                                   FontWeight="Medium"
+                                                   Foreground="White" 
+                                                   Margin="10 0 10 0" 
+                                                   VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <TextBlock Text="{TemplateBinding Description}"
+                                               MaxHeight="36"
+                                               TextTrimming="CharacterEllipsis"
+                                               FontSize="12" 
+                                               Foreground="#FFD6E1EC" 
+                                               TextWrapping="Wrap"
+                                               Margin="40 0 0 5"/>
                                 </StackPanel>
-                                <TextBlock Text="{TemplateBinding Description}"
-                                           MaxHeight="36" TextTrimming="CharacterEllipsis"
-                                           FontSize="14" Foreground="#FFD6E1EC" TextWrapping="Wrap"
-                                           Margin="40 0 0 10"/>
-                            </StackPanel>
-                        </Border>
+                            </Border>
+                        </Grid>
+                        
+                        
 
-                        <!-- Left Corner Filler -->
-                        <Path HorizontalAlignment="Left" VerticalAlignment="Top" Fill="#FFFFFF"
-                              Data="M0,10 A10,10 0 0 1 10,0 L0,0 Z"/>
-
-                        <!-- Right Corner Filler -->
-                        <Path HorizontalAlignment="Right" VerticalAlignment="Top" Fill="#FFFFFF"
-                              Data="M0,0 A10,10 0 0 1 10,10 L10,0 Z"/>
+                        <ContentControl Grid.Row="1"
+                                        Content="{Binding ShowcaseList}"
+                                        Margin="0 4 0 0"/>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

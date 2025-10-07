@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using OpenSilverShowcase.Support.Local.Models;
 using OpenSilverShowcase.Support.UI.Primitives;
+using System.Windows;
 
 namespace OpenSilverShowcase.Support.UI.Units
 {
@@ -15,10 +16,24 @@ namespace OpenSilverShowcase.Support.UI.Units
         public event Action<string> ShowcaseChanged;
 
         private EmbeddedResourceLoader _resourceLoader;
-        private ShowcaseListBox _showcaseListBox;
+        
         private Dictionary<Type, object> _instanceCache = new Dictionary<Type, object>();
         private string _currentShowcaseName;
         private bool _isFirst = true;
+
+
+
+
+        public ShowcaseListBox ShowcaseList
+        {
+            get { return (ShowcaseListBox)GetValue(ShowcaseListProperty); }
+            set { SetValue(ShowcaseListProperty, value); }
+        }
+
+        public static readonly DependencyProperty ShowcaseListProperty =
+            DependencyProperty.Register("ShowcaseList", typeof(ShowcaseListBox), typeof(ShowcaseContent), new PropertyMetadata(null));
+
+
 
         public ShowcaseContent()
         {
@@ -51,22 +66,22 @@ namespace OpenSilverShowcase.Support.UI.Units
         public override async void OnApplyTemplate()
         {
             base.OnApplyTemplate();
-            _showcaseListBox = GetTemplateChild("PART_ShowcaseItems") as ShowcaseListBox;
+            ShowcaseList = new ShowcaseListBox();
 
-            if (_showcaseListBox != null)
+            if (ShowcaseList != null)
             {
                 var source = GetShowcaseItemInfos();
-                _showcaseListBox.ItemsSource = source.OrderBy(x => x.Name);
-                _showcaseListBox.ItemClicked += ShowcaseItemClicked;
+                ShowcaseList.ItemsSource = source.OrderBy(x => x.Name);
+                ShowcaseList.ItemClicked += ShowcaseItemClicked;
 
                 await Task.Delay(100);
                 if (!string.IsNullOrWhiteSpace(FirstSelectedItemName))
                 {
-                    await _showcaseListBox.SelectItemByName(FirstSelectedItemName, true);
+                    await ShowcaseList.SelectItemByName(FirstSelectedItemName, true);
                 }
                 else if (AutoSelectFirstItem)
                 {
-                    await _showcaseListBox.SelectItemByDataContext(source.FirstOrDefault(), true);
+                    await ShowcaseList.SelectItemByDataContext(source.FirstOrDefault(), true);
                 }
             }
         }
@@ -74,7 +89,7 @@ namespace OpenSilverShowcase.Support.UI.Units
         public void SelectItemByName(string name)
         {
             FirstSelectedItemName = name;
-            _showcaseListBox?.SelectItemByName(name, true);
+            ShowcaseList?.SelectItemByName(name, true);
         }
 
         private void ShowcaseItemClicked(object sender, ItemClickedEventArgs e)

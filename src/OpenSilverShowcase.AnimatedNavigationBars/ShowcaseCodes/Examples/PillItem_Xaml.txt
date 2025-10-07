@@ -5,7 +5,7 @@
     xmlns:controlskit="clr-namespace:OpenSilverShowcase.Support.UI.Units;assembly=OpenSilverShowcase.Support"
     xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units;assembly=OpenSilverShowcase.Support"
     Description="Pill-style AnimatedNavigationBar with rounded corners and drop shadow effects."
-    Title="Pill Style"
+    Title="Pill"
     Order="2">
 
     <units:ShowcaseItem.CodeSources>

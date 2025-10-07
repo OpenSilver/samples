@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units;assembly=OpenSilverShowcase.Support"
     Description="Using ItemsSource with simple string collections from code-behind."
-    Title="Items Source"
+    Title="ItemsSource"
     Order="2">
     <units:ShowcaseItem.CodeSources>
         <units:CodeSource Key="xaml" Source="/OpenSilverShowcase.ComboBoxs;component/Examples/ItemsSourceItem.xaml"/>

@@ -4,7 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units;assembly=OpenSilverShowcase.Support"
     Description="Using DisplayMemberPath with custom objects to show specific properties."
-    Title="Display Member"
+    Title="DisplayMember"
     Order="3">
     <units:ShowcaseItem.CodeSources>
         <units:CodeSource Key="xaml" Source="/OpenSilverShowcase.ComboBoxs;component/Examples/DisplayMemberPathItem.xaml"/>

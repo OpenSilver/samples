@@ -95,6 +95,7 @@
                         </Border>
 
                         <Border Grid.Row="3" 
+                                MinHeight="400"
                                 Background="#1e1e1e" ClipToBounds="True"
                                 rspns:ResponsiveVisibility.Desktop="Visible"
                                 rspns:ResponsiveVisibility.Mobile="Collapsed"

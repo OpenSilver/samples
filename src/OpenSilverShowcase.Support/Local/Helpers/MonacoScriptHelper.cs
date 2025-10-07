@@ -26,7 +26,7 @@ namespace OpenSilverShowcase.Support.Local.Helpers
                     const initialTheme = {System.Text.Json.JsonSerializer.Serialize(theme ?? "vs-dark")};
                     const isReadOnly = {(isReadOnly ? "true" : "false")};
                     const editorId = {System.Text.Json.JsonSerializer.Serialize(editorId)};
-                    const baseUrl = {System.Text.Json.JsonSerializer.Serialize(_assetBase)};
+                    const baseUrl = {System.Text.Json.JsonSerializer.Serialize(_useCdn ? _assetBase : "/assets/monaco/min")};
                     const vsPath = baseUrl + '/vs';
 
                     // 초기 스타일
@@ -60,13 +60,23 @@ namespace OpenSilverShowcase.Support.Local.Helpers
 
                                     // 워커 경로 명시 (로컬/CDN 모두에서 안전하게 동작하도록 Blob 워커 사용)
                                     window.MonacoEnvironment = {{
-                                        getWorkerUrl: function(moduleId, label){{
-                                            const code = `
-                                                self.MonacoEnvironment = {{ baseUrl: '{vsPath}/' }};
-                                                importScripts('{vsPath}/base/worker/workerMain.js');
-                                            `;
-                                            return URL.createObjectURL(new Blob([code], {{ type: 'text/javascript' }}));
-                                        }}
+                                      getWorkerUrl: function (moduleId, label) {{
+                                        const vs = vsPath;  // ← 작은따옴표 제거!
+                                        const workerModule =
+                                          label === 'json'        ? 'vs/language/json/json.worker' :
+                                          label === 'css'         ? 'vs/language/css/css.worker'   :
+                                          label === 'html'        ? 'vs/language/html/html.worker' :
+                                          (label === 'typescript' || label === 'javascript')
+                                                                   ? 'vs/language/typescript/ts.worker'
+                                                                   : 'vs/editor/editor.worker';
+                                        const code = `
+                                          self.MonacoEnvironment = {{ baseUrl: '${{vs}}/' }};
+                                          importScripts('${{vs}}/loader.js');
+                                          require.config({{ paths: {{ vs: '${{vs}}' }} }});
+                                          require(['${{workerModule}}'], function(){{}});
+                                        `;
+                                        return URL.createObjectURL(new Blob([code], {{ type: 'text/javascript' }}));
+                                      }}
                                     }};
 
                                     window.require(['vs/editor/editor.main'], function(){{
