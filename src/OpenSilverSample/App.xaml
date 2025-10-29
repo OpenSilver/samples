@@ -5,7 +5,16 @@
     xmlns:local="clr-namespace:OpenSilverSample">
     <Application.Resources>
         <ResourceDictionary>
-
+            <SolidColorBrush x:Key="ShowcaseBackgroundBrush" Color="#FFFFFFFF"/>
+            <SolidColorBrush x:Key="ShowcaseDemoBackgroundBrush" Color="#FFF9FAFB"/>
+            <SolidColorBrush x:Key="ShowcaseDemoBorderBrush" Color="#FFE5E7EB"/>
+            <SolidColorBrush x:Key="ShowcaseTitleForegroundBrush" Color="#FF1A1A1A"/>
+            <SolidColorBrush x:Key="ShowcaseDescriptionForegroundBrush" Color="#FF4A4A4A"/>
+            <SolidColorBrush x:Key="ShowcaseCodeToolbarBorderBrush" Color="#FFDFDFDF"/>
+            <SolidColorBrush x:Key="ShowcaseCodePanelBorderBrush" Color="#FFDFDFDF"/>
+            <SolidColorBrush x:Key="ShowcaseMobileCodeBackgroundBrush" Color="#FFF1F1F1"/>
+            <SolidColorBrush x:Key="ShowcaseDesktopCodeBackgroundBrush" Color="#FF1E1E1E"/>
+            <SolidColorBrush x:Key="ShowcaseCodeFooterBackgroundBrush" Color="#FF1E1E1E"/>
         </ResourceDictionary>
     </Application.Resources>
     <Application.Theme>

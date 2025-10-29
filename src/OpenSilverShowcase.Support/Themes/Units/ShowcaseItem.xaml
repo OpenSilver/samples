@@ -5,9 +5,16 @@
     xmlns:units="clr-namespace:OpenSilverShowcase.Support.UI.Units">
 
     <Style TargetType="units:ShowcaseItem">
-        <Setter Property="Background" Value="#FFFFFF"/>
-        <Setter Property="DemoBackground" Value="#F9FAFB"/>
-        <Setter Property="DemoBorderBrush" Value="#E5E7EB"/>
+        <Setter Property="Background" Value="{DynamicResource ShowcaseBackgroundBrush}"/>
+        <Setter Property="DemoBackground" Value="{DynamicResource ShowcaseDemoBackgroundBrush}"/>
+        <Setter Property="DemoBorderBrush" Value="{DynamicResource ShowcaseDemoBorderBrush}"/>
+        <Setter Property="TitleForeground" Value="{DynamicResource ShowcaseTitleForegroundBrush}"/>
+        <Setter Property="DescriptionForeground" Value="{DynamicResource ShowcaseDescriptionForegroundBrush}"/>
+        <Setter Property="CodeToolbarBorderBrush" Value="{DynamicResource ShowcaseCodeToolbarBorderBrush}"/>
+        <Setter Property="CodePanelBorderBrush" Value="{DynamicResource ShowcaseCodePanelBorderBrush}"/>
+        <Setter Property="MobileCodeBackground" Value="{DynamicResource ShowcaseMobileCodeBackgroundBrush}"/>
+        <Setter Property="DesktopCodeBackground" Value="{DynamicResource ShowcaseDesktopCodeBackgroundBrush}"/>
+        <Setter Property="CodeFooterBackground" Value="{DynamicResource ShowcaseCodeFooterBackgroundBrush}"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -20,28 +27,28 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-                        <StackPanel>
 
+                        <StackPanel>
                             <TextBlock x:Name="PART_TitleBlock"
                                        Text="{TemplateBinding Title}"
                                        FontSize="30"
                                        FontWeight="SemiBold"
-                                       Foreground="#1A1A1A"
+                                       Foreground="{TemplateBinding TitleForeground}"
                                        Margin="0,0,0,2"/>
 
                             <TextBlock x:Name="PART_DescriptionBlock"
                                        Text="{TemplateBinding Description}"
                                        FontSize="14"
-                                       Foreground="#4A4A4A"
+                                       Foreground="{TemplateBinding DescriptionForeground}"
                                        TextWrapping="Wrap"
                                        Margin="0,0,0,20"/>
                         </StackPanel>
 
                         <Border Grid.Row="1"
-                                CornerRadius="12"
-                                BorderBrush="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=DemoBorderBrush}"
-                                Background="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=DemoBackground}"
-                                BorderThickness="1"
+                                CornerRadius="8"
+                                BorderBrush="{TemplateBinding DemoBorderBrush}"
+                                Background="{TemplateBinding DemoBackground}"
+                                BorderThickness="2"
                                 Padding="32"
                                 Margin="0,0,0,12">
                             <ContentControl x:Name="PART_DemoHost"
@@ -50,7 +57,10 @@
                                             Content="{TemplateBinding DemoContent}"/>
                         </Border>
 
-                        <Border Grid.Row="2" BorderBrush="#DFDFDF" BorderThickness="1 1 1 0" CornerRadius="8 8 0 0">
+                        <Border Grid.Row="2"
+                                BorderBrush="{TemplateBinding CodeToolbarBorderBrush}"
+                                BorderThickness="2 2 2 0"
+                                CornerRadius="8 8 0 0">
                             <Grid Grid.Row="0" Margin="8">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
@@ -58,33 +68,36 @@
                                 </Grid.ColumnDefinitions>
 
                                 <units:CodeTypeListBox
-                                               x:Name="PART_CodeItems"
-                                               Grid.Column="0"
-                                               Height="32"
-                                               Margin="0,0,8,0">
+                                    x:Name="PART_CodeItems"
+                                    Grid.Column="0"
+                                    Height="32"
+                                    Margin="0,0,8,0">
                                     <units:CodeTypeListBox.ItemTemplate>
                                         <DataTemplate>
-                                            <TextBlock Text="{Binding Key}" FontSize="12" />
+                                            <TextBlock Text="{Binding Key}" FontSize="12"/>
                                         </DataTemplate>
                                     </units:CodeTypeListBox.ItemTemplate>
                                 </units:CodeTypeListBox>
 
                                 <StackPanel Orientation="Horizontal" Grid.Column="1" VerticalAlignment="Center">
-                                    <units:CopyIconButton  Margin="0,0,4,0" ToolTip="Copy Code" x:Name="PART_CopyButton" />
-                                    <units:IconButton IconData="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.166 6.84 9.49.5.09.66-.217.66-.483 0-.237-.01-1.02-.015-1.85-2.782.603-3.37-1.34-3.37-1.34-.454-1.15-1.11-1.457-1.11-1.457-.91-.62.07-.607.07-.607 1.004.07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.833.09-.65.35-1.09.63-1.34-2.22-.26-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.67-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.03A9.563 9.563 0 0112 6.8a9.56 9.56 0 012.5.34c1.91-1.3 2.75-1.03 2.75-1.03.55 1.41.2 2.45.1 2.71.64.69 1.03 1.58 1.03 2.67 0 3.84-2.34 4.68-4.57 4.93.36.31.68.91.68 1.84 0 1.33-.01 2.4-.01 2.73 0 .27.18.58.69.48A10.001 10.001 0 0022 12c0-5.52-4.48-10-10-10z"                                                   
-                                                      Margin="0,0,4,0"
-                                                      ToolTip="GitHub"
-                                                      x:Name="PART_GitHubButton"/>
+                                    <units:CopyIconButton Margin="0,0,4,0" ToolTip="Copy Code" x:Name="PART_CopyButton"/>
+                                    <units:IconButton IconData="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.166 6.84 9.49.5.09.66-.217.66-.483 0-.237-.01-1.02-.015-1.85-2.782.603-3.37-1.34-3.37-1.34-.454-1.15-1.11-1.457-1.11-1.457-.91-.62.07-.607.07-.607 1.004.07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.833.09-.65.35-1.09.63-1.34-2.22-.26-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.67-.1-.26-.45-1.3.1-2.71 0 0 .84-.27 2.75 1.03A9.563 9.563 0 0112 6.8a9.56 9.56 0 012.5.34c1.91-1.3 2.75-1.03 2.75-1.03.55 1.41.2 2.45.1 2.71.64.69 1.03 1.58 1.03 2.67 0 3.84-2.34 4.68-4.57 4.93.36.31.68.91.68 1.84 0 1.33-.01 2.4-.01 2.73 0 .27.18.58.69.48A10.001 10.001 0 0022 12c0-5.52-4.48-10-10-10z"
+                                                     Margin="0,0,4,0"
+                                                     ToolTip="GitHub"
+                                                     x:Name="PART_GitHubButton"/>
                                     <units:IconButton IconData="M21,12L14,5V9C7,10 4,15 3,20C5.5,16.5 9,14.9 14,14.9V19L21,12Z"
                                                       ToolTip="Share Link"
-                                                      x:Name="PART_ShareButton" />
+                                                      x:Name="PART_ShareButton"/>
                                 </StackPanel>
                             </Grid>
                         </Border>
 
-                        <Border Grid.Row="3" CornerRadius="0 0 8 8" 
-                                BorderBrush="#dfdfdf" BorderThickness="1 0 1 1"
-                                Background="#F1F1F1" ClipToBounds="True"
+                        <Border Grid.Row="3"
+                                CornerRadius="0 0 8 8"
+                                BorderBrush="{TemplateBinding CodePanelBorderBrush}"
+                                BorderThickness="2 0 2 2"
+                                Background="{TemplateBinding MobileCodeBackground}"
+                                ClipToBounds="True"
                                 rspns:ResponsiveVisibility.Desktop="Collapsed"
                                 rspns:ResponsiveVisibility.Mobile="Visible"
                                 rspns:ResponsiveVisibility.Breakpoint="800">
@@ -94,20 +107,27 @@
                             </StackPanel>
                         </Border>
 
-                        <Border Grid.Row="3" 
+                        <Border Grid.Row="3"
                                 MinHeight="400"
-                                Background="#1e1e1e" ClipToBounds="True"
+                                Background="{TemplateBinding DesktopCodeBackground}"
+                                BorderBrush="{TemplateBinding CodeToolbarBorderBrush}"
+                                BorderThickness="2 0 2 0"
+                                ClipToBounds="True"
                                 rspns:ResponsiveVisibility.Desktop="Visible"
                                 rspns:ResponsiveVisibility.Mobile="Collapsed"
                                 rspns:ResponsiveVisibility.Breakpoint="800">
                             <ContentControl x:Name="PART_CodeContent"/>
                         </Border>
+
                         <Border Grid.Row="4"
-                                Background="#1e1e1e" ClipToBounds="True"
+                                Background="{TemplateBinding CodeFooterBackground}"
+                                ClipToBounds="True"
                                 rspns:ResponsiveVisibility.Desktop="Visible"
                                 rspns:ResponsiveVisibility.Mobile="Collapsed"
                                 rspns:ResponsiveVisibility.Breakpoint="800"
-                                Height="8" 
+                                Height="12"
+                                BorderBrush="{TemplateBinding CodeToolbarBorderBrush}"
+                                BorderThickness="2 0 2 2"
                                 CornerRadius="0 0 8 8"/>
                     </Grid>
                 </ControlTemplate>
